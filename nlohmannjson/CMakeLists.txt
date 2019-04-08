@@ -1,8 +1,10 @@
 cmake_minimum_required(VERSION 3.13)
 
-include("extern/ZPM")
+if(NOT ZPM_LOADED)
+    include("extern/ZPM")
 
-zpm_defaults()
+    zpm_defaults()
+endif()
 
 project(GoogleTestExample LANGUAGES CXX)
 

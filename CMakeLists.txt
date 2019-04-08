@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.13)
 
-enable_testing()
+include("extern/ZPM")
+
+zpm_defaults()
 
 add_subdirectory("googletest" "googletest")
 add_subdirectory("simdpp" "simdpp")
