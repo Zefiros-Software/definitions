@@ -1,0 +1,10 @@
+development:
+  libraries:
+    - name: Zefiros-Software/taskflow
+      version: master
+      definition: ./
+      repository: https://github.com/cpp-taskflow/cpp-taskflow.git
+
+extract:
+  includes:
+    - "taskflow/**/*.hpp"

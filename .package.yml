@@ -1,0 +1,8 @@
+development:
+  libraries:
+    - path: googletest
+    - path: simdpp
+    - path: flathashmap
+    - path: nanorange
+    - path: taskflow
+    - path: nlohmannjson

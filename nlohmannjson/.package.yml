@@ -1,0 +1,10 @@
+development:
+  libraries:
+    - name: Zefiros-Software/nlohmannjson
+      version: master
+      definition: ./
+      repository: https://github.com/nlohmann/json.git
+
+extract:
+  includes:
+    - "include/**/*.hpp"

@@ -1,19 +1,12 @@
-zpm_project()
+cmake_minimum_required(VERSION 3.13)
 
-add_library("${PROJECT_NAME}+gtest" "googletest/src/gtest-all.cc")
+include("extern/ZPM")
 
-target_include_directories("${PROJECT_NAME}+gtest"
-                           PUBLIC "googletest/include/"
-                           PRIVATE "googletest/")
+zpm_defaults()
 
-add_library("${PROJECT_NAME}+gmock" "googlemock/src/gmock-all.cc")
+project(GoogleTestExample LANGUAGES CXX)
 
-target_include_directories("${PROJECT_NAME}+gmock"
-                           PUBLIC "googlemock/include/"
-                           PRIVATE "googlemock/")
+add_executable(test-gtest test/main.cpp)
+target_link_libraries(test-gtest PRIVATE Zefiros-Software::GoogleTest)
 
-target_link_libraries("${PROJECT_NAME}+gmock" PUBLIC "${PROJECT_NAME}+gtest")
-
-zpm_alias("${PROJECT_NAME}+gmock")
-zpm_alias("${PROJECT_NAME}+gtest")
-zpm_default_target("${PROJECT_NAME}+gmock")
+add_test(NAME test-gtest COMMAND test-gtest)

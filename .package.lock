@@ -1,0 +1,435 @@
+{
+  "named": {
+    "libraries": [
+      {
+        "id": "libraries:GIT:Zefiros-Software/GoogleTest@master",
+        "name": "Zefiros-Software/GoogleTest",
+        "version": "master",
+        "hash": "604ba376c3a407c6a40e39fbd0d5055c545f9898",
+        "description": {
+          "extract": {
+            "includes": [
+              "googletest/include/**/*.h",
+              "googletest/src/**.cc",
+              "googletest/src/**.h",
+              "googlemock/include/**/*.h",
+              "googlemock/src/**.cc",
+              "googlemock/src/**.h"
+            ]
+          }
+        },
+        "settings": {},
+        "usage": {
+          "required": {
+            "extractor": "extractor:PATH:ZPM:extractor/default",
+            "builder": "builder:PATH:ZPM:builder/default"
+          }
+        }
+      },
+      {
+        "id": "libraries:GIT:Zefiros-Software/flathashmap@master",
+        "name": "Zefiros-Software/flathashmap",
+        "version": "master",
+        "hash": "2c4687431f978f02a3780e24b8b701d22aa32d9c",
+        "description": {
+          "extract": {
+            "includes": [
+              "*.hpp"
+            ]
+          }
+        },
+        "settings": {},
+        "usage": {
+          "required": {
+            "extractor": "extractor:PATH:ZPM:extractor/default",
+            "builder": "builder:PATH:ZPM:builder/default"
+          }
+        }
+      },
+      {
+        "id": "libraries:GIT:Zefiros-Software/nanorange@master",
+        "name": "Zefiros-Software/nanorange",
+        "version": "master",
+        "hash": "2d0475634404bb998a549c4e0be75b8624c11b19",
+        "description": {
+          "extract": {
+            "includes": [
+              "single_include/*.hpp"
+            ]
+          }
+        },
+        "settings": {},
+        "usage": {
+          "required": {
+            "extractor": "extractor:PATH:ZPM:extractor/default",
+            "builder": "builder:PATH:ZPM:builder/default"
+          }
+        }
+      },
+      {
+        "id": "libraries:GIT:Zefiros-Software/nlohmannjson@master",
+        "name": "Zefiros-Software/nlohmannjson",
+        "version": "master",
+        "hash": "295732a81780378c62d1c095078b4634dac8ec28",
+        "description": {
+          "extract": {
+            "includes": [
+              "include/**/*.hpp"
+            ]
+          }
+        },
+        "settings": {},
+        "usage": {
+          "required": {
+            "extractor": "extractor:PATH:ZPM:extractor/default",
+            "builder": "builder:PATH:ZPM:builder/default"
+          }
+        }
+      },
+      {
+        "id": "libraries:GIT:Zefiros-Software/simdpp@master",
+        "name": "Zefiros-Software/simdpp",
+        "version": "master",
+        "hash": "dbdb146eb569033d46f7d06beba92d7c00ee3b89",
+        "description": {
+          "extract": {
+            "includes": [
+              "simdpp/**/*.h",
+              "simdpp/**/*.hpp",
+              "simdpp/**/*.inl"
+            ]
+          }
+        },
+        "settings": {},
+        "usage": {
+          "required": {
+            "extractor": "extractor:PATH:ZPM:extractor/default",
+            "builder": "builder:PATH:ZPM:builder/default"
+          }
+        }
+      },
+      {
+        "id": "libraries:GIT:Zefiros-Software/taskflow@master",
+        "name": "Zefiros-Software/taskflow",
+        "version": "master",
+        "hash": "764f93f57f5b18cf4edcafb12e9ce1b42b3fcea9",
+        "description": {
+          "extract": {
+            "includes": [
+              "taskflow/**/*.hpp"
+            ]
+          }
+        },
+        "settings": {},
+        "usage": {
+          "required": {
+            "extractor": "extractor:PATH:ZPM:extractor/default",
+            "builder": "builder:PATH:ZPM:builder/default"
+          }
+        }
+      }
+    ]
+  },
+  "path": {
+    "builder": [
+      {
+        "id": "builder:PATH:ZPM:./",
+        "name": "ZPM",
+        "path": "./",
+        "description": {},
+        "settings": {},
+        "usage": {}
+      },
+      {
+        "id": "builder:PATH:ZPM:builder/default",
+        "name": "ZPM",
+        "path": "builder/default",
+        "description": {},
+        "settings": {},
+        "usage": {}
+      }
+    ],
+    "extractor": [
+      {
+        "id": "extractor:PATH:ZPM:./",
+        "name": "ZPM",
+        "path": "./",
+        "description": {},
+        "settings": {},
+        "usage": {}
+      },
+      {
+        "id": "extractor:PATH:ZPM:extractor/default",
+        "name": "ZPM",
+        "path": "extractor/default",
+        "description": {
+          "extractor": {
+            "includes": [
+              "**/src/**/*.h",
+              "**/src/**/*.cpp",
+              "**/src/**/*.cc",
+              "**/src/**/*.cxx",
+              "**/src/**/*.c",
+              "**/src/**/*.s",
+              "**/src/**/*.m",
+              "**/src/**/*.mm",
+              "**/include/**/*.h",
+              "**/include/**/*.cpp",
+              "**/include/**/*.cc",
+              "**/include/**/*.cxx",
+              "**/include/**/*.c",
+              "**/include/**/*.s",
+              "**/include/**/*.m",
+              "**/include/**/*.mm"
+            ],
+            "excludes": [
+              "**/test/**"
+            ]
+          }
+        },
+        "settings": {},
+        "usage": {
+          "settings": {
+            "libraries:PATH:$ROOT:$ROOT:flathashmap": {
+              "includes": [
+                "*.hpp"
+              ]
+            },
+            "libraries:PATH:$ROOT:$ROOT:simdpp": {
+              "includes": [
+                "simdpp/**/*.h",
+                "simdpp/**/*.hpp",
+                "simdpp/**/*.inl"
+              ]
+            },
+            "libraries:PATH:$ROOT:$ROOT:taskflow": {
+              "includes": [
+                "taskflow/**/*.hpp"
+              ]
+            },
+            "libraries:PATH:$ROOT:$ROOT:googletest": {
+              "includes": [
+                "googletest/include/**/*.h",
+                "googletest/src/**.cc",
+                "googletest/src/**.h",
+                "googlemock/include/**/*.h",
+                "googlemock/src/**.cc",
+                "googlemock/src/**.h"
+              ]
+            },
+            "libraries:PATH:$ROOT:$ROOT:nlohmannjson": {
+              "includes": [
+                "include/**/*.hpp"
+              ]
+            },
+            "libraries:PATH:$ROOT:$ROOT:nanorange": {
+              "includes": [
+                "single_include/*.hpp"
+              ]
+            },
+            "libraries:GIT:Zefiros-Software/flathashmap@master": {
+              "includes": [
+                "*.hpp"
+              ]
+            },
+            "libraries:GIT:Zefiros-Software/simdpp@master": {
+              "includes": [
+                "simdpp/**/*.h",
+                "simdpp/**/*.hpp",
+                "simdpp/**/*.inl"
+              ]
+            },
+            "libraries:GIT:Zefiros-Software/taskflow@master": {
+              "includes": [
+                "taskflow/**/*.hpp"
+              ]
+            },
+            "libraries:GIT:Zefiros-Software/nlohmannjson@master": {
+              "includes": [
+                "include/**/*.hpp"
+              ]
+            },
+            "libraries:GIT:Zefiros-Software/GoogleTest@master": {
+              "includes": [
+                "googletest/include/**/*.h",
+                "googletest/src/**.cc",
+                "googletest/src/**.h",
+                "googlemock/include/**/*.h",
+                "googlemock/src/**.cc",
+                "googlemock/src/**.h"
+              ]
+            },
+            "libraries:GIT:Zefiros-Software/nanorange@master": {
+              "includes": [
+                "single_include/*.hpp"
+              ]
+            }
+          }
+        }
+      }
+    ],
+    "libraries": [
+      {
+        "id": "libraries:PATH:$ROOT:$ROOT",
+        "name": "$ROOT",
+        "path": "./",
+        "description": {},
+        "settings": {},
+        "usage": {
+          "required": {
+            "builder": "builder:PATH:ZPM:builder/default",
+            "extractor": "extractor:PATH:ZPM:extractor/default",
+            "libraries": [
+              "libraries:PATH:$ROOT:$ROOT:flathashmap"
+            ]
+          }
+        }
+      },
+      {
+        "id": "libraries:PATH:$ROOT:$ROOT:flathashmap",
+        "name": "$ROOT",
+        "path": "flathashmap",
+        "description": {
+          "extract": {
+            "includes": [
+              "*.hpp"
+            ]
+          }
+        },
+        "root": "libraries:PATH:$ROOT:$ROOT",
+        "settings": {},
+        "usage": {
+          "required": {
+            "extractor": "extractor:PATH:ZPM:extractor/default",
+            "builder": "builder:PATH:ZPM:builder/default",
+            "libraries": [
+              "libraries:GIT:Zefiros-Software/flathashmap@master"
+            ]
+          }
+        }
+      },
+      {
+        "id": "libraries:PATH:$ROOT:$ROOT:googletest",
+        "name": "$ROOT",
+        "path": "googletest",
+        "description": {
+          "extract": {
+            "includes": [
+              "googletest/include/**/*.h",
+              "googletest/src/**.cc",
+              "googletest/src/**.h",
+              "googlemock/include/**/*.h",
+              "googlemock/src/**.cc",
+              "googlemock/src/**.h"
+            ]
+          }
+        },
+        "root": "libraries:PATH:$ROOT:$ROOT",
+        "settings": {},
+        "usage": {
+          "required": {
+            "extractor": "extractor:PATH:ZPM:extractor/default",
+            "builder": "builder:PATH:ZPM:builder/default",
+            "libraries": [
+              "libraries:GIT:Zefiros-Software/GoogleTest@master"
+            ]
+          }
+        }
+      },
+      {
+        "id": "libraries:PATH:$ROOT:$ROOT:nanorange",
+        "name": "$ROOT",
+        "path": "nanorange",
+        "description": {
+          "extract": {
+            "includes": [
+              "single_include/*.hpp"
+            ]
+          }
+        },
+        "root": "libraries:PATH:$ROOT:$ROOT",
+        "settings": {},
+        "usage": {
+          "required": {
+            "extractor": "extractor:PATH:ZPM:extractor/default",
+            "builder": "builder:PATH:ZPM:builder/default",
+            "libraries": [
+              "libraries:GIT:Zefiros-Software/nanorange@master"
+            ]
+          }
+        }
+      },
+      {
+        "id": "libraries:PATH:$ROOT:$ROOT:nlohmannjson",
+        "name": "$ROOT",
+        "path": "nlohmannjson",
+        "description": {
+          "extract": {
+            "includes": [
+              "include/**/*.hpp"
+            ]
+          }
+        },
+        "root": "libraries:PATH:$ROOT:$ROOT",
+        "settings": {},
+        "usage": {
+          "required": {
+            "extractor": "extractor:PATH:ZPM:extractor/default",
+            "builder": "builder:PATH:ZPM:builder/default",
+            "libraries": [
+              "libraries:GIT:Zefiros-Software/nlohmannjson@master"
+            ]
+          }
+        }
+      },
+      {
+        "id": "libraries:PATH:$ROOT:$ROOT:simdpp",
+        "name": "$ROOT",
+        "path": "simdpp",
+        "description": {
+          "extract": {
+            "includes": [
+              "simdpp/**/*.h",
+              "simdpp/**/*.hpp",
+              "simdpp/**/*.inl"
+            ]
+          }
+        },
+        "root": "libraries:PATH:$ROOT:$ROOT",
+        "settings": {},
+        "usage": {
+          "required": {
+            "extractor": "extractor:PATH:ZPM:extractor/default",
+            "builder": "builder:PATH:ZPM:builder/default",
+            "libraries": [
+              "libraries:GIT:Zefiros-Software/simdpp@master"
+            ]
+          }
+        }
+      },
+      {
+        "id": "libraries:PATH:$ROOT:$ROOT:taskflow",
+        "name": "$ROOT",
+        "path": "taskflow",
+        "description": {
+          "extract": {
+            "includes": [
+              "taskflow/**/*.hpp"
+            ]
+          }
+        },
+        "root": "libraries:PATH:$ROOT:$ROOT",
+        "settings": {},
+        "usage": {
+          "required": {
+            "extractor": "extractor:PATH:ZPM:extractor/default",
+            "builder": "builder:PATH:ZPM:builder/default",
+            "libraries": [
+              "libraries:GIT:Zefiros-Software/taskflow@master"
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

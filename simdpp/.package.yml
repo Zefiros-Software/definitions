@@ -1,0 +1,12 @@
+development:
+  libraries:
+    - name: Zefiros-Software/simdpp
+      version: master
+      definition: ./
+      repository: https://github.com/p12tic/libsimdpp.git
+
+extract:
+  includes:
+    - "simdpp/**/*.h"
+    - "simdpp/**/*.hpp"
+    - "simdpp/**/*.inl"

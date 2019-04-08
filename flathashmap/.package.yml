@@ -1,0 +1,10 @@
+development:
+  libraries:
+    - name: Zefiros-Software/flathashmap
+      version: master
+      definition: ./
+      repository: https://github.com/skarupke/flat_hash_map.git
+
+extract:
+  includes:
+    - "*.hpp"

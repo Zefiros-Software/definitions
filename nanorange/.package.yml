@@ -1,0 +1,10 @@
+development:
+  libraries:
+    - name: Zefiros-Software/nanorange
+      version: master
+      definition: ./
+      repository: https://github.com/tcbrindle/NanoRange.git
+
+extract:
+  includes:
+    - "single_include/*.hpp"
