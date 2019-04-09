@@ -1,0 +1,11 @@
+development:
+  libraries:
+    - name: Zefiros-Software/fmt
+      version: '^5.0.0'
+      definition: ./
+      repository: https://github.com/fmtlib/fmt.git
+
+extract:
+  includes:
+    - "include/**"
+    - "src/**.cc"

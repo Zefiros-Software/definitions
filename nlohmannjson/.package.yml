@@ -8,3 +8,10 @@ development:
 extract:
   includes:
     - "include/**/*.hpp"
+
+build:
+  template: headeronly
+  includes:
+    - include
+  features:
+    - cxx_std_11

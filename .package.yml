@@ -6,3 +6,6 @@ development:
     - path: nanorange
     - path: taskflow
     - path: nlohmannjson
+    - path: glm
+    - path: fmt
+    - path: spdlog

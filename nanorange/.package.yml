@@ -8,3 +8,9 @@ development:
 extract:
   includes:
     - "single_include/*.hpp"
+build:
+  template: headeronly
+  includes:
+    - single_include
+  features:
+    - cxx_std_17

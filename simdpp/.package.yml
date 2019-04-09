@@ -10,3 +10,7 @@ extract:
     - "simdpp/**/*.h"
     - "simdpp/**/*.hpp"
     - "simdpp/**/*.inl"
+build:
+  template: headeronly
+  includes:
+    - ./

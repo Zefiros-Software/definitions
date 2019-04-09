@@ -29,6 +29,17 @@
       },
       {
         "description": {
+          "build": {
+            "includes": [
+              "./"
+            ],
+            "template": "headeronly"
+          },
+          "extract": {
+            "includes": [
+              "*.hpp"
+            ]
+          }
         },
         "hash": "2c4687431f978f02a3780e24b8b701d22aa32d9c",
         "id": "libraries:GIT:Zefiros-Software/flathashmap@master",
@@ -45,6 +56,76 @@
       },
       {
         "description": {
+          "extract": {
+            "includes": [
+              "include/**",
+              "src/**.cc"
+            ]
+          }
+        },
+        "hash": "9e554999ce02cf86fcdfe74fe740c4fe3f5a56d5",
+        "id": "libraries:GIT:Zefiros-Software/fmt@5.3.0",
+        "name": "Zefiros-Software/fmt",
+        "settings": {
+        },
+        "usage": {
+          "required": {
+            "builder": "builder:PATH:ZPM:builder/default",
+            "extractor": "extractor:PATH:ZPM:extractor/default"
+          }
+        },
+        "version": "5.3.0"
+      },
+      {
+        "description": {
+          "build": {
+            "defines": [
+              "GLM_FORCE_SWIZZLE",
+              "GLM_ENABLE_EXPERIMENTAL"
+            ],
+            "features": [
+              "cxx_std_11"
+            ],
+            "includes": [
+              "./"
+            ],
+            "template": "headeronly"
+          },
+          "extract": {
+            "includes": [
+              "glm/**"
+            ]
+          }
+        },
+        "hash": "13d2cea73fae6dbadb0d2ff8818a3fdf644d0901",
+        "id": "libraries:GIT:Zefiros-Software/glm@master",
+        "name": "Zefiros-Software/glm",
+        "settings": {
+        },
+        "usage": {
+          "required": {
+            "builder": "builder:PATH:ZPM:builder/default",
+            "extractor": "extractor:PATH:ZPM:extractor/default"
+          }
+        },
+        "version": "master"
+      },
+      {
+        "description": {
+          "build": {
+            "features": [
+              "cxx_std_17"
+            ],
+            "includes": [
+              "single_include"
+            ],
+            "template": "headeronly"
+          },
+          "extract": {
+            "includes": [
+              "single_include/*.hpp"
+            ]
+          }
         },
         "hash": "2d0475634404bb998a549c4e0be75b8624c11b19",
         "id": "libraries:GIT:Zefiros-Software/nanorange@master",
@@ -61,6 +142,20 @@
       },
       {
         "description": {
+          "build": {
+            "features": [
+              "cxx_std_11"
+            ],
+            "includes": [
+              "include"
+            ],
+            "template": "headeronly"
+          },
+          "extract": {
+            "includes": [
+              "include/**/*.hpp"
+            ]
+          }
         },
         "hash": "295732a81780378c62d1c095078b4634dac8ec28",
         "id": "libraries:GIT:Zefiros-Software/nlohmannjson@master",
@@ -77,6 +172,19 @@
       },
       {
         "description": {
+          "build": {
+            "includes": [
+              "./"
+            ],
+            "template": "headeronly"
+          },
+          "extract": {
+            "includes": [
+              "simdpp/**/*.h",
+              "simdpp/**/*.hpp",
+              "simdpp/**/*.inl"
+            ]
+          }
         },
         "hash": "dbdb146eb569033d46f7d06beba92d7c00ee3b89",
         "id": "libraries:GIT:Zefiros-Software/simdpp@master",
@@ -93,6 +201,53 @@
       },
       {
         "description": {
+          "build": {
+            "defines": [
+              "SPDLOG_FMT_EXTERNAL"
+            ],
+            "includes": [
+              "include"
+            ],
+            "links": [
+              "Zefiros-Software/fmt"
+            ],
+            "template": "headeronly"
+          },
+          "extract": {
+            "includes": [
+              "include/**/*.h"
+            ]
+          }
+        },
+        "hash": "a7148b718ea2fabb8387cb90aee9bf448da63e65",
+        "id": "libraries:GIT:Zefiros-Software/spdlog@1.3.1",
+        "name": "Zefiros-Software/spdlog",
+        "settings": {
+        },
+        "usage": {
+          "required": {
+            "builder": "builder:PATH:ZPM:builder/default",
+            "extractor": "extractor:PATH:ZPM:extractor/default"
+          }
+        },
+        "version": "1.3.1"
+      },
+      {
+        "description": {
+          "build": {
+            "features": [
+              "cxx_std_17"
+            ],
+            "includes": [
+              "./"
+            ],
+            "template": "headeronly"
+          },
+          "extract": {
+            "includes": [
+              "taskflow/**/*.hpp"
+            ]
+          }
         },
         "hash": "764f93f57f5b18cf4edcafb12e9ce1b42b3fcea9",
         "id": "libraries:GIT:Zefiros-Software/taskflow@master",
@@ -131,6 +286,136 @@
         "settings": {
         },
         "usage": {
+          "settings": {
+            "libraries:GIT:Zefiros-Software/flathashmap@master": {
+              "includes": [
+                "./"
+              ],
+              "template": "headeronly"
+            },
+            "libraries:GIT:Zefiros-Software/glm@master": {
+              "defines": [
+                "GLM_FORCE_SWIZZLE",
+                "GLM_ENABLE_EXPERIMENTAL"
+              ],
+              "features": [
+                "cxx_std_11"
+              ],
+              "includes": [
+                "./"
+              ],
+              "template": "headeronly"
+            },
+            "libraries:GIT:Zefiros-Software/nanorange@master": {
+              "features": [
+                "cxx_std_17"
+              ],
+              "includes": [
+                "single_include"
+              ],
+              "template": "headeronly"
+            },
+            "libraries:GIT:Zefiros-Software/nlohmannjson@master": {
+              "features": [
+                "cxx_std_11"
+              ],
+              "includes": [
+                "include"
+              ],
+              "template": "headeronly"
+            },
+            "libraries:GIT:Zefiros-Software/simdpp@master": {
+              "includes": [
+                "./"
+              ],
+              "template": "headeronly"
+            },
+            "libraries:GIT:Zefiros-Software/spdlog@1.3.1": {
+              "defines": [
+                "SPDLOG_FMT_EXTERNAL"
+              ],
+              "includes": [
+                "include"
+              ],
+              "links": [
+                "Zefiros-Software/fmt"
+              ],
+              "template": "headeronly"
+            },
+            "libraries:GIT:Zefiros-Software/taskflow@master": {
+              "features": [
+                "cxx_std_17"
+              ],
+              "includes": [
+                "./"
+              ],
+              "template": "headeronly"
+            },
+            "libraries:PATH:$ROOT:$ROOT:flathashmap": {
+              "includes": [
+                "./"
+              ],
+              "template": "headeronly"
+            },
+            "libraries:PATH:$ROOT:$ROOT:glm": {
+              "defines": [
+                "GLM_FORCE_SWIZZLE",
+                "GLM_ENABLE_EXPERIMENTAL"
+              ],
+              "features": [
+                "cxx_std_11"
+              ],
+              "includes": [
+                "./"
+              ],
+              "template": "headeronly"
+            },
+            "libraries:PATH:$ROOT:$ROOT:nanorange": {
+              "features": [
+                "cxx_std_17"
+              ],
+              "includes": [
+                "single_include"
+              ],
+              "template": "headeronly"
+            },
+            "libraries:PATH:$ROOT:$ROOT:nlohmannjson": {
+              "features": [
+                "cxx_std_11"
+              ],
+              "includes": [
+                "include"
+              ],
+              "template": "headeronly"
+            },
+            "libraries:PATH:$ROOT:$ROOT:simdpp": {
+              "includes": [
+                "./"
+              ],
+              "template": "headeronly"
+            },
+            "libraries:PATH:$ROOT:$ROOT:spdlog": {
+              "defines": [
+                "SPDLOG_FMT_EXTERNAL"
+              ],
+              "includes": [
+                "include"
+              ],
+              "links": [
+                "Zefiros-Software/fmt"
+              ],
+              "template": "headeronly"
+            },
+            "libraries:PATH:$ROOT:$ROOT:taskflow": {
+              "features": [
+                "cxx_std_17"
+              ],
+              "includes": [
+                "./"
+              ],
+              "template": "headeronly"
+            }
+          }
         }
       }
     ],
@@ -189,29 +474,45 @@
                 "googlemock/src/**.h"
               ]
             },
-            "libraries:PATH:$ROOT:$ROOT:flathashmap": {
+            "libraries:GIT:Zefiros-Software/flathashmap@master": {
               "includes": [
                 "*.hpp"
               ]
             },
-            "libraries:PATH:$ROOT:$ROOT:nanorange": {
+            "libraries:GIT:Zefiros-Software/fmt@5.3.0": {
+              "includes": [
+                "include/**",
+                "src/**.cc"
+              ]
+            },
+            "libraries:GIT:Zefiros-Software/glm@master": {
+              "includes": [
+                "glm/**"
+              ]
+            },
+            "libraries:GIT:Zefiros-Software/nanorange@master": {
               "includes": [
                 "single_include/*.hpp"
               ]
             },
-            "libraries:PATH:$ROOT:$ROOT:nlohmannjson": {
+            "libraries:GIT:Zefiros-Software/nlohmannjson@master": {
               "includes": [
                 "include/**/*.hpp"
               ]
             },
-            "libraries:PATH:$ROOT:$ROOT:simdpp": {
+            "libraries:GIT:Zefiros-Software/simdpp@master": {
               "includes": [
                 "simdpp/**/*.h",
                 "simdpp/**/*.hpp",
                 "simdpp/**/*.inl"
               ]
             },
-            "libraries:PATH:$ROOT:$ROOT:taskflow": {
+            "libraries:GIT:Zefiros-Software/spdlog@1.3.1": {
+              "includes": [
+                "include/**/*.h"
+              ]
+            },
+            "libraries:GIT:Zefiros-Software/taskflow@master": {
               "includes": [
                 "taskflow/**/*.hpp"
               ]
@@ -241,6 +542,12 @@
       },
       {
         "description": {
+          "build": {
+            "includes": [
+              "./"
+            ],
+            "template": "headeronly"
+          },
           "extract": {
             "includes": [
               "*.hpp"
@@ -259,6 +566,68 @@
             "extractor": "extractor:PATH:ZPM:extractor/default",
             "libraries": [
               "libraries:GIT:Zefiros-Software/flathashmap@master"
+            ]
+          }
+        }
+      },
+      {
+        "description": {
+          "extract": {
+            "includes": [
+              "include/**",
+              "src/**.cc"
+            ]
+          }
+        },
+        "id": "libraries:PATH:$ROOT:$ROOT:fmt",
+        "name": "$ROOT",
+        "path": "fmt",
+        "root": "libraries:PATH:$ROOT:$ROOT",
+        "settings": {
+        },
+        "usage": {
+          "required": {
+            "builder": "builder:PATH:ZPM:builder/default",
+            "extractor": "extractor:PATH:ZPM:extractor/default",
+            "libraries": [
+              "libraries:GIT:Zefiros-Software/fmt@5.3.0"
+            ]
+          }
+        }
+      },
+      {
+        "description": {
+          "build": {
+            "defines": [
+              "GLM_FORCE_SWIZZLE",
+              "GLM_ENABLE_EXPERIMENTAL"
+            ],
+            "features": [
+              "cxx_std_11"
+            ],
+            "includes": [
+              "./"
+            ],
+            "template": "headeronly"
+          },
+          "extract": {
+            "includes": [
+              "glm/**"
+            ]
+          }
+        },
+        "id": "libraries:PATH:$ROOT:$ROOT:glm",
+        "name": "$ROOT",
+        "path": "glm",
+        "root": "libraries:PATH:$ROOT:$ROOT",
+        "settings": {
+        },
+        "usage": {
+          "required": {
+            "builder": "builder:PATH:ZPM:builder/default",
+            "extractor": "extractor:PATH:ZPM:extractor/default",
+            "libraries": [
+              "libraries:GIT:Zefiros-Software/glm@master"
             ]
           }
         }
@@ -294,6 +663,15 @@
       },
       {
         "description": {
+          "build": {
+            "features": [
+              "cxx_std_17"
+            ],
+            "includes": [
+              "single_include"
+            ],
+            "template": "headeronly"
+          },
           "extract": {
             "includes": [
               "single_include/*.hpp"
@@ -318,6 +696,15 @@
       },
       {
         "description": {
+          "build": {
+            "features": [
+              "cxx_std_11"
+            ],
+            "includes": [
+              "include"
+            ],
+            "template": "headeronly"
+          },
           "extract": {
             "includes": [
               "include/**/*.hpp"
@@ -342,6 +729,12 @@
       },
       {
         "description": {
+          "build": {
+            "includes": [
+              "./"
+            ],
+            "template": "headeronly"
+          },
           "extract": {
             "includes": [
               "simdpp/**/*.h",
@@ -368,6 +761,51 @@
       },
       {
         "description": {
+          "build": {
+            "defines": [
+              "SPDLOG_FMT_EXTERNAL"
+            ],
+            "includes": [
+              "include"
+            ],
+            "links": [
+              "Zefiros-Software/fmt"
+            ],
+            "template": "headeronly"
+          },
+          "extract": {
+            "includes": [
+              "include/**/*.h"
+            ]
+          }
+        },
+        "id": "libraries:PATH:$ROOT:$ROOT:spdlog",
+        "name": "$ROOT",
+        "path": "spdlog",
+        "root": "libraries:PATH:$ROOT:$ROOT",
+        "settings": {
+        },
+        "usage": {
+          "required": {
+            "builder": "builder:PATH:ZPM:builder/default",
+            "extractor": "extractor:PATH:ZPM:extractor/default",
+            "libraries": [
+              "libraries:GIT:Zefiros-Software/spdlog@1.3.1"
+            ]
+          }
+        }
+      },
+      {
+        "description": {
+          "build": {
+            "features": [
+              "cxx_std_17"
+            ],
+            "includes": [
+              "./"
+            ],
+            "template": "headeronly"
+          },
           "extract": {
             "includes": [
               "taskflow/**/*.hpp"

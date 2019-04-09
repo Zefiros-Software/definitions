@@ -1,0 +1,27 @@
+development:
+  libraries:
+    - name: Zefiros-Software/spdlog
+      version: ^1.3.1
+      definition: ./
+      repository: https://github.com/gabime/spdlog.git
+    # - name: Zefiros-Software/fmt
+    #   version: '^5.0.0'
+    #   definition: ../fmt
+    #   repository: https://github.com/fmtlib/fmt.git
+
+
+# libraries:
+#   - name: Zefiros-Software/fmt
+#     version: '^5.0.0'
+
+extract:
+  includes:
+    - "include/**/*.h"
+build:
+  template: headeronly
+  includes:
+    - include
+  defines:
+    - SPDLOG_FMT_EXTERNAL
+  links:
+    - Zefiros-Software/fmt

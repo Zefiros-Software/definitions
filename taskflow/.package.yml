@@ -8,3 +8,9 @@ development:
 extract:
   includes:
     - "taskflow/**/*.hpp"
+build:
+  template: headeronly
+  includes:
+    - ./
+  features:
+    - cxx_std_17

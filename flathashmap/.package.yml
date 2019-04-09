@@ -8,3 +8,7 @@ development:
 extract:
   includes:
     - "*.hpp"
+build:
+  template: headeronly
+  includes:
+    - ./
