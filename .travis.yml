@@ -6,14 +6,14 @@ compiler:
 addons:
   apt:
     sources:
-    - ubuntu-toolchain-r
-    - llvm-toolchain-trusty
+    - ubuntu-toolchain-r-test
+    - llvm-toolchain-trusty-8
     packages:
     - g++-7
-    - clang-7
+    - clang-8
 install:
 - "[ $CXX = g++ ] && export CXX=g++-7 || true"
-- "[ $CXX = clang++ ] && export CXX=clang++-7 || true"
+- "[ $CXX = clang++ ] && export CXX=clang++-8 || true"
 script:
   - npm install -g zpmpkg/zpm#alpha
   - zpm
