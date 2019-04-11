@@ -525,11 +525,6 @@
               "includes": [
                 "taskflow/**/*.hpp"
               ]
-            },
-            "libraries:PATH:$ROOT:$ROOT:spdlog": {
-              "includes": [
-                "include/**/*.h"
-              ]
             }
           }
         }
@@ -549,7 +544,7 @@
             "builder": "builder:PATH:ZPM:builder/default",
             "extractor": "extractor:PATH:ZPM:extractor/default",
             "libraries": [
-              "libraries:PATH:$ROOT:$ROOT:flathashmap"
+              "libraries:PATH:$ROOT:$ROOT:taskflow"
             ]
           }
         }
