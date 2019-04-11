@@ -12,7 +12,7 @@ addons:
     - g++-7
     - clang-8    
 install:
-- pip install cmake
+- pip install --user cmake
 - "[ $CXX = g++ ] && export CXX=g++-7 || true"
 - "[ $CXX = clang++ ] && export CXX=clang++-8 || true"
 script:
