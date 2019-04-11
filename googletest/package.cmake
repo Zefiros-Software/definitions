@@ -14,6 +14,11 @@ target_include_directories("${PROJECT_NAME}+gmock"
 
 target_link_libraries("${PROJECT_NAME}+gmock" PUBLIC "${PROJECT_NAME}+gtest")
 
+if(UNIX)
+target_link_libraries("${PROJECT_NAME}+gtest" PUBLIC pthread)
+target_link_libraries("${PROJECT_NAME}+gmock" PUBLIC pthread)
+endif()
+
 zpm_alias("${PROJECT_NAME}+gmock")
 zpm_alias("${PROJECT_NAME}+gtest")
 zpm_default_target("${PROJECT_NAME}+gmock")
