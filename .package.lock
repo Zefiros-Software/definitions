@@ -235,6 +235,9 @@
       {
         "description": {
           "build": {
+            "custom": [
+              "if(UNIX)\ntarget_link_libraries(\"${PROJECT_NAME}\" INTERFACE pthread)\nendif()\n"
+            ],
             "features": [
               "cxx_std_17"
             ],
@@ -343,6 +346,9 @@
               "template": "headeronly"
             },
             "libraries:GIT:Zefiros-Software/taskflow@master": {
+              "custom": [
+                "if(UNIX)\ntarget_link_libraries(\"${PROJECT_NAME}\" INTERFACE pthread)\nendif()\n"
+              ],
               "features": [
                 "cxx_std_17"
               ],
@@ -407,6 +413,9 @@
               "template": "headeronly"
             },
             "libraries:PATH:$ROOT:$ROOT:taskflow": {
+              "custom": [
+                "if(UNIX)\ntarget_link_libraries(\"${PROJECT_NAME}\" INTERFACE pthread)\nendif()\n"
+              ],
               "features": [
                 "cxx_std_17"
               ],
@@ -540,7 +549,7 @@
             "builder": "builder:PATH:ZPM:builder/default",
             "extractor": "extractor:PATH:ZPM:extractor/default",
             "libraries": [
-              "libraries:PATH:$ROOT:$ROOT:taskflow"
+              "libraries:PATH:$ROOT:$ROOT:flathashmap"
             ]
           }
         }
@@ -803,6 +812,9 @@
       {
         "description": {
           "build": {
+            "custom": [
+              "if(UNIX)\ntarget_link_libraries(\"${PROJECT_NAME}\" INTERFACE pthread)\nendif()\n"
+            ],
             "features": [
               "cxx_std_17"
             ],
