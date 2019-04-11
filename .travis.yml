@@ -6,16 +6,17 @@ compiler:
 addons:
   apt:
     sources:
-    - ubuntu-toolchain-r-test
-    - llvm-toolchain-trusty-5.0
+    - ubuntu-toolchain-r/ppa
+    - llvm-toolchain-trusty
     packages:
     - g++-7
-    - clang-5.0
+    - clang-7
 install:
 - "[ $CXX = g++ ] && export CXX=g++-7 || true"
-- "[ $CXX = clang++ ] && export CXX=clang++-5.0 || true"
+- "[ $CXX = clang++ ] && export CXX=clang++-7 || true"
 script:
   - npm install -g zpmpkg/zpm#alpha
+  - zpm
   - cmake .
   - cmake --build .
   - ctest
