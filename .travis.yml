@@ -6,7 +6,7 @@ compiler:
 addons:
   apt:
     sources:
-    - ubuntu-toolchain-r/ppa
+    - ubuntu-toolchain-r
     - llvm-toolchain-trusty
     packages:
     - g++-7
