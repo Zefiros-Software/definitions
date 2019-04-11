@@ -14,7 +14,7 @@
             ]
           }
         },
-        "hash": "604ba376c3a407c6a40e39fbd0d5055c545f9898",
+        "hash": "7473c5ca5c1106fe699474d0b336f7f9803456ec",
         "id": "libraries:GIT:Zefiros-Software/GoogleTest@master",
         "name": "Zefiros-Software/GoogleTest",
         "settings": {
@@ -516,6 +516,11 @@
               "includes": [
                 "taskflow/**/*.hpp"
               ]
+            },
+            "libraries:PATH:$ROOT:$ROOT:spdlog": {
+              "includes": [
+                "include/**/*.h"
+              ]
             }
           }
         }
@@ -535,7 +540,7 @@
             "builder": "builder:PATH:ZPM:builder/default",
             "extractor": "extractor:PATH:ZPM:extractor/default",
             "libraries": [
-              "libraries:PATH:$ROOT:$ROOT:simdpp"
+              "libraries:PATH:$ROOT:$ROOT:taskflow"
             ]
           }
         }
