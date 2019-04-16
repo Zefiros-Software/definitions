@@ -6,17 +6,17 @@ matrix:
     - os: osx
       osx_image: xcode10.2
       compiler: clang
-      install: 
-        - export CC=/usr/local/opt/llvm/bin/clang 
-        - export CXX=/usr/local/opt/llvm/bin/clang++ 
-        - export AR=/usr/local/opt/llvm/bin/llvm-ar 
-        - export LD=/usr/local/opt/llvm/bin/llvm-ld 
-        - export LDFLAGS="-L/usr/local/opt/llvm/lib -Wl,-rpath,/usr/local/opt/llvm/lib" 
-        - export CPPFLAGS="-I/usr/local/opt/llvm/include -I/usr/local/opt/llvm/include/c++/v1/"
+      # install: 
+      #   - export CC=/usr/local/opt/llvm/bin/clang 
+      #   - export CXX=/usr/local/opt/llvm/bin/clang++ 
+      #   - export AR=/usr/local/opt/llvm/bin/llvm-ar 
+      #   - export LD=/usr/local/opt/llvm/bin/llvm-ld 
+      #   - export LDFLAGS="-L/usr/local/opt/llvm/lib -Wl,-rpath,/usr/local/opt/llvm/lib" 
+      #   - export CPPFLAGS="-I/usr/local/opt/llvm/include -I/usr/local/opt/llvm/include/c++/v1/"
     - os: windows
       compiler: clang
       before_install:
-        - choco install miniconda3
+        - choco install python3
     - os: linux
       compiler: clang
       install:      
@@ -36,7 +36,7 @@ addons:
   homebrew:
     packages:
       - node
-      - llvm
+      # - llvm
 
 before_script:
   - pip install --user cmake
