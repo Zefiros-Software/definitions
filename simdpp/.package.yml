@@ -14,3 +14,5 @@ build:
   template: headeronly
   includes:
     - ./
+  features:
+    - cxx_std_11
