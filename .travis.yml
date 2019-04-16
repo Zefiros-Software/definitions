@@ -11,8 +11,8 @@ matrix:
         - export CXX=/usr/local/opt/llvm/bin/clang++ 
         - export AR=/usr/local/opt/llvm/bin/llvm-ar 
         - export LD=/usr/local/opt/llvm/bin/llvm-ld 
-        - export LDFLAGS=\"-L/usr/local/opt/llvm/lib -Wl,-rpath,/usr/local/opt/llvm/lib\" 
-        - export CPPFLAGS=\"-I/usr/local/opt/llvm/include -I/usr/local/opt/llvm/include/c++/v1/\"
+        - export LDFLAGS="-L/usr/local/opt/llvm/lib -Wl,-rpath,/usr/local/opt/llvm/lib" 
+        - export CPPFLAGS="-I/usr/local/opt/llvm/include -I/usr/local/opt/llvm/include/c++/v1/"
     - os: windows
       compiler: clang
       before_install:
@@ -20,11 +20,11 @@ matrix:
     - os: linux
       compiler: clang
       install:      
-        - "[ $CXX = clang++ ] && export CXX=clang++-8 || true"
+        - export CXX=clang++-8
     - os: linux
       compiler: gcc
       install:      
-        - "[ $CXX = g++ ] && export CXX=g++-7 || true"
+        - export CXX=g++-7
 addons:
   apt:
     sources:
@@ -36,6 +36,7 @@ addons:
   homebrew:
     packages:
       - node
+      - llvm
 
 before_install:
   - pip install --user cmake
