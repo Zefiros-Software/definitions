@@ -6,11 +6,16 @@ target_include_directories("${PROJECT_NAME}+gtest"
                            PUBLIC "googletest/include/"
                            PRIVATE "googletest/")
 
+target_compile_features("${PROJECT_NAME}+gtest" PUBLIC cxx_std_11)
+
 add_library("${PROJECT_NAME}+gmock" "googlemock/src/gmock-all.cc")
 
 target_include_directories("${PROJECT_NAME}+gmock"
                            PUBLIC "googlemock/include/"
                            PRIVATE "googlemock/")
+
+
+target_compile_features("${PROJECT_NAME}+gmock" PUBLIC cxx_std_11)
 
 target_link_libraries("${PROJECT_NAME}+gmock" PUBLIC "${PROJECT_NAME}+gtest")
 

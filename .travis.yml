@@ -16,7 +16,7 @@ matrix:
     - os: windows
       compiler: clang
       before_install:
-        - choco install python3
+        - choco install python3 && refreshenv
     - os: linux
       compiler: clang
       install:      
