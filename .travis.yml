@@ -6,15 +6,9 @@ matrix:
     - os: osx
       osx_image: xcode10.2
       compiler: clang
-      # install: 
-      #   - export CC=/usr/local/opt/llvm/bin/clang 
-      #   - export CXX=/usr/local/opt/llvm/bin/clang++ 
-      #   - export AR=/usr/local/opt/llvm/bin/llvm-ar 
-      #   - export LD=/usr/local/opt/llvm/bin/llvm-ld 
-      #   - export LDFLAGS="-L/usr/local/opt/llvm/lib -Wl,-rpath,/usr/local/opt/llvm/lib" 
-      #   - export CPPFLAGS="-I/usr/local/opt/llvm/include -I/usr/local/opt/llvm/include/c++/v1/"
     - os: windows
       language: node_js
+      node_js: node
       compiler: clang
       before_install:
         - choco install python3
@@ -40,7 +34,6 @@ addons:
   homebrew:
     packages:
       - node
-      # - llvm
 
 before_script:
   - pip install --user cmake
