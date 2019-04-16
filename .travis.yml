@@ -10,10 +10,15 @@ matrix:
     - os: windows
       compiler:
         - clang
+      before_install:
+        - choco install pip
     - os: linux
       compiler:
         - gcc
         - clang
+      install:      
+        - "[ $CXX = g++ ] && export CXX=g++-7 || true"
+        - "[ $CXX = clang++ ] && export CXX=clang++-8 || true"
 addons:
   apt:
     sources:
@@ -27,12 +32,8 @@ addons:
       - node
 
 before_install:
-  - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then choco install pip; fi
   - pip install --user cmake
 install:
-  - pip install --user cmake
-  - "[ $CXX = g++ ] && export CXX=g++-7 || true"
-  - "[ $CXX = clang++ ] && export CXX=clang++-8 || true"
   - npm install -g zpmpkg/zpm#alpha
 script:
   - zpm
