@@ -20,7 +20,7 @@ matrix:
         - export PATH="/c/Python37:/c/Python37/Scripts:$PATH"
         - python -m pip install --upgrade pip wheel
         - choco install nodejs 
-        - export PATH="/C/Users/travis/AppData/Roaming/Python/Python37/Scripts:/C/Users/travis/AppData/Roaming/npm:$PATH"
+        - export PATH="/C/Users/travis/AppData/Roaming/Python/Python37/Scripts:/c/ProgramData/chocolatey/lib/nodejs:$PATH"
         - tail /c/ProgramData/chocolatey/logs/chocolatey.log -n 100
     - os: linux
       compiler: clang
