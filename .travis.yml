@@ -4,6 +4,7 @@ os:
   - linux
   - osx
   - windows
+osx_image: xcode10.2
 compiler:
   - gcc
   - clang
@@ -15,12 +16,19 @@ addons:
     packages:
     - g++-7
     - clang-8    
+  homebrew:
+    packages:
+      - node
+
+before_install:
+  - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then choco install pip; fi
+  - pip install --user cmake
 install:
-- pip install --user cmake
-- "[ $CXX = g++ ] && export CXX=g++-7 || true"
-- "[ $CXX = clang++ ] && export CXX=clang++-8 || true"
-script:
+  - pip install --user cmake
+  - "[ $CXX = g++ ] && export CXX=g++-7 || true"
+  - "[ $CXX = clang++ ] && export CXX=clang++-8 || true"
   - npm install -g zpmpkg/zpm#alpha
+script:
   - zpm
   - cmake .
   - cmake --build .
