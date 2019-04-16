@@ -1,13 +1,19 @@
 sudo: false
 language: cpp
-os:
-  - linux
-  - osx
-  - windows
-osx_image: xcode10.2
-compiler:
-  - gcc
-  - clang
+
+matrix:
+  include:
+    - os: osx
+      osx_image: xcode10.2
+      compiler:
+        - clang
+    - os: windows
+      compiler:
+        - clang
+    - os: linux
+      compiler:
+        - gcc
+        - clang
 addons:
   apt:
     sources:
