@@ -38,9 +38,8 @@ addons:
       - node
       - llvm
 
-before_install:
+before_script:
   - pip install --user cmake
-install:
   - npm install -g zpmpkg/zpm#alpha
 script:
   - zpm
