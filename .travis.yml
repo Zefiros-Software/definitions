@@ -42,4 +42,4 @@ script:
   - zpm
   - cmake .
   - cmake --build .
-  - ctest -c Debug
+  - ctest -C Debug
