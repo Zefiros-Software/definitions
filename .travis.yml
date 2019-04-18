@@ -39,6 +39,8 @@ before_script:
   - pip install --user cmake
   - where cmake
   - cmake --version
+  - where ctest
+  - ctest --version
   - npm install -g zpmpkg/zpm#alpha
 script:
   - zpm
