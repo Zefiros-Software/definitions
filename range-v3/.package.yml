@@ -1,0 +1,16 @@
+development:
+  libraries:
+    - name: Zefiros-Software/range-v3
+      version: master
+      definition: ./
+      repository: https://github.com/ericniebler/range-v3.git
+
+extract:
+  includes:
+    - "include/**/*.hpp"
+build:
+  template: headeronly
+  includes:
+    - include
+  features:
+    - cxx_std_17

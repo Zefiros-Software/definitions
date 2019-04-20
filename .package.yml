@@ -9,3 +9,4 @@ development:
     - path: glm
     - path: fmt
     - path: spdlog
+    - path: range-v3
