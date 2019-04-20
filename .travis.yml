@@ -40,6 +40,6 @@ before_script:
   - npm install -g zpmpkg/zpm#alpha
 script:
   - zpm
-  - cmake . -G "NMake Makefiles"
+  - cmake .
   - cmake --build .
   - ctest
