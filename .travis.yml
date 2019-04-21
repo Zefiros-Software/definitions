@@ -16,7 +16,7 @@ matrix:
         - python -m pip install --upgrade pip wheel
         - export PATH="/C/Users/travis/AppData/Roaming/Python/Python37/Scripts:$PATH"
       env:
-        - CONFIG_TYPE="-c Debug"
+        - CONFIG_TYPE="-C Debug"
     - os: linux
       compiler: clang
       install:      
