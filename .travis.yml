@@ -16,7 +16,7 @@ matrix:
         - python -m pip install --upgrade pip wheel
         - export PATH="/C/Users/travis/AppData/Roaming/Python/Python37/Scripts:$PATH"
       env:
-        - CTEST_CONFIG_TYPE=Debug
+        - CONFIG_TYPE="-c Debug"
     - os: linux
       compiler: clang
       install:      
@@ -41,8 +41,8 @@ before_script:
   - pip install --user cmake
   - npm install -g zpmpkg/zpm#alpha
 script:
-  - echo $CTEST_CONFIG_TYPE
+  - echo $CONFIG_TYPE
   - zpm
   - cmake .
   - cmake --build .
-  - ctest
+  - ctest $CONFIG_TYPE
