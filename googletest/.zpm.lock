@@ -1,0 +1,157 @@
+{
+  "named": {
+    "libraries": [
+      {
+        "description": {
+          "extract": {
+            "includes": [
+              "googletest/include/**/*.h",
+              "googletest/src/**.cc",
+              "googletest/src/**.h",
+              "googlemock/include/**/*.h",
+              "googlemock/src/**.cc",
+              "googlemock/src/**.h"
+            ]
+          }
+        },
+        "hash": "a53e931dcd00c2556ee181d832e699c9f3c29036",
+        "id": "libraries:GIT:Zefiros-Software/GoogleTest@master",
+        "name": "Zefiros-Software/GoogleTest",
+        "settings": {
+        },
+        "usage": {
+          "required": {
+            "builder": "builder:PATH:ZPM:builder/default",
+            "extractor": "extractor:PATH:ZPM:extractor/default"
+          }
+        },
+        "version": "master"
+      }
+    ]
+  },
+  "path": {
+    "builder": [
+      {
+        "description": {
+        },
+        "id": "builder:PATH:ZPM:./",
+        "name": "ZPM",
+        "path": "./",
+        "settings": {
+        },
+        "usage": {
+        }
+      },
+      {
+        "description": {
+        },
+        "id": "builder:PATH:ZPM:builder/default",
+        "name": "ZPM",
+        "path": "builder/default",
+        "settings": {
+        },
+        "usage": {
+        }
+      }
+    ],
+    "extractor": [
+      {
+        "description": {
+        },
+        "id": "extractor:PATH:ZPM:./",
+        "name": "ZPM",
+        "path": "./",
+        "settings": {
+        },
+        "usage": {
+        }
+      },
+      {
+        "description": {
+          "extractor": {
+            "excludes": [
+              "**/test/**"
+            ],
+            "includes": [
+              "**/src/**/*.h",
+              "**/src/**/*.cpp",
+              "**/src/**/*.cc",
+              "**/src/**/*.cxx",
+              "**/src/**/*.c",
+              "**/src/**/*.s",
+              "**/src/**/*.m",
+              "**/src/**/*.mm",
+              "**/include/**/*.h",
+              "**/include/**/*.cpp",
+              "**/include/**/*.cc",
+              "**/include/**/*.cxx",
+              "**/include/**/*.c",
+              "**/include/**/*.s",
+              "**/include/**/*.m",
+              "**/include/**/*.mm"
+            ]
+          }
+        },
+        "id": "extractor:PATH:ZPM:extractor/default",
+        "name": "ZPM",
+        "path": "extractor/default",
+        "settings": {
+        },
+        "usage": {
+          "settings": {
+            "libraries:GIT:Zefiros-Software/GoogleTest@master": {
+              "includes": [
+                "googletest/include/**/*.h",
+                "googletest/src/**.cc",
+                "googletest/src/**.h",
+                "googlemock/include/**/*.h",
+                "googlemock/src/**.cc",
+                "googlemock/src/**.h"
+              ]
+            },
+            "libraries:PATH:$ROOT:$ROOT": {
+              "includes": [
+                "googletest/include/**/*.h",
+                "googletest/src/**.cc",
+                "googletest/src/**.h",
+                "googlemock/include/**/*.h",
+                "googlemock/src/**.cc",
+                "googlemock/src/**.h"
+              ]
+            }
+          }
+        }
+      }
+    ],
+    "libraries": [
+      {
+        "description": {
+          "extract": {
+            "includes": [
+              "googletest/include/**/*.h",
+              "googletest/src/**.cc",
+              "googletest/src/**.h",
+              "googlemock/include/**/*.h",
+              "googlemock/src/**.cc",
+              "googlemock/src/**.h"
+            ]
+          }
+        },
+        "id": "libraries:PATH:$ROOT:$ROOT",
+        "name": "$ROOT",
+        "path": "./",
+        "settings": {
+        },
+        "usage": {
+          "required": {
+            "builder": "builder:PATH:ZPM:builder/default",
+            "extractor": "extractor:PATH:ZPM:extractor/default",
+            "libraries": [
+              "libraries:GIT:Zefiros-Software/GoogleTest@master"
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

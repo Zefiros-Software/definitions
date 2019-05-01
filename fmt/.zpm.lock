@@ -1,0 +1,141 @@
+{
+  "named": {
+    "libraries": [
+      {
+        "description": {
+          "extract": {
+            "includes": [
+              "include/**",
+              "src/**.cc"
+            ]
+          }
+        },
+        "hash": "9e554999ce02cf86fcdfe74fe740c4fe3f5a56d5",
+        "id": "libraries:GIT:Zefiros-Software/fmt@5.3.0",
+        "name": "Zefiros-Software/fmt",
+        "settings": {
+        },
+        "usage": {
+          "required": {
+            "builder": "builder:PATH:ZPM:builder/default",
+            "extractor": "extractor:PATH:ZPM:extractor/default"
+          }
+        },
+        "version": "5.3.0"
+      }
+    ]
+  },
+  "path": {
+    "builder": [
+      {
+        "description": {
+        },
+        "id": "builder:PATH:ZPM:./",
+        "name": "ZPM",
+        "path": "./",
+        "settings": {
+        },
+        "usage": {
+        }
+      },
+      {
+        "description": {
+        },
+        "id": "builder:PATH:ZPM:builder/default",
+        "name": "ZPM",
+        "path": "builder/default",
+        "settings": {
+        },
+        "usage": {
+        }
+      }
+    ],
+    "extractor": [
+      {
+        "description": {
+        },
+        "id": "extractor:PATH:ZPM:./",
+        "name": "ZPM",
+        "path": "./",
+        "settings": {
+        },
+        "usage": {
+        }
+      },
+      {
+        "description": {
+          "extractor": {
+            "excludes": [
+              "**/test/**"
+            ],
+            "includes": [
+              "**/src/**/*.h",
+              "**/src/**/*.cpp",
+              "**/src/**/*.cc",
+              "**/src/**/*.cxx",
+              "**/src/**/*.c",
+              "**/src/**/*.s",
+              "**/src/**/*.m",
+              "**/src/**/*.mm",
+              "**/include/**/*.h",
+              "**/include/**/*.cpp",
+              "**/include/**/*.cc",
+              "**/include/**/*.cxx",
+              "**/include/**/*.c",
+              "**/include/**/*.s",
+              "**/include/**/*.m",
+              "**/include/**/*.mm"
+            ]
+          }
+        },
+        "id": "extractor:PATH:ZPM:extractor/default",
+        "name": "ZPM",
+        "path": "extractor/default",
+        "settings": {
+        },
+        "usage": {
+          "settings": {
+            "libraries:GIT:Zefiros-Software/fmt@5.3.0": {
+              "includes": [
+                "include/**",
+                "src/**.cc"
+              ]
+            },
+            "libraries:PATH:$ROOT:$ROOT": {
+              "includes": [
+                "include/**",
+                "src/**.cc"
+              ]
+            }
+          }
+        }
+      }
+    ],
+    "libraries": [
+      {
+        "description": {
+          "extract": {
+            "includes": [
+              "include/**",
+              "src/**.cc"
+            ]
+          }
+        },
+        "id": "libraries:PATH:$ROOT:$ROOT",
+        "name": "$ROOT",
+        "path": "./",
+        "settings": {
+        },
+        "usage": {
+          "required": {
+            "builder": "builder:PATH:ZPM:builder/default",
+            "extractor": "extractor:PATH:ZPM:extractor/default",
+            "libraries": [
+              "libraries:GIT:Zefiros-Software/fmt@5.3.0"
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

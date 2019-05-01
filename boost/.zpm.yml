@@ -1,0 +1,12 @@
+development:
+  libraries:
+    - name: Zefiros-Software/boost
+      version: '^1.70.0'
+      definition: ./
+      repository: https://github.com/boostorg/boost.git
+      settings:
+        modules:
+          - atomic
+requires: 
+  extractor:
+    path: extract

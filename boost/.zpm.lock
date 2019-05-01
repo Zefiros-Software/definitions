@@ -1,0 +1,118 @@
+{
+  "named": {
+    "libraries": [
+      {
+        "description": {
+          "extract": {
+            "includes": [
+              "libs/*/include/**/*",
+              "libs/*/src/**/*"
+            ]
+          }
+        },
+        "hash": "8f9a1cf1d15d262e09c16a305034d8bc1e39aca2",
+        "id": "libraries:GIT:Zefiros-Software/boost@1.70.0",
+        "name": "Zefiros-Software/boost",
+        "settings": {
+          "modules": [
+            "atomic"
+          ]
+        },
+        "usage": {
+          "required": {
+            "builder": "builder:PATH:ZPM:builder/default",
+            "extractor": "extractor:PATH:$ROOT:$ROOT:extract"
+          },
+          "settings": {
+            "libraries:PATH:$ROOT:$ROOT": {
+              "modules": [
+                "atomic"
+              ]
+            }
+          }
+        },
+        "version": "1.70.0"
+      }
+    ]
+  },
+  "path": {
+    "builder": [
+      {
+        "description": {
+        },
+        "id": "builder:PATH:ZPM:./",
+        "name": "ZPM",
+        "path": "./",
+        "settings": {
+        },
+        "usage": {
+        }
+      },
+      {
+        "description": {
+        },
+        "id": "builder:PATH:ZPM:builder/default",
+        "name": "ZPM",
+        "path": "builder/default",
+        "settings": {
+        },
+        "usage": {
+        }
+      }
+    ],
+    "extractor": [
+      {
+        "description": {
+        },
+        "id": "extractor:PATH:$ROOT:$ROOT:extract",
+        "name": "$ROOT",
+        "path": "extract",
+        "root": "libraries:PATH:$ROOT:$ROOT",
+        "settings": {
+        },
+        "usage": {
+          "settings": {
+            "libraries:GIT:Zefiros-Software/boost@1.70.0": {
+              "includes": [
+                "libs/*/include/**/*",
+                "libs/*/src/**/*"
+              ]
+            },
+            "libraries:PATH:$ROOT:$ROOT": {
+              "includes": [
+                "libs/*/include/**/*",
+                "libs/*/src/**/*"
+              ]
+            }
+          }
+        }
+      }
+    ],
+    "libraries": [
+      {
+        "description": {
+          "extract": {
+            "includes": [
+              "libs/*/include/**/*",
+              "libs/*/src/**/*"
+            ]
+          }
+        },
+        "id": "libraries:PATH:$ROOT:$ROOT",
+        "name": "$ROOT",
+        "path": "./",
+        "settings": {
+        },
+        "usage": {
+          "required": {
+            "builder": "builder:PATH:ZPM:builder/default",
+            "extractor": "extractor:PATH:$ROOT:$ROOT:extract",
+            "libraries": [
+              "libraries:GIT:Zefiros-Software/boost@1.70.0"
+            ]
+          }
+        }
+      }
+    ]
+  }
+}
