@@ -3,20 +3,45 @@
     {
       "definition": {
         "build": {
+          "default": true,
+          "feature": [
+            "cxx_std_11"
+          ],
+          "include": [
+            "googlemock/include"
+          ],
+          "link": [
+            "${PROJECT_ROOT}+gtest"
+          ],
+          "private": {
+            "include": [
+              "googlemock"
+            ]
+          },
           "self": {
             "private": {
               "link": [
-                "Zefiros-Software/GoogleTest"
+                "Zefiros-Software/GoogleTest+gmock"
               ]
             },
             "public": {
             },
             "source": [
-              "*/test/**.cpp",
-              "!gmock/test/main.cpp"
+              "test/*.cpp"
             ],
             "template": "library-test"
-          }
+          },
+          "source": [
+            "googlemock/src/gmock-all.cc"
+          ],
+          "template": "library"
+        },
+        "extract": {
+          "include": [
+            "googlemock/include/**/*.h",
+            "googlemock/src/**.cc",
+            "googlemock/src/**.h"
+          ]
         }
       },
       "manifest": "libraries",
@@ -51,8 +76,6 @@
                 "Zefiros-Software/GoogleTest+gmock"
               ]
             },
-            "public": {
-            },
             "source": [
               "test/*.cpp"
             ],
@@ -75,7 +98,7 @@
         "libraries:ROOT"
       ],
       "manifest": "libraries",
-      "packageId": "ROOT:gmock",
+      "packageId": "Zefiros-Software/GoogleTest:gmock",
       "settings": {
       },
       "usedBy": [
@@ -84,64 +107,7 @@
           "versionId": "libraries:ROOT"
         }
       ],
-      "versionId": "libraries:ROOT:gmock"
-    },
-    {
-      "definition": {
-        "build": {
-          "default": true,
-          "feature": [
-            "cxx_std_11"
-          ],
-          "include": [
-            "googlemock/include"
-          ],
-          "link": [
-            "${PROJECT_ROOT}+gtest"
-          ],
-          "private": {
-            "include": [
-              "googlemock"
-            ]
-          },
-          "self": {
-            "private": {
-              "link": [
-                "Zefiros-Software/GoogleTest+gmock"
-              ]
-            },
-            "source": [
-              "test/*.cpp"
-            ],
-            "template": "library-test"
-          },
-          "source": [
-            "googlemock/src/gmock-all.cc"
-          ],
-          "template": "library"
-        },
-        "extract": {
-          "include": [
-            "googlemock/include/**/*.h",
-            "googlemock/src/**.cc",
-            "googlemock/src/**.h"
-          ]
-        }
-      },
-      "dependsOn": [
-        "libraries:ROOT:gmock"
-      ],
-      "manifest": "libraries",
-      "packageId": "Zefiros-Software:GoogleTest+gmock",
-      "settings": {
-      },
-      "usedBy": [
-        {
-          "optional": false,
-          "versionId": "libraries:ROOT:gmock"
-        }
-      ],
-      "versionId": "libraries:Zefiros-Software:GoogleTest+gmock"
+      "versionId": "libraries:Zefiros-Software/GoogleTest:gmock"
     },
     {
       "definition": {
@@ -182,56 +148,23 @@
       },
       "dependsOn": [
         "libraries:ROOT",
-        "libraries:ROOT:gmock",
-        "libraries:Zefiros-Software:GoogleTest+gmock"
+        "libraries:Zefiros-Software/GoogleTest:gmock"
       ],
       "manifest": "libraries",
-      "packageId": "ROOT:gtest",
+      "packageId": "ROOT:../gtest",
       "settings": {
       },
       "usedBy": [
         {
           "optional": false,
-          "versionId": "libraries:Zefiros-Software:GoogleTest+gmock"
-        },
-        {
-          "optional": false,
-          "versionId": "libraries:ROOT:gmock"
+          "versionId": "libraries:Zefiros-Software/GoogleTest:gmock"
         },
         {
           "optional": false,
           "versionId": "libraries:ROOT"
         }
       ],
-      "versionId": "libraries:ROOT:gtest"
-    },
-    {
-      "definition": {
-      },
-      "dependsOn": [
-        "libraries:ROOT:gmock",
-        "libraries:ROOT:gtest"
-      ],
-      "manifest": "libraries",
-      "packageId": "Zefiros-Software/GoogleTest",
-      "settings": {
-      },
-      "usedBy": [
-        {
-          "optional": false,
-          "versionId": "libraries:ROOT:gtest"
-        },
-        {
-          "optional": false,
-          "versionId": "libraries:ROOT:gmock"
-        }
-      ],
-      "version": {
-        "hash": "2134e3fd857d952e03ce76064fad5ac6e9036104",
-        "name": "master",
-        "version": "master"
-      },
-      "versionId": "libraries:Zefiros-Software:GoogleTest:master-2134e"
+      "versionId": "libraries:ROOT:../gtest"
     },
     {
       "definition": {
@@ -269,30 +202,57 @@
         }
       },
       "dependsOn": [
-        "libraries:ROOT:gtest"
+        "libraries:ROOT:../gtest"
       ],
       "manifest": "libraries",
-      "packageId": "Zefiros-Software:GoogleTest+gtest",
+      "packageId": "Zefiros-Software/GoogleTest:gtest",
       "settings": {
       },
       "usedBy": [
         {
           "optional": false,
-          "versionId": "libraries:ROOT:gtest"
+          "versionId": "libraries:ROOT:../gtest"
         }
       ],
-      "versionId": "libraries:Zefiros-Software:GoogleTest+gtest"
+      "versionId": "libraries:Zefiros-Software/GoogleTest:gtest"
     },
     {
       "definition": {
       },
       "dependsOn": [
         "libraries:ROOT",
-        "libraries:ROOT:gmock",
-        "libraries:Zefiros-Software:GoogleTest+gmock",
-        "libraries:ROOT:gtest",
-        "libraries:Zefiros-Software:GoogleTest:master-2134e",
-        "libraries:Zefiros-Software:GoogleTest+gtest"
+        "libraries:ROOT:../gtest"
+      ],
+      "manifest": "libraries",
+      "packageId": "Zefiros-Software/GoogleTest",
+      "settings": {
+      },
+      "usedBy": [
+        {
+          "optional": false,
+          "versionId": "libraries:ROOT:../gtest"
+        },
+        {
+          "optional": false,
+          "versionId": "libraries:ROOT"
+        }
+      ],
+      "version": {
+        "hash": "2134e3fd857d952e03ce76064fad5ac6e9036104",
+        "name": "master",
+        "version": "master"
+      },
+      "versionId": "libraries:Zefiros-Software:GoogleTest:master-2134e"
+    },
+    {
+      "definition": {
+      },
+      "dependsOn": [
+        "libraries:ROOT",
+        "libraries:Zefiros-Software/GoogleTest:gmock",
+        "libraries:ROOT:../gtest",
+        "libraries:Zefiros-Software/GoogleTest:gtest",
+        "libraries:Zefiros-Software:GoogleTest:master-2134e"
       ],
       "manifest": "builder",
       "packageId": "ZPM:builder/default",
@@ -318,14 +278,11 @@
           "private": {
             "link": [
               "Zefiros-Software/GoogleTest+gmock",
-              "Zefiros-Software/GoogleTest:gtest",
-              "Zefiros-Software/GoogleTest"
+              "Zefiros-Software/GoogleTest:gtest"
             ]
           },
           "source": [
-            "test/*.cpp",
-            "*/test/**.cpp",
-            "!gmock/test/main.cpp"
+            "test/*.cpp"
           ],
           "template": "library-test"
         },
@@ -372,7 +329,7 @@
             ],
             "template": "library"
           },
-          "versionId": "libraries:Zefiros-Software:GoogleTest+gmock"
+          "versionId": "libraries:Zefiros-Software/GoogleTest:gmock"
         },
         {
           "optional": false,
@@ -407,7 +364,7 @@
             ],
             "template": "library"
           },
-          "versionId": "libraries:Zefiros-Software:GoogleTest+gtest"
+          "versionId": "libraries:Zefiros-Software/GoogleTest:gtest"
         },
         {
           "optional": false,
@@ -438,7 +395,7 @@
             ],
             "template": "library"
           },
-          "versionId": "libraries:ROOT:gtest"
+          "versionId": "libraries:ROOT:../gtest"
         },
         {
           "optional": false,
@@ -476,26 +433,6 @@
             ],
             "template": "library"
           },
-          "versionId": "libraries:ROOT:gmock"
-        },
-        {
-          "optional": false,
-          "settings": {
-            "self": {
-              "private": {
-                "link": [
-                  "Zefiros-Software/GoogleTest"
-                ]
-              },
-              "public": {
-              },
-              "source": [
-                "*/test/**.cpp",
-                "!gmock/test/main.cpp"
-              ],
-              "template": "library-test"
-            }
-          },
           "versionId": "libraries:ROOT"
         }
       ],
@@ -529,11 +466,10 @@
       },
       "dependsOn": [
         "libraries:ROOT",
-        "libraries:ROOT:gmock",
-        "libraries:Zefiros-Software:GoogleTest+gmock",
-        "libraries:ROOT:gtest",
-        "libraries:Zefiros-Software:GoogleTest:master-2134e",
-        "libraries:Zefiros-Software:GoogleTest+gtest"
+        "libraries:Zefiros-Software/GoogleTest:gmock",
+        "libraries:ROOT:../gtest",
+        "libraries:Zefiros-Software/GoogleTest:gtest",
+        "libraries:Zefiros-Software:GoogleTest:master-2134e"
       ],
       "manifest": "extractor",
       "packageId": "ZPM:extractor/default",
@@ -557,7 +493,7 @@
               "googlemock/src/**.h"
             ]
           },
-          "versionId": "libraries:Zefiros-Software:GoogleTest+gmock"
+          "versionId": "libraries:Zefiros-Software/GoogleTest:gmock"
         },
         {
           "optional": false,
@@ -572,7 +508,7 @@
               "googletest/src/**.h"
             ]
           },
-          "versionId": "libraries:Zefiros-Software:GoogleTest+gtest"
+          "versionId": "libraries:Zefiros-Software/GoogleTest:gtest"
         },
         {
           "optional": false,
@@ -583,7 +519,7 @@
               "googletest/src/**.h"
             ]
           },
-          "versionId": "libraries:ROOT:gtest"
+          "versionId": "libraries:ROOT:../gtest"
         },
         {
           "optional": false,
@@ -594,10 +530,6 @@
               "googlemock/src/**.h"
             ]
           },
-          "versionId": "libraries:ROOT:gmock"
-        },
-        {
-          "optional": false,
           "versionId": "libraries:ROOT"
         }
       ],

@@ -3,16 +3,17 @@
     {
       "definition": {
         "build": {
+          "custom": "if(UNIX)\ntarget_link_libraries(\"${PROJECT_NAME}\" INTERFACE pthread)\nendif()\n",
           "feature": [
-            "cxx_std_14"
+            "cxx_std_17"
           ],
           "include": [
-            "include"
+            "./"
           ],
           "self": {
             "private": {
               "link": [
-                "Zefiros-Software/fmt"
+                "Zefiros-Software/taskflow"
               ]
             },
             "public": {
@@ -22,15 +23,11 @@
             ],
             "template": "library-test"
           },
-          "source": [
-            "src/*.cc"
-          ],
-          "template": "library"
+          "template": "headeronly"
         },
         "extract": {
           "include": [
-            "include/**",
-            "src/**.cc"
+            "taskflow/**/*.hpp"
           ]
         }
       },
@@ -45,16 +42,17 @@
     {
       "definition": {
         "build": {
+          "custom": "if(UNIX)\ntarget_link_libraries(\"${PROJECT_NAME}\" INTERFACE pthread)\nendif()\n",
           "feature": [
-            "cxx_std_14"
+            "cxx_std_17"
           ],
           "include": [
-            "include"
+            "./"
           ],
           "self": {
             "private": {
               "link": [
-                "Zefiros-Software/fmt"
+                "Zefiros-Software/taskflow"
               ]
             },
             "source": [
@@ -62,15 +60,11 @@
             ],
             "template": "library-test"
           },
-          "source": [
-            "src/*.cc"
-          ],
-          "template": "library"
+          "template": "headeronly"
         },
         "extract": {
           "include": [
-            "include/**",
-            "src/**.cc"
+            "taskflow/**/*.hpp"
           ]
         }
       },
@@ -78,7 +72,7 @@
         "libraries:ROOT:./"
       ],
       "manifest": "libraries",
-      "packageId": "Zefiros-Software/fmt",
+      "packageId": "Zefiros-Software/taskflow",
       "settings": {
       },
       "usedBy": [
@@ -88,32 +82,33 @@
         }
       ],
       "version": {
-        "hash": "9e554999ce02cf86fcdfe74fe740c4fe3f5a56d5",
-        "name": "5.3.0",
-        "version": "5.3.0"
+        "hash": "205950d6d716451137e7538e61c7c17dec8ece5f",
+        "name": "master",
+        "version": "master"
       },
-      "versionId": "libraries:Zefiros-Software:fmt:5.3.0-9e554"
+      "versionId": "libraries:Zefiros-Software:taskflow:master-20595"
     },
     {
       "definition": {
       },
       "dependsOn": [
         "libraries:ROOT:./",
-        "libraries:Zefiros-Software:fmt:5.3.0-9e554"
+        "libraries:Zefiros-Software:taskflow:master-20595"
       ],
       "manifest": "builder",
       "packageId": "ZPM:builder/default",
       "settings": {
+        "custom": "if(UNIX)\ntarget_link_libraries(\"${PROJECT_NAME}\" INTERFACE pthread)\nendif()\n",
         "feature": [
-          "cxx_std_14"
+          "cxx_std_17"
         ],
         "include": [
-          "include"
+          "./"
         ],
         "self": {
           "private": {
             "link": [
-              "Zefiros-Software/fmt"
+              "Zefiros-Software/taskflow"
             ]
           },
           "source": [
@@ -121,29 +116,27 @@
           ],
           "template": "library-test"
         },
-        "source": [
-          "src/*.cc"
-        ],
-        "template": "library"
+        "template": "headeronly"
       },
       "usedBy": [
         {
           "optional": false,
           "settings": {
+            "custom": "if(UNIX)\ntarget_link_libraries(\"${PROJECT_NAME}\" INTERFACE pthread)\nendif()\n",
             "private": {
             },
             "public": {
               "feature": [
-                "cxx_std_14"
+                "cxx_std_17"
               ],
               "include": [
-                "include"
+                "./"
               ]
             },
             "self": {
               "private": {
                 "link": [
-                  "Zefiros-Software/fmt"
+                  "Zefiros-Software/taskflow"
                 ]
               },
               "source": [
@@ -151,26 +144,24 @@
               ],
               "template": "library-test"
             },
-            "source": [
-              "src/*.cc"
-            ],
-            "template": "library"
+            "template": "headeronly"
           },
-          "versionId": "libraries:Zefiros-Software:fmt:5.3.0-9e554"
+          "versionId": "libraries:Zefiros-Software:taskflow:master-20595"
         },
         {
           "optional": false,
           "settings": {
+            "custom": "if(UNIX)\ntarget_link_libraries(\"${PROJECT_NAME}\" INTERFACE pthread)\nendif()\n",
             "feature": [
-              "cxx_std_14"
+              "cxx_std_17"
             ],
             "include": [
-              "include"
+              "./"
             ],
             "self": {
               "private": {
                 "link": [
-                  "Zefiros-Software/fmt"
+                  "Zefiros-Software/taskflow"
                 ]
               },
               "public": {
@@ -180,10 +171,7 @@
               ],
               "template": "library-test"
             },
-            "source": [
-              "src/*.cc"
-            ],
-            "template": "library"
+            "template": "headeronly"
           },
           "versionId": "libraries:ROOT:./"
         }
@@ -218,14 +206,13 @@
       },
       "dependsOn": [
         "libraries:ROOT:./",
-        "libraries:Zefiros-Software:fmt:5.3.0-9e554"
+        "libraries:Zefiros-Software:taskflow:master-20595"
       ],
       "manifest": "extractor",
       "packageId": "ZPM:extractor/default",
       "settings": {
         "include": [
-          "include/**",
-          "src/**.cc"
+          "taskflow/**/*.hpp"
         ]
       },
       "usedBy": [
@@ -233,18 +220,16 @@
           "optional": false,
           "settings": {
             "include": [
-              "include/**",
-              "src/**.cc"
+              "taskflow/**/*.hpp"
             ]
           },
-          "versionId": "libraries:Zefiros-Software:fmt:5.3.0-9e554"
+          "versionId": "libraries:Zefiros-Software:taskflow:master-20595"
         },
         {
           "optional": false,
           "settings": {
             "include": [
-              "include/**",
-              "src/**.cc"
+              "taskflow/**/*.hpp"
             ]
           },
           "versionId": "libraries:ROOT:./"

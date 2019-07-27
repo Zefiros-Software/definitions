@@ -6,12 +6,20 @@ development:
       repository: https://github.com/nlohmann/json.git
 
 extract:
-  includes:
+  include:
     - "include/**/*.hpp"
 
 build:
   template: headeronly
-  includes:
+  include:
     - include
-  features:
+  feature:
     - cxx_std_11
+
+  self:
+    template: library-test
+    source:
+      - "test/**.cpp"
+    private:
+      link:
+        - Zefiros-Software/nlohmannjson

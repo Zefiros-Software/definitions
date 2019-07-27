@@ -1,0 +1,212 @@
+{
+  "versions": [
+    {
+      "definition": {
+      },
+      "manifest": "builder",
+      "packageId": "ZPM:builder/default",
+      "settings": {
+      },
+      "usedBy": [
+        {
+          "optional": false,
+          "settings": {
+            "feature": [
+              "cxx_std_11"
+            ],
+            "include": [
+              "./"
+            ],
+            "self": {
+              "private": {
+                "link": [
+                  "Zefiros-Software/simdpp"
+                ]
+              },
+              "public": {
+              },
+              "source": [
+                "test/**.cpp"
+              ],
+              "template": "library-test"
+            },
+            "template": "headeronly"
+          },
+          "versionId": "libraries:ROOT:./"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "private": {
+            },
+            "public": {
+              "feature": [
+                "cxx_std_11"
+              ],
+              "include": [
+                "./"
+              ]
+            },
+            "self": {
+              "private": {
+                "link": [
+                  "Zefiros-Software/simdpp"
+                ]
+              },
+              "source": [
+                "test/**.cpp"
+              ],
+              "template": "library-test"
+            },
+            "template": "headeronly"
+          },
+          "versionId": "libraries:Zefiros-Software:simdpp:master-4385a"
+        }
+      ],
+      "versionId": "builder:ZPM:builder/default"
+    },
+    {
+      "definition": {
+        "extractor": {
+          "excludes": [
+            "**/test/**"
+          ],
+          "includes": [
+            "**/src/**/*.h",
+            "**/src/**/*.cpp",
+            "**/src/**/*.cc",
+            "**/src/**/*.cxx",
+            "**/src/**/*.c",
+            "**/src/**/*.s",
+            "**/src/**/*.m",
+            "**/src/**/*.mm",
+            "**/include/**/*.h",
+            "**/include/**/*.cpp",
+            "**/include/**/*.cc",
+            "**/include/**/*.cxx",
+            "**/include/**/*.c",
+            "**/include/**/*.s",
+            "**/include/**/*.m",
+            "**/include/**/*.mm"
+          ]
+        }
+      },
+      "manifest": "extractor",
+      "packageId": "ZPM:extractor/default",
+      "settings": {
+      },
+      "usedBy": [
+        {
+          "optional": false,
+          "settings": {
+            "include": [
+              "simdpp/**/*.h",
+              "simdpp/**/*.hpp",
+              "simdpp/**/*.inl"
+            ]
+          },
+          "versionId": "libraries:ROOT:./"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "include": [
+              "simdpp/**/*.h",
+              "simdpp/**/*.hpp",
+              "simdpp/**/*.inl"
+            ]
+          },
+          "versionId": "libraries:Zefiros-Software:simdpp:master-4385a"
+        }
+      ],
+      "versionId": "extractor:ZPM:extractor/default"
+    },
+    {
+      "definition": {
+        "build": {
+          "feature": [
+            "cxx_std_11"
+          ],
+          "include": [
+            "./"
+          ],
+          "self": {
+            "private": {
+              "link": [
+                "Zefiros-Software/simdpp"
+              ]
+            },
+            "public": {
+            },
+            "source": [
+              "test/**.cpp"
+            ],
+            "template": "library-test"
+          },
+          "template": "headeronly"
+        },
+        "extract": {
+          "include": [
+            "simdpp/**/*.h",
+            "simdpp/**/*.hpp",
+            "simdpp/**/*.inl"
+          ]
+        }
+      },
+      "manifest": "libraries",
+      "packageId": "ROOT:./",
+      "settings": {
+      },
+      "usedBy": [
+      ],
+      "versionId": "libraries:ROOT:./"
+    },
+    {
+      "definition": {
+        "build": {
+          "feature": [
+            "cxx_std_11"
+          ],
+          "include": [
+            "./"
+          ],
+          "self": {
+            "private": {
+              "link": [
+                "Zefiros-Software/simdpp"
+              ]
+            },
+            "source": [
+              "test/**.cpp"
+            ],
+            "template": "library-test"
+          },
+          "template": "headeronly"
+        },
+        "extract": {
+          "include": [
+            "simdpp/**/*.h",
+            "simdpp/**/*.hpp",
+            "simdpp/**/*.inl"
+          ]
+        }
+      },
+      "manifest": "libraries",
+      "packageId": "Zefiros-Software/simdpp",
+      "settings": {
+      },
+      "usedBy": [
+        {
+          "optional": false,
+          "versionId": "libraries:ROOT:./"
+        }
+      ],
+      "version": {
+        "hash": "4385a0aa017bd7628038e329c09a573ef81bb863",
+        "name": "master",
+        "version": "master"
+      },
+      "versionId": "libraries:Zefiros-Software:simdpp:master-4385a"
+    }
+  ]
+}

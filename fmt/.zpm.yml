@@ -6,6 +6,22 @@ development:
       repository: https://github.com/fmtlib/fmt.git
 
 extract:
-  includes:
+  include:
     - "include/**"
     - "src/**.cc"
+build:
+  template: library
+  source:
+    - src/*.cc
+  include:
+    - include
+  feature:
+    - cxx_std_14
+
+  self:
+    template: library-test
+    source:
+      - "test/**.cpp"
+    private:
+      link:
+        - Zefiros-Software/fmt

@@ -1,0 +1,318 @@
+{
+  "versions": [
+    {
+      "definition": {
+      },
+      "manifest": "builder",
+      "packageId": "ZPM:builder/default",
+      "settings": {
+      },
+      "usedBy": [
+        {
+          "optional": false,
+          "settings": {
+            "define": [
+              "SPDLOG_FMT_EXTERNAL"
+            ],
+            "include": [
+              "include"
+            ],
+            "link": [
+              "Zefiros-Software/fmt"
+            ],
+            "self": {
+              "private": {
+                "link": [
+                  "Zefiros-Software/spdlog"
+                ]
+              },
+              "public": {
+              },
+              "source": [
+                "test/**.cpp"
+              ],
+              "template": "library-test"
+            },
+            "template": "headeronly"
+          },
+          "versionId": "libraries:ROOT:./"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "private": {
+            },
+            "public": {
+              "feature": [
+                "cxx_std_14"
+              ],
+              "include": [
+                "include"
+              ]
+            },
+            "self": {
+              "private": {
+                "link": [
+                  "Zefiros-Software/fmt"
+                ]
+              },
+              "source": [
+                "test/**.cpp"
+              ],
+              "template": "library-test"
+            },
+            "source": [
+              "src/*.cc"
+            ],
+            "template": "library"
+          },
+          "versionId": "libraries:Zefiros-Software:fmt:5.3.0-9e554"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "private": {
+            },
+            "public": {
+              "define": [
+                "SPDLOG_FMT_EXTERNAL"
+              ],
+              "include": [
+                "include"
+              ],
+              "link": [
+                "Zefiros-Software/fmt"
+              ]
+            },
+            "self": {
+              "private": {
+                "link": [
+                  "Zefiros-Software/spdlog"
+                ]
+              },
+              "source": [
+                "test/**.cpp"
+              ],
+              "template": "library-test"
+            },
+            "template": "headeronly"
+          },
+          "versionId": "libraries:Zefiros-Software:spdlog:v1.3.1-a7148"
+        }
+      ],
+      "versionId": "builder:ZPM:builder/default"
+    },
+    {
+      "definition": {
+        "extractor": {
+          "excludes": [
+            "**/test/**"
+          ],
+          "includes": [
+            "**/src/**/*.h",
+            "**/src/**/*.cpp",
+            "**/src/**/*.cc",
+            "**/src/**/*.cxx",
+            "**/src/**/*.c",
+            "**/src/**/*.s",
+            "**/src/**/*.m",
+            "**/src/**/*.mm",
+            "**/include/**/*.h",
+            "**/include/**/*.cpp",
+            "**/include/**/*.cc",
+            "**/include/**/*.cxx",
+            "**/include/**/*.c",
+            "**/include/**/*.s",
+            "**/include/**/*.m",
+            "**/include/**/*.mm"
+          ]
+        }
+      },
+      "manifest": "extractor",
+      "packageId": "ZPM:extractor/default",
+      "settings": {
+      },
+      "usedBy": [
+        {
+          "optional": false,
+          "settings": {
+            "include": [
+              "include/**/*.h"
+            ]
+          },
+          "versionId": "libraries:ROOT:./"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "include": [
+              "include/**",
+              "src/**.cc"
+            ]
+          },
+          "versionId": "libraries:Zefiros-Software:fmt:5.3.0-9e554"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "include": [
+              "include/**/*.h"
+            ]
+          },
+          "versionId": "libraries:Zefiros-Software:spdlog:v1.3.1-a7148"
+        }
+      ],
+      "versionId": "extractor:ZPM:extractor/default"
+    },
+    {
+      "definition": {
+        "build": {
+          "define": [
+            "SPDLOG_FMT_EXTERNAL"
+          ],
+          "include": [
+            "include"
+          ],
+          "link": [
+            "Zefiros-Software/fmt"
+          ],
+          "self": {
+            "private": {
+              "link": [
+                "Zefiros-Software/spdlog"
+              ]
+            },
+            "public": {
+            },
+            "source": [
+              "test/**.cpp"
+            ],
+            "template": "library-test"
+          },
+          "template": "headeronly"
+        },
+        "extract": {
+          "include": [
+            "include/**/*.h"
+          ]
+        },
+        "libraries": [
+          {
+            "name": "Zefiros-Software/fmt",
+            "version": "^5.0.0"
+          }
+        ]
+      },
+      "manifest": "libraries",
+      "packageId": "ROOT:./",
+      "settings": {
+      },
+      "usedBy": [
+      ],
+      "versionId": "libraries:ROOT:./"
+    },
+    {
+      "definition": {
+        "build": {
+          "feature": [
+            "cxx_std_14"
+          ],
+          "include": [
+            "include"
+          ],
+          "self": {
+            "private": {
+              "link": [
+                "Zefiros-Software/fmt"
+              ]
+            },
+            "source": [
+              "test/**.cpp"
+            ],
+            "template": "library-test"
+          },
+          "source": [
+            "src/*.cc"
+          ],
+          "template": "library"
+        },
+        "extract": {
+          "include": [
+            "include/**",
+            "src/**.cc"
+          ]
+        }
+      },
+      "manifest": "libraries",
+      "packageId": "Zefiros-Software/fmt",
+      "settings": {
+      },
+      "usedBy": [
+        {
+          "optional": false,
+          "versionId": "libraries:ROOT:./"
+        }
+      ],
+      "version": {
+        "hash": "9e554999ce02cf86fcdfe74fe740c4fe3f5a56d5",
+        "name": "5.3.0",
+        "version": "5.3.0"
+      },
+      "versionId": "libraries:Zefiros-Software:fmt:5.3.0-9e554"
+    },
+    {
+      "definition": {
+        "build": {
+          "define": [
+            "SPDLOG_FMT_EXTERNAL"
+          ],
+          "include": [
+            "include"
+          ],
+          "link": [
+            "Zefiros-Software/fmt"
+          ],
+          "self": {
+            "private": {
+              "link": [
+                "Zefiros-Software/spdlog"
+              ]
+            },
+            "source": [
+              "test/**.cpp"
+            ],
+            "template": "library-test"
+          },
+          "template": "headeronly"
+        },
+        "extract": {
+          "include": [
+            "include/**/*.h"
+          ]
+        },
+        "libraries": [
+          {
+            "name": "Zefiros-Software/fmt",
+            "version": "^5.0.0"
+          }
+        ]
+      },
+      "manifest": "libraries",
+      "packageId": "Zefiros-Software/spdlog",
+      "settings": {
+      },
+      "usedBy": [
+        {
+          "optional": false,
+          "versionId": "libraries:ROOT:./"
+        }
+      ],
+      "version": {
+        "hash": "a7148b718ea2fabb8387cb90aee9bf448da63e65",
+        "name": "v1.3.1",
+        "version": "1.3.1"
+      },
+      "versionId": "libraries:Zefiros-Software:spdlog:v1.3.1-a7148"
+    }
+  ]
+}

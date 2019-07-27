@@ -1,23 +1,23 @@
-#include "taskflow/taskflow.hpp"  // the only include you need
+#include <taskflow/taskflow.hpp>  // Cpp-Taskflow is header-only
 
-int main()
-{
+int main(){
+  
+  tf::Executor executor;
+  tf::Taskflow taskflow;
 
-    tf::Taskflow tf(std::thread::hardware_concurrency());
+  auto [A, B, C, D] = taskflow.emplace(
+    [] () { std::cout << "TaskA\n"; },               //  task dependency graph
+    [] () { std::cout << "TaskB\n"; },               // 
+    [] () { std::cout << "TaskC\n"; },               //          +---+          
+    [] () { std::cout << "TaskD\n"; }                //    +---->| B |-----+   
+  );                                                 //    |     +---+     |
+                                                     //  +---+           +-v-+ 
+  A.precede(B);  // A runs before B                  //  | A |           | D | 
+  A.precede(C);  // A runs before C                  //  +---+           +-^-+ 
+  B.precede(D);  // B runs before D                  //    |     +---+     |    
+  C.precede(D);  // C runs before D                  //    +---->| C |-----+    
+                                                     //          +---+          
+  executor.run(taskflow).wait();
 
-    auto [A, B, C, D] = tf.silent_emplace(
-    []() { std::cout << "TaskA\n"; },                //  the taskflow graph
-    []() { std::cout << "TaskB\n"; },                //
-    []() { std::cout << "TaskC\n"; },                //          +---+
-    []() { std::cout << "TaskD\n"; }                 //    +---->| B |-----+
-                        );                                                 //    |     +---+     |
-    //  +---+           +-v-+
-    A.precede(B);  // B runs after A                   //  | A |           | D |
-    A.precede(C);  // C runs after A                   //  +---+           +-^-+
-    B.precede(D);  // D runs after B                   //    |     +---+     |
-    C.precede(D);  // D runs after C                   //    +---->| C |-----+
-    //          +---+
-    tf.wait_for_all();  // block until finished
-
-    return 0;
+  return 0;
 }

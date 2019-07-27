@@ -1,0 +1,204 @@
+{
+  "versions": [
+    {
+      "definition": {
+      },
+      "manifest": "builder",
+      "packageId": "ZPM:builder/default",
+      "settings": {
+      },
+      "usedBy": [
+        {
+          "optional": false,
+          "settings": {
+            "feature": [
+              "cxx_std_11"
+            ],
+            "include": [
+              "./"
+            ],
+            "self": {
+              "private": {
+                "link": [
+                  "Zefiros-Software/flathashmap"
+                ]
+              },
+              "public": {
+              },
+              "source": [
+                "test/**.cpp"
+              ],
+              "template": "library-test"
+            },
+            "template": "headeronly"
+          },
+          "versionId": "libraries:ROOT:./"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "private": {
+            },
+            "public": {
+              "feature": [
+                "cxx_std_11"
+              ],
+              "include": [
+                "./"
+              ]
+            },
+            "self": {
+              "private": {
+                "link": [
+                  "Zefiros-Software/flathashmap"
+                ]
+              },
+              "source": [
+                "test/**.cpp"
+              ],
+              "template": "library-test"
+            },
+            "template": "headeronly"
+          },
+          "versionId": "libraries:Zefiros-Software:flathashmap:master-2c468"
+        }
+      ],
+      "versionId": "builder:ZPM:builder/default"
+    },
+    {
+      "definition": {
+        "extractor": {
+          "excludes": [
+            "**/test/**"
+          ],
+          "includes": [
+            "**/src/**/*.h",
+            "**/src/**/*.cpp",
+            "**/src/**/*.cc",
+            "**/src/**/*.cxx",
+            "**/src/**/*.c",
+            "**/src/**/*.s",
+            "**/src/**/*.m",
+            "**/src/**/*.mm",
+            "**/include/**/*.h",
+            "**/include/**/*.cpp",
+            "**/include/**/*.cc",
+            "**/include/**/*.cxx",
+            "**/include/**/*.c",
+            "**/include/**/*.s",
+            "**/include/**/*.m",
+            "**/include/**/*.mm"
+          ]
+        }
+      },
+      "manifest": "extractor",
+      "packageId": "ZPM:extractor/default",
+      "settings": {
+      },
+      "usedBy": [
+        {
+          "optional": false,
+          "settings": {
+            "include": [
+              "*.hpp"
+            ]
+          },
+          "versionId": "libraries:ROOT:./"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "include": [
+              "*.hpp"
+            ]
+          },
+          "versionId": "libraries:Zefiros-Software:flathashmap:master-2c468"
+        }
+      ],
+      "versionId": "extractor:ZPM:extractor/default"
+    },
+    {
+      "definition": {
+        "build": {
+          "feature": [
+            "cxx_std_11"
+          ],
+          "include": [
+            "./"
+          ],
+          "self": {
+            "private": {
+              "link": [
+                "Zefiros-Software/flathashmap"
+              ]
+            },
+            "public": {
+            },
+            "source": [
+              "test/**.cpp"
+            ],
+            "template": "library-test"
+          },
+          "template": "headeronly"
+        },
+        "extract": {
+          "include": [
+            "*.hpp"
+          ]
+        }
+      },
+      "manifest": "libraries",
+      "packageId": "ROOT:./",
+      "settings": {
+      },
+      "usedBy": [
+      ],
+      "versionId": "libraries:ROOT:./"
+    },
+    {
+      "definition": {
+        "build": {
+          "feature": [
+            "cxx_std_11"
+          ],
+          "include": [
+            "./"
+          ],
+          "self": {
+            "private": {
+              "link": [
+                "Zefiros-Software/flathashmap"
+              ]
+            },
+            "source": [
+              "test/**.cpp"
+            ],
+            "template": "library-test"
+          },
+          "template": "headeronly"
+        },
+        "extract": {
+          "include": [
+            "*.hpp"
+          ]
+        }
+      },
+      "manifest": "libraries",
+      "packageId": "Zefiros-Software/flathashmap",
+      "settings": {
+      },
+      "usedBy": [
+        {
+          "optional": false,
+          "versionId": "libraries:ROOT:./"
+        }
+      ],
+      "version": {
+        "hash": "2c4687431f978f02a3780e24b8b701d22aa32d9c",
+        "name": "master",
+        "version": "master"
+      },
+      "versionId": "libraries:Zefiros-Software:flathashmap:master-2c468"
+    }
+  ]
+}

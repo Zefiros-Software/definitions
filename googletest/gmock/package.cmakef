@@ -1,0 +1,13 @@
+zpm_project()
+
+target_compile_features("${PROJECT_NAME}" PUBLIC cxx_std_11)
+
+target_link_libraries("${PROJECT_NAME}" PUBLIC "${PROJECT_NAME}+gtest")
+
+if(UNIX)
+target_link_libraries("${PROJECT_NAME}+gtest" PUBLIC pthread)
+endif()
+
+zpm_alias("${PROJECT_NAME}+gmock")
+zpm_alias("${PROJECT_NAME}+gtest")
+zpm_default_target("${PROJECT_NAME}+gmock")

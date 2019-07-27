@@ -3,16 +3,17 @@
     {
       "definition": {
         "build": {
+          "custom": "if (MSVC)\ntarget_compile_options(\"${PROJECT_NAME}\" INTERFACE /permissive-)\nendif()\n",
           "feature": [
-            "cxx_std_14"
+            "cxx_std_17"
           ],
           "include": [
-            "include"
+            "single_include"
           ],
           "self": {
             "private": {
               "link": [
-                "Zefiros-Software/fmt"
+                "Zefiros-Software/nanorange"
               ]
             },
             "public": {
@@ -22,15 +23,11 @@
             ],
             "template": "library-test"
           },
-          "source": [
-            "src/*.cc"
-          ],
-          "template": "library"
+          "template": "headeronly"
         },
         "extract": {
           "include": [
-            "include/**",
-            "src/**.cc"
+            "single_include/*.hpp"
           ]
         }
       },
@@ -45,16 +42,17 @@
     {
       "definition": {
         "build": {
+          "custom": "if (MSVC)\ntarget_compile_options(\"${PROJECT_NAME}\" INTERFACE /permissive-)\nendif()\n",
           "feature": [
-            "cxx_std_14"
+            "cxx_std_17"
           ],
           "include": [
-            "include"
+            "single_include"
           ],
           "self": {
             "private": {
               "link": [
-                "Zefiros-Software/fmt"
+                "Zefiros-Software/nanorange"
               ]
             },
             "source": [
@@ -62,15 +60,11 @@
             ],
             "template": "library-test"
           },
-          "source": [
-            "src/*.cc"
-          ],
-          "template": "library"
+          "template": "headeronly"
         },
         "extract": {
           "include": [
-            "include/**",
-            "src/**.cc"
+            "single_include/*.hpp"
           ]
         }
       },
@@ -78,7 +72,7 @@
         "libraries:ROOT:./"
       ],
       "manifest": "libraries",
-      "packageId": "Zefiros-Software/fmt",
+      "packageId": "Zefiros-Software/nanorange",
       "settings": {
       },
       "usedBy": [
@@ -88,32 +82,33 @@
         }
       ],
       "version": {
-        "hash": "9e554999ce02cf86fcdfe74fe740c4fe3f5a56d5",
-        "name": "5.3.0",
-        "version": "5.3.0"
+        "hash": "2d0475634404bb998a549c4e0be75b8624c11b19",
+        "name": "master",
+        "version": "master"
       },
-      "versionId": "libraries:Zefiros-Software:fmt:5.3.0-9e554"
+      "versionId": "libraries:Zefiros-Software:nanorange:master-2d047"
     },
     {
       "definition": {
       },
       "dependsOn": [
         "libraries:ROOT:./",
-        "libraries:Zefiros-Software:fmt:5.3.0-9e554"
+        "libraries:Zefiros-Software:nanorange:master-2d047"
       ],
       "manifest": "builder",
       "packageId": "ZPM:builder/default",
       "settings": {
+        "custom": "if (MSVC)\ntarget_compile_options(\"${PROJECT_NAME}\" INTERFACE /permissive-)\nendif()\n",
         "feature": [
-          "cxx_std_14"
+          "cxx_std_17"
         ],
         "include": [
-          "include"
+          "single_include"
         ],
         "self": {
           "private": {
             "link": [
-              "Zefiros-Software/fmt"
+              "Zefiros-Software/nanorange"
             ]
           },
           "source": [
@@ -121,29 +116,27 @@
           ],
           "template": "library-test"
         },
-        "source": [
-          "src/*.cc"
-        ],
-        "template": "library"
+        "template": "headeronly"
       },
       "usedBy": [
         {
           "optional": false,
           "settings": {
+            "custom": "if (MSVC)\ntarget_compile_options(\"${PROJECT_NAME}\" INTERFACE /permissive-)\nendif()\n",
             "private": {
             },
             "public": {
               "feature": [
-                "cxx_std_14"
+                "cxx_std_17"
               ],
               "include": [
-                "include"
+                "single_include"
               ]
             },
             "self": {
               "private": {
                 "link": [
-                  "Zefiros-Software/fmt"
+                  "Zefiros-Software/nanorange"
                 ]
               },
               "source": [
@@ -151,26 +144,24 @@
               ],
               "template": "library-test"
             },
-            "source": [
-              "src/*.cc"
-            ],
-            "template": "library"
+            "template": "headeronly"
           },
-          "versionId": "libraries:Zefiros-Software:fmt:5.3.0-9e554"
+          "versionId": "libraries:Zefiros-Software:nanorange:master-2d047"
         },
         {
           "optional": false,
           "settings": {
+            "custom": "if (MSVC)\ntarget_compile_options(\"${PROJECT_NAME}\" INTERFACE /permissive-)\nendif()\n",
             "feature": [
-              "cxx_std_14"
+              "cxx_std_17"
             ],
             "include": [
-              "include"
+              "single_include"
             ],
             "self": {
               "private": {
                 "link": [
-                  "Zefiros-Software/fmt"
+                  "Zefiros-Software/nanorange"
                 ]
               },
               "public": {
@@ -180,10 +171,7 @@
               ],
               "template": "library-test"
             },
-            "source": [
-              "src/*.cc"
-            ],
-            "template": "library"
+            "template": "headeronly"
           },
           "versionId": "libraries:ROOT:./"
         }
@@ -218,14 +206,13 @@
       },
       "dependsOn": [
         "libraries:ROOT:./",
-        "libraries:Zefiros-Software:fmt:5.3.0-9e554"
+        "libraries:Zefiros-Software:nanorange:master-2d047"
       ],
       "manifest": "extractor",
       "packageId": "ZPM:extractor/default",
       "settings": {
         "include": [
-          "include/**",
-          "src/**.cc"
+          "single_include/*.hpp"
         ]
       },
       "usedBy": [
@@ -233,18 +220,16 @@
           "optional": false,
           "settings": {
             "include": [
-              "include/**",
-              "src/**.cc"
+              "single_include/*.hpp"
             ]
           },
-          "versionId": "libraries:Zefiros-Software:fmt:5.3.0-9e554"
+          "versionId": "libraries:Zefiros-Software:nanorange:master-2d047"
         },
         {
           "optional": false,
           "settings": {
             "include": [
-              "include/**",
-              "src/**.cc"
+              "single_include/*.hpp"
             ]
           },
           "versionId": "libraries:ROOT:./"

@@ -1,14 +1,17 @@
 cmake_minimum_required(VERSION 3.13)
 
 if(NOT ZPM_LOADED)
-    include("extern/ZPM")
+  include("extern/ZPM")
 
-    zpm_defaults()
+  zpm_defaults()
 endif()
 
-project(GoogleTestExample LANGUAGES CXX)
+add_executable(flathashmap
+    "test/main.cpp"
+)
 
-add_executable(test-flathashmap test/main.cpp)
-target_link_libraries(test-flathashmap PRIVATE Zefiros-Software::flathashmap)
+target_link_libraries(flathashmap PRIVATE 
+    Zefiros-Software::flathashmap
+)
 
-add_test(NAME test-flathashmap COMMAND test-flathashmap)
+add_test(NAME flathashmap COMMAND flathashmap)

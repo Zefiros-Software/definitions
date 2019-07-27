@@ -1,0 +1,38 @@
+development:
+  libraries:
+    - name: Zefiros-Software/GoogleTest:gmock
+      version: master
+      definition: ./
+requires:
+  libraries:
+    - path: ../gtest
+
+extract:
+  include:
+    - "googlemock/include/**/*.h"
+    - "googlemock/src/**.cc"
+    - "googlemock/src/**.h"
+build:
+  template: library
+  source:
+    - googlemock/src/gmock-all.cc
+  include:
+    - googlemock/include
+  feature:
+    - cxx_std_11
+  link:
+    - "${PROJECT_ROOT}+gtest"
+  default: true
+  
+  private:
+    include: 
+      - googlemock
+
+
+  self:
+    template: library-test
+    source:
+      - "test/*.cpp"
+    private:
+      link:
+        - Zefiros-Software/GoogleTest+gmock

@@ -1,6 +1,6 @@
 development:
   libraries:
-    - path: googletest
+    #- path: googletest
     - path: simdpp
     - path: flathashmap
     - path: nanorange
@@ -10,4 +10,4 @@ development:
     - path: fmt
     - path: spdlog
     - path: range-v3
-    #- path: boost
+    - path: boost

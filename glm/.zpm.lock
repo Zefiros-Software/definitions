@@ -1,0 +1,220 @@
+{
+  "versions": [
+    {
+      "definition": {
+      },
+      "manifest": "builder",
+      "packageId": "ZPM:builder/default",
+      "settings": {
+      },
+      "usedBy": [
+        {
+          "optional": false,
+          "settings": {
+            "define": [
+              "GLM_FORCE_SWIZZLE",
+              "GLM_ENABLE_EXPERIMENTAL"
+            ],
+            "feature": [
+              "cxx_std_11"
+            ],
+            "include": [
+              "./"
+            ],
+            "self": {
+              "private": {
+                "link": [
+                  "Zefiros-Software/glm"
+                ]
+              },
+              "public": {
+              },
+              "source": [
+                "test/**.cpp"
+              ],
+              "template": "library-test"
+            },
+            "template": "headeronly"
+          },
+          "versionId": "libraries:ROOT:./"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "private": {
+            },
+            "public": {
+              "define": [
+                "GLM_FORCE_SWIZZLE",
+                "GLM_ENABLE_EXPERIMENTAL"
+              ],
+              "feature": [
+                "cxx_std_11"
+              ],
+              "include": [
+                "./"
+              ]
+            },
+            "self": {
+              "private": {
+                "link": [
+                  "Zefiros-Software/glm"
+                ]
+              },
+              "source": [
+                "test/**.cpp"
+              ],
+              "template": "library-test"
+            },
+            "template": "headeronly"
+          },
+          "versionId": "libraries:Zefiros-Software:glm:master-94752"
+        }
+      ],
+      "versionId": "builder:ZPM:builder/default"
+    },
+    {
+      "definition": {
+        "extractor": {
+          "excludes": [
+            "**/test/**"
+          ],
+          "includes": [
+            "**/src/**/*.h",
+            "**/src/**/*.cpp",
+            "**/src/**/*.cc",
+            "**/src/**/*.cxx",
+            "**/src/**/*.c",
+            "**/src/**/*.s",
+            "**/src/**/*.m",
+            "**/src/**/*.mm",
+            "**/include/**/*.h",
+            "**/include/**/*.cpp",
+            "**/include/**/*.cc",
+            "**/include/**/*.cxx",
+            "**/include/**/*.c",
+            "**/include/**/*.s",
+            "**/include/**/*.m",
+            "**/include/**/*.mm"
+          ]
+        }
+      },
+      "manifest": "extractor",
+      "packageId": "ZPM:extractor/default",
+      "settings": {
+      },
+      "usedBy": [
+        {
+          "optional": false,
+          "settings": {
+            "include": [
+              "glm/**"
+            ]
+          },
+          "versionId": "libraries:ROOT:./"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "include": [
+              "glm/**"
+            ]
+          },
+          "versionId": "libraries:Zefiros-Software:glm:master-94752"
+        }
+      ],
+      "versionId": "extractor:ZPM:extractor/default"
+    },
+    {
+      "definition": {
+        "build": {
+          "define": [
+            "GLM_FORCE_SWIZZLE",
+            "GLM_ENABLE_EXPERIMENTAL"
+          ],
+          "feature": [
+            "cxx_std_11"
+          ],
+          "include": [
+            "./"
+          ],
+          "self": {
+            "private": {
+              "link": [
+                "Zefiros-Software/glm"
+              ]
+            },
+            "public": {
+            },
+            "source": [
+              "test/**.cpp"
+            ],
+            "template": "library-test"
+          },
+          "template": "headeronly"
+        },
+        "extract": {
+          "include": [
+            "glm/**"
+          ]
+        }
+      },
+      "manifest": "libraries",
+      "packageId": "ROOT:./",
+      "settings": {
+      },
+      "usedBy": [
+      ],
+      "versionId": "libraries:ROOT:./"
+    },
+    {
+      "definition": {
+        "build": {
+          "define": [
+            "GLM_FORCE_SWIZZLE",
+            "GLM_ENABLE_EXPERIMENTAL"
+          ],
+          "feature": [
+            "cxx_std_11"
+          ],
+          "include": [
+            "./"
+          ],
+          "self": {
+            "private": {
+              "link": [
+                "Zefiros-Software/glm"
+              ]
+            },
+            "source": [
+              "test/**.cpp"
+            ],
+            "template": "library-test"
+          },
+          "template": "headeronly"
+        },
+        "extract": {
+          "include": [
+            "glm/**"
+          ]
+        }
+      },
+      "manifest": "libraries",
+      "packageId": "Zefiros-Software/glm",
+      "settings": {
+      },
+      "usedBy": [
+        {
+          "optional": false,
+          "versionId": "libraries:ROOT:./"
+        }
+      ],
+      "version": {
+        "hash": "947527d3ac1910e62d142c76480293fee460603d",
+        "name": "master",
+        "version": "master"
+      },
+      "versionId": "libraries:Zefiros-Software:glm:master-94752"
+    }
+  ]
+}

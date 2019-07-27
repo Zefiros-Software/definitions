@@ -39,7 +39,7 @@ addons:
 
 before_script:
   - pip install --user cmake
-  - npm install -g zpmpkg/zpm#alpha
+  - npm install -g @zpmpkg/zpm@next
 script:
   - echo $CONFIG_TYPE
   - zpm

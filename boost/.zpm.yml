@@ -10,3 +10,49 @@ development:
 requires: 
   extractor:
     path: extract
+
+build:
+  template: library
+  source:
+    - "libs/*/src/**"
+    - "!libs/*/src/pthread/**"
+    - "!libs/*/src/win32/**"
+  include:
+    - ./
+  define: 
+    - "BOOST_ALL_NO_LIB" 
+    - "BOOST_TEST_NO_MAIN"
+  feature:
+    - cxx_std_11
+  globs:
+    pthread: 
+      - "libs/*/src/pthread/**"
+    win32: 
+      - "libs/*/src/win32/**"
+  custom: |
+      if (MSVC)
+
+      target_sources("${PROJECT_NAME}" PRIVATE 
+        {{#each globs.win32}}
+        {{this}}
+        {{/each}}
+      )
+
+      else()
+
+      target_sources("${PROJECT_NAME}" PRIVATE
+        {{#each globs.pthread}}
+        {{this}}
+        {{/each}}
+      )
+      
+      endif()
+
+
+  self:
+    template: library-test
+    source:
+      - "test/**.cpp"
+    private:
+      link:
+        - Zefiros-Software/boost

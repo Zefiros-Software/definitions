@@ -1,15 +1,14 @@
-development:
+requires:
   libraries:
-    - name: Zefiros-Software/GoogleTest
-      version: master
-      definition: ./
-      repository: https://github.com/google/googletest.git
+    - path: gmock
+    - path: gtest
 
-extract:
-  includes:
-    - "googletest/include/**/*.h"
-    - "googletest/src/**.cc"
-    - "googletest/src/**.h"
-    - "googlemock/include/**/*.h"
-    - "googlemock/src/**.cc"
-    - "googlemock/src/**.h"
+build:
+  self:
+    template: library-test
+    source:
+      - "*/test/**.cpp"
+      - "!gmock/test/main.cpp"
+    private:
+      link:
+        - Zefiros-Software/GoogleTest

@@ -6,13 +6,21 @@ development:
       repository: https://github.com/p12tic/libsimdpp.git
 
 extract:
-  includes:
+  include:
     - "simdpp/**/*.h"
     - "simdpp/**/*.hpp"
     - "simdpp/**/*.inl"
 build:
   template: headeronly
-  includes:
+  include:
     - ./
-  features:
+  feature:
     - cxx_std_11
+
+  self:
+    template: library-test
+    source:
+      - "test/**.cpp"
+    private:
+      link:
+        - Zefiros-Software/simdpp

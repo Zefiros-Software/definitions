@@ -3,189 +3,222 @@
     {
       "definition": {
         "build": {
-          "feature": [
-            "cxx_std_14"
-          ],
           "include": [
-            "include"
+            "googletest/include"
           ],
+          "private": {
+            "include": [
+              "googletest"
+            ]
+          },
           "self": {
             "private": {
               "link": [
-                "Zefiros-Software/fmt"
+                "Zefiros-Software/GoogleTest:gtest"
               ]
             },
             "public": {
             },
             "source": [
-              "test/**.cpp"
+              "test/*.cpp"
             ],
             "template": "library-test"
           },
           "source": [
-            "src/*.cc"
+            "googletest/src/gtest-all.cc"
           ],
           "template": "library"
         },
         "extract": {
           "include": [
-            "include/**",
-            "src/**.cc"
+            "googletest/include/**/*.h",
+            "googletest/src/**.cc",
+            "googletest/src/**.h"
           ]
         }
       },
       "manifest": "libraries",
-      "packageId": "ROOT:./",
+      "packageId": "ROOT",
       "settings": {
       },
       "usedBy": [
       ],
-      "versionId": "libraries:ROOT:./"
+      "versionId": "libraries:ROOT"
     },
     {
       "definition": {
         "build": {
-          "feature": [
-            "cxx_std_14"
-          ],
           "include": [
-            "include"
+            "googletest/include"
           ],
+          "private": {
+            "include": [
+              "googletest"
+            ]
+          },
           "self": {
             "private": {
               "link": [
-                "Zefiros-Software/fmt"
+                "Zefiros-Software/GoogleTest:gtest"
               ]
             },
             "source": [
-              "test/**.cpp"
+              "test/*.cpp"
             ],
             "template": "library-test"
           },
           "source": [
-            "src/*.cc"
+            "googletest/src/gtest-all.cc"
           ],
           "template": "library"
         },
         "extract": {
           "include": [
-            "include/**",
-            "src/**.cc"
+            "googletest/include/**/*.h",
+            "googletest/src/**.cc",
+            "googletest/src/**.h"
           ]
         }
       },
       "dependsOn": [
-        "libraries:ROOT:./"
+        "libraries:ROOT"
       ],
       "manifest": "libraries",
-      "packageId": "Zefiros-Software/fmt",
+      "packageId": "Zefiros-Software/GoogleTest:gtest",
       "settings": {
       },
       "usedBy": [
         {
           "optional": false,
-          "versionId": "libraries:ROOT:./"
+          "versionId": "libraries:ROOT"
         }
       ],
-      "version": {
-        "hash": "9e554999ce02cf86fcdfe74fe740c4fe3f5a56d5",
-        "name": "5.3.0",
-        "version": "5.3.0"
-      },
-      "versionId": "libraries:Zefiros-Software:fmt:5.3.0-9e554"
+      "versionId": "libraries:Zefiros-Software/GoogleTest:gtest"
     },
     {
       "definition": {
       },
       "dependsOn": [
-        "libraries:ROOT:./",
-        "libraries:Zefiros-Software:fmt:5.3.0-9e554"
+        "libraries:ROOT"
+      ],
+      "manifest": "libraries",
+      "packageId": "Zefiros-Software/GoogleTest",
+      "settings": {
+      },
+      "usedBy": [
+        {
+          "optional": false,
+          "versionId": "libraries:ROOT"
+        }
+      ],
+      "version": {
+        "hash": "2134e3fd857d952e03ce76064fad5ac6e9036104",
+        "name": "master",
+        "version": "master"
+      },
+      "versionId": "libraries:Zefiros-Software:GoogleTest:master-2134e"
+    },
+    {
+      "definition": {
+      },
+      "dependsOn": [
+        "libraries:ROOT",
+        "libraries:Zefiros-Software/GoogleTest:gtest",
+        "libraries:Zefiros-Software:GoogleTest:master-2134e"
       ],
       "manifest": "builder",
       "packageId": "ZPM:builder/default",
       "settings": {
-        "feature": [
-          "cxx_std_14"
-        ],
         "include": [
-          "include"
+          "googletest/include"
         ],
+        "private": {
+          "include": [
+            "googletest"
+          ]
+        },
         "self": {
           "private": {
             "link": [
-              "Zefiros-Software/fmt"
+              "Zefiros-Software/GoogleTest:gtest"
             ]
           },
           "source": [
-            "test/**.cpp"
+            "test/*.cpp"
           ],
           "template": "library-test"
         },
         "source": [
-          "src/*.cc"
+          "googletest/src/gtest-all.cc"
         ],
         "template": "library"
       },
       "usedBy": [
         {
           "optional": false,
+          "versionId": "libraries:Zefiros-Software:GoogleTest:master-2134e"
+        },
+        {
+          "optional": false,
           "settings": {
             "private": {
+              "include": [
+                "googletest"
+              ]
             },
             "public": {
-              "feature": [
-                "cxx_std_14"
-              ],
               "include": [
-                "include"
+                "googletest/include"
               ]
             },
             "self": {
               "private": {
                 "link": [
-                  "Zefiros-Software/fmt"
+                  "Zefiros-Software/GoogleTest:gtest"
                 ]
               },
               "source": [
-                "test/**.cpp"
+                "test/*.cpp"
               ],
               "template": "library-test"
             },
             "source": [
-              "src/*.cc"
+              "googletest/src/gtest-all.cc"
             ],
             "template": "library"
           },
-          "versionId": "libraries:Zefiros-Software:fmt:5.3.0-9e554"
+          "versionId": "libraries:Zefiros-Software/GoogleTest:gtest"
         },
         {
           "optional": false,
           "settings": {
-            "feature": [
-              "cxx_std_14"
-            ],
             "include": [
-              "include"
+              "googletest/include"
             ],
+            "private": {
+              "include": [
+                "googletest"
+              ]
+            },
             "self": {
               "private": {
                 "link": [
-                  "Zefiros-Software/fmt"
+                  "Zefiros-Software/GoogleTest:gtest"
                 ]
               },
               "public": {
               },
               "source": [
-                "test/**.cpp"
+                "test/*.cpp"
               ],
               "template": "library-test"
             },
             "source": [
-              "src/*.cc"
+              "googletest/src/gtest-all.cc"
             ],
             "template": "library"
           },
-          "versionId": "libraries:ROOT:./"
+          "versionId": "libraries:ROOT"
         }
       ],
       "versionId": "builder:ZPM:builder/default"
@@ -217,37 +250,45 @@
         }
       },
       "dependsOn": [
-        "libraries:ROOT:./",
-        "libraries:Zefiros-Software:fmt:5.3.0-9e554"
+        "libraries:ROOT",
+        "libraries:Zefiros-Software/GoogleTest:gtest",
+        "libraries:Zefiros-Software:GoogleTest:master-2134e"
       ],
       "manifest": "extractor",
       "packageId": "ZPM:extractor/default",
       "settings": {
         "include": [
-          "include/**",
-          "src/**.cc"
+          "googletest/include/**/*.h",
+          "googletest/src/**.cc",
+          "googletest/src/**.h"
         ]
       },
       "usedBy": [
         {
           "optional": false,
-          "settings": {
-            "include": [
-              "include/**",
-              "src/**.cc"
-            ]
-          },
-          "versionId": "libraries:Zefiros-Software:fmt:5.3.0-9e554"
+          "versionId": "libraries:Zefiros-Software:GoogleTest:master-2134e"
         },
         {
           "optional": false,
           "settings": {
             "include": [
-              "include/**",
-              "src/**.cc"
+              "googletest/include/**/*.h",
+              "googletest/src/**.cc",
+              "googletest/src/**.h"
             ]
           },
-          "versionId": "libraries:ROOT:./"
+          "versionId": "libraries:Zefiros-Software/GoogleTest:gtest"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "include": [
+              "googletest/include/**/*.h",
+              "googletest/src/**.cc",
+              "googletest/src/**.h"
+            ]
+          },
+          "versionId": "libraries:ROOT"
         }
       ],
       "versionId": "extractor:ZPM:extractor/default"

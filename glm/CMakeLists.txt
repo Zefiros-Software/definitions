@@ -1,14 +1,17 @@
 cmake_minimum_required(VERSION 3.13)
 
 if(NOT ZPM_LOADED)
-    include("extern/ZPM")
+  include("extern/ZPM")
 
-    zpm_defaults()
+  zpm_defaults()
 endif()
 
-project(GoogleTestExample LANGUAGES CXX)
+add_executable(glm
+    "test/main.cpp"
+)
 
-add_executable(test-glm test/main.cpp)
-target_link_libraries(test-glm PRIVATE Zefiros-Software::glm)
+target_link_libraries(glm PRIVATE 
+    Zefiros-Software::glm
+)
 
-add_test(NAME test-glm COMMAND test-glm)
+add_test(NAME glm COMMAND glm)

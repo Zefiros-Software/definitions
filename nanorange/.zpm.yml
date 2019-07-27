@@ -6,16 +6,23 @@ development:
       repository: https://github.com/tcbrindle/NanoRange.git
 
 extract:
-  includes:
+  include:
     - "single_include/*.hpp"
 build:
   template: headeronly
-  includes:
+  include:
     - single_include
-  features:
+  feature:
     - cxx_std_17
-  custom:
-    - |
+  custom: |
       if (MSVC)
       target_compile_options("${PROJECT_NAME}" INTERFACE /permissive-)
       endif()
+
+  self:
+    template: library-test
+    source:
+      - "test/**.cpp"
+    private:
+      link:
+        - Zefiros-Software/nanorange

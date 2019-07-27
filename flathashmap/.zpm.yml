@@ -6,11 +6,19 @@ development:
       repository: https://github.com/skarupke/flat_hash_map.git
 
 extract:
-  includes:
+  include:
     - "*.hpp"
 build:
   template: headeronly
-  includes:
+  include:
     - ./
-  features:
+  feature:
     - cxx_std_11
+
+  self:
+    template: library-test
+    source:
+      - "test/**.cpp"
+    private:
+      link:
+        - Zefiros-Software/flathashmap

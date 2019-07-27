@@ -1,153 +1,2000 @@
 {
-  "named": {
-    "libraries": [
-      {
-        "description": {
-          "extract": {
-            "includes": [
-              "googletest/include/**/*.h",
-              "googletest/src/**.cc",
-              "googletest/src/**.h",
-              "googlemock/include/**/*.h",
-              "googlemock/src/**.cc",
-              "googlemock/src/**.h"
+  "versions": [
+    {
+      "definition": {
+      },
+      "manifest": "libraries",
+      "packageId": "ROOT",
+      "settings": {
+      },
+      "usedBy": [
+      ],
+      "versionId": "libraries:ROOT"
+    },
+    {
+      "definition": {
+        "build": {
+          "custom": "if (MSVC)\n\ntarget_sources(\"${PROJECT_NAME}\" PRIVATE \n  {{#each globs.win32}}\n  {{this}}\n  {{/each}}\n)\n\nelse()\n\ntarget_sources(\"${PROJECT_NAME}\" PRIVATE\n  {{#each globs.pthread}}\n  {{this}}\n  {{/each}}\n)\n\nendif()\n",
+          "define": [
+            "BOOST_ALL_NO_LIB",
+            "BOOST_TEST_NO_MAIN"
+          ],
+          "feature": [
+            "cxx_std_11"
+          ],
+          "globs": {
+            "pthread": [
+              "libs/*/src/pthread/**"
+            ],
+            "win32": [
+              "libs/*/src/win32/**"
             ]
-          }
-        },
-        "hash": "a53e931dcd00c2556ee181d832e699c9f3c29036",
-        "id": "libraries:GIT:Zefiros-Software/GoogleTest@master",
-        "name": "Zefiros-Software/GoogleTest",
-        "settings": {
-        },
-        "usage": {
-          "required": {
-            "builder": "builder:PATH:ZPM:builder/default",
-            "extractor": "extractor:PATH:ZPM:extractor/default"
-          }
-        },
-        "version": "master"
-      }
-    ]
-  },
-  "path": {
-    "builder": [
-      {
-        "description": {
-        },
-        "id": "builder:PATH:ZPM:./",
-        "name": "ZPM",
-        "path": "./",
-        "settings": {
-        },
-        "usage": {
-        }
-      },
-      {
-        "description": {
-        },
-        "id": "builder:PATH:ZPM:builder/default",
-        "name": "ZPM",
-        "path": "builder/default",
-        "settings": {
-        },
-        "usage": {
-        }
-      }
-    ],
-    "extractor": [
-      {
-        "description": {
-        },
-        "id": "extractor:PATH:ZPM:./",
-        "name": "ZPM",
-        "path": "./",
-        "settings": {
-        },
-        "usage": {
-        }
-      },
-      {
-        "description": {
-        },
-        "id": "extractor:PATH:ZPM:extractor/default",
-        "name": "ZPM",
-        "path": "extractor/default",
-        "settings": {
-        },
-        "usage": {
-          "settings": {
-            "libraries:GIT:Zefiros-Software/GoogleTest@master": {
-              "includes": [
-                "googletest/include/**/*.h",
-                "googletest/src/**.cc",
-                "googletest/src/**.h",
-                "googlemock/include/**/*.h",
-                "googlemock/src/**.cc",
-                "googlemock/src/**.h"
+          },
+          "include": [
+            "./"
+          ],
+          "self": {
+            "private": {
+              "link": [
+                "Zefiros-Software/boost"
               ]
             },
-            "libraries:PATH:$ROOT:$ROOT:googletest": {
-              "includes": [
-                "googletest/include/**/*.h",
-                "googletest/src/**.cc",
-                "googletest/src/**.h",
-                "googlemock/include/**/*.h",
-                "googlemock/src/**.cc",
-                "googlemock/src/**.h"
-              ]
-            }
-          }
-        }
-      }
-    ],
-    "libraries": [
-      {
-        "description": {
-        },
-        "id": "libraries:PATH:$ROOT:$ROOT",
-        "name": "$ROOT",
-        "path": "./",
-        "settings": {
-        },
-        "usage": {
-          "required": {
-            "builder": "builder:PATH:ZPM:builder/default",
-            "extractor": "extractor:PATH:ZPM:extractor/default",
-            "libraries": [
-              "libraries:PATH:$ROOT:$ROOT:googletest"
-            ]
-          }
+            "public": {
+            },
+            "source": [
+              "test/**.cpp"
+            ],
+            "template": "library-test"
+          },
+          "source": [
+            "libs/*/src/**",
+            "!libs/*/src/pthread/**",
+            "!libs/*/src/win32/**"
+          ],
+          "template": "library"
         }
       },
-      {
-        "description": {
-          "extract": {
-            "includes": [
-              "googletest/include/**/*.h",
-              "googletest/src/**.cc",
-              "googletest/src/**.h",
-              "googlemock/include/**/*.h",
-              "googlemock/src/**.cc",
-              "googlemock/src/**.h"
-            ]
-          }
-        },
-        "id": "libraries:PATH:$ROOT:$ROOT:googletest",
-        "name": "$ROOT",
-        "path": "googletest",
-        "root": "libraries:PATH:$ROOT:$ROOT",
-        "settings": {
-        },
-        "usage": {
-          "required": {
-            "builder": "builder:PATH:ZPM:builder/default",
-            "extractor": "extractor:PATH:ZPM:extractor/default",
-            "libraries": [
-              "libraries:GIT:Zefiros-Software/GoogleTest@master"
-            ]
-          }
+      "dependsOn": [
+        "libraries:ROOT"
+      ],
+      "manifest": "libraries",
+      "packageId": "ROOT:boost",
+      "settings": {
+      },
+      "usedBy": [
+        {
+          "optional": false,
+          "versionId": "libraries:ROOT"
         }
-      }
-    ]
-  }
+      ],
+      "versionId": "libraries:ROOT:boost"
+    },
+    {
+      "definition": {
+        "build": {
+          "feature": [
+            "cxx_std_11"
+          ],
+          "include": [
+            "./"
+          ],
+          "self": {
+            "private": {
+              "link": [
+                "Zefiros-Software/flathashmap"
+              ]
+            },
+            "public": {
+            },
+            "source": [
+              "test/**.cpp"
+            ],
+            "template": "library-test"
+          },
+          "template": "headeronly"
+        },
+        "extract": {
+          "include": [
+            "*.hpp"
+          ]
+        }
+      },
+      "dependsOn": [
+        "libraries:ROOT"
+      ],
+      "manifest": "libraries",
+      "packageId": "ROOT:flathashmap",
+      "settings": {
+      },
+      "usedBy": [
+        {
+          "optional": false,
+          "versionId": "libraries:ROOT"
+        }
+      ],
+      "versionId": "libraries:ROOT:flathashmap"
+    },
+    {
+      "definition": {
+        "build": {
+          "feature": [
+            "cxx_std_14"
+          ],
+          "include": [
+            "include"
+          ],
+          "self": {
+            "private": {
+              "link": [
+                "Zefiros-Software/fmt"
+              ]
+            },
+            "public": {
+            },
+            "source": [
+              "test/**.cpp"
+            ],
+            "template": "library-test"
+          },
+          "source": [
+            "src/*.cc"
+          ],
+          "template": "library"
+        },
+        "extract": {
+          "include": [
+            "include/**",
+            "src/**.cc"
+          ]
+        }
+      },
+      "dependsOn": [
+        "libraries:ROOT"
+      ],
+      "manifest": "libraries",
+      "packageId": "ROOT:fmt",
+      "settings": {
+      },
+      "usedBy": [
+        {
+          "optional": false,
+          "versionId": "libraries:ROOT"
+        }
+      ],
+      "versionId": "libraries:ROOT:fmt"
+    },
+    {
+      "definition": {
+        "build": {
+          "define": [
+            "GLM_FORCE_SWIZZLE",
+            "GLM_ENABLE_EXPERIMENTAL"
+          ],
+          "feature": [
+            "cxx_std_11"
+          ],
+          "include": [
+            "./"
+          ],
+          "self": {
+            "private": {
+              "link": [
+                "Zefiros-Software/glm"
+              ]
+            },
+            "public": {
+            },
+            "source": [
+              "test/**.cpp"
+            ],
+            "template": "library-test"
+          },
+          "template": "headeronly"
+        },
+        "extract": {
+          "include": [
+            "glm/**"
+          ]
+        }
+      },
+      "dependsOn": [
+        "libraries:ROOT"
+      ],
+      "manifest": "libraries",
+      "packageId": "ROOT:glm",
+      "settings": {
+      },
+      "usedBy": [
+        {
+          "optional": false,
+          "versionId": "libraries:ROOT"
+        }
+      ],
+      "versionId": "libraries:ROOT:glm"
+    },
+    {
+      "definition": {
+        "build": {
+          "custom": "if (MSVC)\ntarget_compile_options(\"${PROJECT_NAME}\" INTERFACE /permissive-)\nendif()\n",
+          "feature": [
+            "cxx_std_17"
+          ],
+          "include": [
+            "single_include"
+          ],
+          "self": {
+            "private": {
+              "link": [
+                "Zefiros-Software/nanorange"
+              ]
+            },
+            "public": {
+            },
+            "source": [
+              "test/**.cpp"
+            ],
+            "template": "library-test"
+          },
+          "template": "headeronly"
+        },
+        "extract": {
+          "include": [
+            "single_include/*.hpp"
+          ]
+        }
+      },
+      "dependsOn": [
+        "libraries:ROOT"
+      ],
+      "manifest": "libraries",
+      "packageId": "ROOT:nanorange",
+      "settings": {
+      },
+      "usedBy": [
+        {
+          "optional": false,
+          "versionId": "libraries:ROOT"
+        }
+      ],
+      "versionId": "libraries:ROOT:nanorange"
+    },
+    {
+      "definition": {
+        "build": {
+          "feature": [
+            "cxx_std_11"
+          ],
+          "include": [
+            "include"
+          ],
+          "self": {
+            "private": {
+              "link": [
+                "Zefiros-Software/nlohmannjson"
+              ]
+            },
+            "public": {
+            },
+            "source": [
+              "test/**.cpp"
+            ],
+            "template": "library-test"
+          },
+          "template": "headeronly"
+        },
+        "extract": {
+          "include": [
+            "include/**/*.hpp"
+          ]
+        }
+      },
+      "dependsOn": [
+        "libraries:ROOT"
+      ],
+      "manifest": "libraries",
+      "packageId": "ROOT:nlohmannjson",
+      "settings": {
+      },
+      "usedBy": [
+        {
+          "optional": false,
+          "versionId": "libraries:ROOT"
+        }
+      ],
+      "versionId": "libraries:ROOT:nlohmannjson"
+    },
+    {
+      "definition": {
+        "build": {
+          "custom": "if (MSVC)\ntarget_compile_options(\"${PROJECT_NAME}\" INTERFACE /permissive-)\nendif()\n",
+          "feature": [
+            "cxx_std_17"
+          ],
+          "include": [
+            "include"
+          ],
+          "self": {
+            "private": {
+              "link": [
+                "Zefiros-Software/range-v3"
+              ]
+            },
+            "public": {
+            },
+            "source": [
+              "test/**.cpp"
+            ],
+            "template": "library-test"
+          },
+          "template": "headeronly"
+        },
+        "extract": {
+          "include": [
+            "include/**/*.hpp"
+          ]
+        }
+      },
+      "dependsOn": [
+        "libraries:ROOT"
+      ],
+      "manifest": "libraries",
+      "packageId": "ROOT:range-v3",
+      "settings": {
+      },
+      "usedBy": [
+        {
+          "optional": false,
+          "versionId": "libraries:ROOT"
+        }
+      ],
+      "versionId": "libraries:ROOT:range-v3"
+    },
+    {
+      "definition": {
+        "build": {
+          "feature": [
+            "cxx_std_11"
+          ],
+          "include": [
+            "./"
+          ],
+          "self": {
+            "private": {
+              "link": [
+                "Zefiros-Software/simdpp"
+              ]
+            },
+            "public": {
+            },
+            "source": [
+              "test/**.cpp"
+            ],
+            "template": "library-test"
+          },
+          "template": "headeronly"
+        },
+        "extract": {
+          "include": [
+            "simdpp/**/*.h",
+            "simdpp/**/*.hpp",
+            "simdpp/**/*.inl"
+          ]
+        }
+      },
+      "dependsOn": [
+        "libraries:ROOT"
+      ],
+      "manifest": "libraries",
+      "packageId": "ROOT:simdpp",
+      "settings": {
+      },
+      "usedBy": [
+        {
+          "optional": false,
+          "versionId": "libraries:ROOT"
+        }
+      ],
+      "versionId": "libraries:ROOT:simdpp"
+    },
+    {
+      "definition": {
+        "build": {
+          "define": [
+            "SPDLOG_FMT_EXTERNAL"
+          ],
+          "include": [
+            "include"
+          ],
+          "link": [
+            "Zefiros-Software/fmt"
+          ],
+          "self": {
+            "private": {
+              "link": [
+                "Zefiros-Software/spdlog"
+              ]
+            },
+            "public": {
+            },
+            "source": [
+              "test/**.cpp"
+            ],
+            "template": "library-test"
+          },
+          "template": "headeronly"
+        },
+        "extract": {
+          "include": [
+            "include/**/*.h"
+          ]
+        },
+        "libraries": [
+          {
+            "name": "Zefiros-Software/fmt",
+            "version": "^5.0.0"
+          }
+        ]
+      },
+      "dependsOn": [
+        "libraries:ROOT"
+      ],
+      "manifest": "libraries",
+      "packageId": "ROOT:spdlog",
+      "settings": {
+      },
+      "usedBy": [
+        {
+          "optional": false,
+          "versionId": "libraries:ROOT"
+        }
+      ],
+      "versionId": "libraries:ROOT:spdlog"
+    },
+    {
+      "definition": {
+        "build": {
+          "custom": "if(UNIX)\n  target_link_libraries(\"${PROJECT_NAME}\" INTERFACE pthread)\nendif()\n",
+          "feature": [
+            "cxx_std_17"
+          ],
+          "include": [
+            "./"
+          ],
+          "self": {
+            "private": {
+              "link": [
+                "Zefiros-Software/taskflow"
+              ]
+            },
+            "public": {
+            },
+            "source": [
+              "test/**.cpp"
+            ],
+            "template": "library-test"
+          },
+          "template": "headeronly"
+        },
+        "extract": {
+          "include": [
+            "taskflow/**/*.hpp"
+          ]
+        }
+      },
+      "dependsOn": [
+        "libraries:ROOT"
+      ],
+      "manifest": "libraries",
+      "packageId": "ROOT:taskflow",
+      "settings": {
+      },
+      "usedBy": [
+        {
+          "optional": false,
+          "versionId": "libraries:ROOT"
+        }
+      ],
+      "versionId": "libraries:ROOT:taskflow"
+    },
+    {
+      "definition": {
+        "build": {
+          "custom": "if (MSVC)\n\ntarget_sources(\"${PROJECT_NAME}\" PRIVATE \n  {{#each globs.win32}}\n  {{this}}\n  {{/each}}\n)\n\nelse()\n\ntarget_sources(\"${PROJECT_NAME}\" PRIVATE\n  {{#each globs.pthread}}\n  {{this}}\n  {{/each}}\n)\n\nendif()\n",
+          "define": [
+            "BOOST_ALL_NO_LIB",
+            "BOOST_TEST_NO_MAIN"
+          ],
+          "feature": [
+            "cxx_std_11"
+          ],
+          "globs": {
+            "pthread": [
+              "libs/*/src/pthread/**"
+            ],
+            "win32": [
+              "libs/*/src/win32/**"
+            ]
+          },
+          "include": [
+            "./"
+          ],
+          "self": {
+            "private": {
+              "link": [
+                "Zefiros-Software/boost"
+              ]
+            },
+            "source": [
+              "test/**.cpp"
+            ],
+            "template": "library-test"
+          },
+          "source": [
+            "libs/*/src/**",
+            "!libs/*/src/pthread/**",
+            "!libs/*/src/win32/**"
+          ],
+          "template": "library"
+        }
+      },
+      "dependsOn": [
+        "libraries:ROOT:boost"
+      ],
+      "manifest": "libraries",
+      "packageId": "Zefiros-Software/boost",
+      "settings": {
+        "modules": [
+          "atomic"
+        ]
+      },
+      "usedBy": [
+        {
+          "optional": false,
+          "settings": {
+            "modules": [
+              "atomic"
+            ]
+          },
+          "versionId": "libraries:ROOT:boost"
+        }
+      ],
+      "version": {
+        "hash": "8f9a1cf1d15d262e09c16a305034d8bc1e39aca2",
+        "name": "boost-1.70.0",
+        "version": "1.70.0"
+      },
+      "versionId": "libraries:Zefiros-Software:boost:boost-1.70.0-8f9a1"
+    },
+    {
+      "definition": {
+        "build": {
+          "feature": [
+            "cxx_std_11"
+          ],
+          "include": [
+            "./"
+          ],
+          "self": {
+            "private": {
+              "link": [
+                "Zefiros-Software/flathashmap"
+              ]
+            },
+            "source": [
+              "test/**.cpp"
+            ],
+            "template": "library-test"
+          },
+          "template": "headeronly"
+        },
+        "extract": {
+          "include": [
+            "*.hpp"
+          ]
+        }
+      },
+      "dependsOn": [
+        "libraries:ROOT:flathashmap"
+      ],
+      "manifest": "libraries",
+      "packageId": "Zefiros-Software/flathashmap",
+      "settings": {
+      },
+      "usedBy": [
+        {
+          "optional": false,
+          "versionId": "libraries:ROOT:flathashmap"
+        }
+      ],
+      "version": {
+        "hash": "2c4687431f978f02a3780e24b8b701d22aa32d9c",
+        "name": "master",
+        "version": "master"
+      },
+      "versionId": "libraries:Zefiros-Software:flathashmap:master-2c468"
+    },
+    {
+      "definition": {
+        "build": {
+          "feature": [
+            "cxx_std_14"
+          ],
+          "include": [
+            "include"
+          ],
+          "self": {
+            "private": {
+              "link": [
+                "Zefiros-Software/fmt"
+              ]
+            },
+            "source": [
+              "test/**.cpp"
+            ],
+            "template": "library-test"
+          },
+          "source": [
+            "src/*.cc"
+          ],
+          "template": "library"
+        },
+        "extract": {
+          "include": [
+            "include/**",
+            "src/**.cc"
+          ]
+        }
+      },
+      "dependsOn": [
+        "libraries:ROOT:fmt",
+        "libraries:ROOT:spdlog"
+      ],
+      "manifest": "libraries",
+      "packageId": "Zefiros-Software/fmt",
+      "settings": {
+      },
+      "usedBy": [
+        {
+          "optional": false,
+          "versionId": "libraries:ROOT:spdlog"
+        },
+        {
+          "optional": false,
+          "versionId": "libraries:ROOT:fmt"
+        }
+      ],
+      "version": {
+        "hash": "9e554999ce02cf86fcdfe74fe740c4fe3f5a56d5",
+        "name": "5.3.0",
+        "version": "5.3.0"
+      },
+      "versionId": "libraries:Zefiros-Software:fmt:5.3.0-9e554"
+    },
+    {
+      "definition": {
+        "build": {
+          "define": [
+            "GLM_FORCE_SWIZZLE",
+            "GLM_ENABLE_EXPERIMENTAL"
+          ],
+          "feature": [
+            "cxx_std_11"
+          ],
+          "include": [
+            "./"
+          ],
+          "self": {
+            "private": {
+              "link": [
+                "Zefiros-Software/glm"
+              ]
+            },
+            "source": [
+              "test/**.cpp"
+            ],
+            "template": "library-test"
+          },
+          "template": "headeronly"
+        },
+        "extract": {
+          "include": [
+            "glm/**"
+          ]
+        }
+      },
+      "dependsOn": [
+        "libraries:ROOT:glm"
+      ],
+      "manifest": "libraries",
+      "packageId": "Zefiros-Software/glm",
+      "settings": {
+      },
+      "usedBy": [
+        {
+          "optional": false,
+          "versionId": "libraries:ROOT:glm"
+        }
+      ],
+      "version": {
+        "hash": "947527d3ac1910e62d142c76480293fee460603d",
+        "name": "master",
+        "version": "master"
+      },
+      "versionId": "libraries:Zefiros-Software:glm:master-94752"
+    },
+    {
+      "definition": {
+        "build": {
+          "custom": "if (MSVC)\ntarget_compile_options(\"${PROJECT_NAME}\" INTERFACE /permissive-)\nendif()\n",
+          "feature": [
+            "cxx_std_17"
+          ],
+          "include": [
+            "single_include"
+          ],
+          "self": {
+            "private": {
+              "link": [
+                "Zefiros-Software/nanorange"
+              ]
+            },
+            "source": [
+              "test/**.cpp"
+            ],
+            "template": "library-test"
+          },
+          "template": "headeronly"
+        },
+        "extract": {
+          "include": [
+            "single_include/*.hpp"
+          ]
+        }
+      },
+      "dependsOn": [
+        "libraries:ROOT:nanorange"
+      ],
+      "manifest": "libraries",
+      "packageId": "Zefiros-Software/nanorange",
+      "settings": {
+      },
+      "usedBy": [
+        {
+          "optional": false,
+          "versionId": "libraries:ROOT:nanorange"
+        }
+      ],
+      "version": {
+        "hash": "2d0475634404bb998a549c4e0be75b8624c11b19",
+        "name": "master",
+        "version": "master"
+      },
+      "versionId": "libraries:Zefiros-Software:nanorange:master-2d047"
+    },
+    {
+      "definition": {
+        "build": {
+          "feature": [
+            "cxx_std_11"
+          ],
+          "include": [
+            "include"
+          ],
+          "self": {
+            "private": {
+              "link": [
+                "Zefiros-Software/nlohmannjson"
+              ]
+            },
+            "source": [
+              "test/**.cpp"
+            ],
+            "template": "library-test"
+          },
+          "template": "headeronly"
+        },
+        "extract": {
+          "include": [
+            "include/**/*.hpp"
+          ]
+        }
+      },
+      "dependsOn": [
+        "libraries:ROOT:nlohmannjson"
+      ],
+      "manifest": "libraries",
+      "packageId": "Zefiros-Software/nlohmannjson",
+      "settings": {
+      },
+      "usedBy": [
+        {
+          "optional": false,
+          "versionId": "libraries:ROOT:nlohmannjson"
+        }
+      ],
+      "version": {
+        "hash": "3c4c69a24ee050b8ae5e6c785c5c2474bc322f50",
+        "name": "master",
+        "version": "master"
+      },
+      "versionId": "libraries:Zefiros-Software:nlohmannjson:master-3c4c6"
+    },
+    {
+      "definition": {
+        "build": {
+          "custom": "if (MSVC)\ntarget_compile_options(\"${PROJECT_NAME}\" INTERFACE /permissive-)\nendif()\n",
+          "feature": [
+            "cxx_std_17"
+          ],
+          "include": [
+            "include"
+          ],
+          "self": {
+            "private": {
+              "link": [
+                "Zefiros-Software/range-v3"
+              ]
+            },
+            "source": [
+              "test/**.cpp"
+            ],
+            "template": "library-test"
+          },
+          "template": "headeronly"
+        },
+        "extract": {
+          "include": [
+            "include/**/*.hpp"
+          ]
+        }
+      },
+      "dependsOn": [
+        "libraries:ROOT:range-v3"
+      ],
+      "manifest": "libraries",
+      "packageId": "Zefiros-Software/range-v3",
+      "settings": {
+      },
+      "usedBy": [
+        {
+          "optional": false,
+          "versionId": "libraries:ROOT:range-v3"
+        }
+      ],
+      "version": {
+        "hash": "f2ab89adb8ec6251361bba40737ec298e2cc7d38",
+        "name": "0.5.0",
+        "version": "0.5.0"
+      },
+      "versionId": "libraries:Zefiros-Software:range-v3:0.5.0-f2ab8"
+    },
+    {
+      "definition": {
+        "build": {
+          "feature": [
+            "cxx_std_11"
+          ],
+          "include": [
+            "./"
+          ],
+          "self": {
+            "private": {
+              "link": [
+                "Zefiros-Software/simdpp"
+              ]
+            },
+            "source": [
+              "test/**.cpp"
+            ],
+            "template": "library-test"
+          },
+          "template": "headeronly"
+        },
+        "extract": {
+          "include": [
+            "simdpp/**/*.h",
+            "simdpp/**/*.hpp",
+            "simdpp/**/*.inl"
+          ]
+        }
+      },
+      "dependsOn": [
+        "libraries:ROOT:simdpp"
+      ],
+      "manifest": "libraries",
+      "packageId": "Zefiros-Software/simdpp",
+      "settings": {
+      },
+      "usedBy": [
+        {
+          "optional": false,
+          "versionId": "libraries:ROOT:simdpp"
+        }
+      ],
+      "version": {
+        "hash": "4385a0aa017bd7628038e329c09a573ef81bb863",
+        "name": "master",
+        "version": "master"
+      },
+      "versionId": "libraries:Zefiros-Software:simdpp:master-4385a"
+    },
+    {
+      "definition": {
+        "build": {
+          "define": [
+            "SPDLOG_FMT_EXTERNAL"
+          ],
+          "include": [
+            "include"
+          ],
+          "link": [
+            "Zefiros-Software/fmt"
+          ],
+          "self": {
+            "private": {
+              "link": [
+                "Zefiros-Software/spdlog"
+              ]
+            },
+            "source": [
+              "test/**.cpp"
+            ],
+            "template": "library-test"
+          },
+          "template": "headeronly"
+        },
+        "extract": {
+          "include": [
+            "include/**/*.h"
+          ]
+        },
+        "libraries": [
+          {
+            "name": "Zefiros-Software/fmt",
+            "version": "^5.0.0"
+          }
+        ]
+      },
+      "dependsOn": [
+        "libraries:ROOT:spdlog"
+      ],
+      "manifest": "libraries",
+      "packageId": "Zefiros-Software/spdlog",
+      "settings": {
+      },
+      "usedBy": [
+        {
+          "optional": false,
+          "versionId": "libraries:ROOT:spdlog"
+        }
+      ],
+      "version": {
+        "hash": "a7148b718ea2fabb8387cb90aee9bf448da63e65",
+        "name": "v1.3.1",
+        "version": "1.3.1"
+      },
+      "versionId": "libraries:Zefiros-Software:spdlog:v1.3.1-a7148"
+    },
+    {
+      "definition": {
+        "build": {
+          "custom": "if(UNIX)\n  target_link_libraries(\"${PROJECT_NAME}\" INTERFACE pthread)\nendif()\n",
+          "feature": [
+            "cxx_std_17"
+          ],
+          "include": [
+            "./"
+          ],
+          "self": {
+            "private": {
+              "link": [
+                "Zefiros-Software/taskflow"
+              ]
+            },
+            "source": [
+              "test/**.cpp"
+            ],
+            "template": "library-test"
+          },
+          "template": "headeronly"
+        },
+        "extract": {
+          "include": [
+            "taskflow/**/*.hpp"
+          ]
+        }
+      },
+      "dependsOn": [
+        "libraries:ROOT:taskflow"
+      ],
+      "manifest": "libraries",
+      "packageId": "Zefiros-Software/taskflow",
+      "settings": {
+      },
+      "usedBy": [
+        {
+          "optional": false,
+          "versionId": "libraries:ROOT:taskflow"
+        }
+      ],
+      "version": {
+        "hash": "a8ade7760ca95bdf4247f1450f58edfff7a81f6d",
+        "name": "master",
+        "version": "master"
+      },
+      "versionId": "libraries:Zefiros-Software:taskflow:master-a8ade"
+    },
+    {
+      "definition": {
+      },
+      "dependsOn": [
+        "libraries:ROOT",
+        "libraries:ROOT:boost",
+        "libraries:ROOT:flathashmap",
+        "libraries:ROOT:fmt",
+        "libraries:ROOT:glm",
+        "libraries:ROOT:nanorange",
+        "libraries:ROOT:nlohmannjson",
+        "libraries:ROOT:range-v3",
+        "libraries:ROOT:simdpp",
+        "libraries:ROOT:spdlog",
+        "libraries:ROOT:taskflow",
+        "libraries:Zefiros-Software:boost:boost-1.70.0-8f9a1",
+        "libraries:Zefiros-Software:flathashmap:master-2c468",
+        "libraries:Zefiros-Software:fmt:5.3.0-9e554",
+        "libraries:Zefiros-Software:glm:master-94752",
+        "libraries:Zefiros-Software:nanorange:master-2d047",
+        "libraries:Zefiros-Software:nlohmannjson:master-3c4c6",
+        "libraries:Zefiros-Software:range-v3:0.5.0-f2ab8",
+        "libraries:Zefiros-Software:simdpp:master-4385a",
+        "libraries:Zefiros-Software:spdlog:v1.3.1-a7148",
+        "libraries:Zefiros-Software:taskflow:master-a8ade"
+      ],
+      "manifest": "builder",
+      "packageId": "ZPM:builder/default",
+      "settings": {
+        "custom": "if (MSVC)\n\ntarget_sources(\"${PROJECT_NAME}\" PRIVATE \n  {{#each globs.win32}}\n  {{this}}\n  {{/each}}\n)\n\nelse()\n\ntarget_sources(\"${PROJECT_NAME}\" PRIVATE\n  {{#each globs.pthread}}\n  {{this}}\n  {{/each}}\n)\n\nendif()\n",
+        "define": [
+          "SPDLOG_FMT_EXTERNAL",
+          "GLM_FORCE_SWIZZLE",
+          "GLM_ENABLE_EXPERIMENTAL",
+          "BOOST_ALL_NO_LIB",
+          "BOOST_TEST_NO_MAIN"
+        ],
+        "feature": [
+          "cxx_std_17",
+          "cxx_std_11",
+          "cxx_std_14"
+        ],
+        "globs": {
+          "pthread": [
+            "libs/*/src/pthread/**"
+          ],
+          "win32": [
+            "libs/*/src/win32/**"
+          ]
+        },
+        "include": [
+          "./",
+          "include",
+          "single_include"
+        ],
+        "link": [
+          "Zefiros-Software/fmt"
+        ],
+        "self": {
+          "private": {
+            "link": [
+              "Zefiros-Software/taskflow",
+              "Zefiros-Software/spdlog",
+              "Zefiros-Software/simdpp",
+              "Zefiros-Software/range-v3",
+              "Zefiros-Software/nlohmannjson",
+              "Zefiros-Software/nanorange",
+              "Zefiros-Software/glm",
+              "Zefiros-Software/fmt",
+              "Zefiros-Software/flathashmap",
+              "Zefiros-Software/boost"
+            ]
+          },
+          "source": [
+            "test/**.cpp"
+          ],
+          "template": "library-test"
+        },
+        "source": [
+          "src/*.cc",
+          "libs/*/src/**",
+          "!libs/*/src/pthread/**",
+          "!libs/*/src/win32/**"
+        ],
+        "template": "library"
+      },
+      "usedBy": [
+        {
+          "optional": false,
+          "settings": {
+            "custom": "if(UNIX)\n  target_link_libraries(\"${PROJECT_NAME}\" INTERFACE pthread)\nendif()\n",
+            "private": {
+            },
+            "public": {
+              "feature": [
+                "cxx_std_17"
+              ],
+              "include": [
+                "./"
+              ]
+            },
+            "self": {
+              "private": {
+                "link": [
+                  "Zefiros-Software/taskflow"
+                ]
+              },
+              "source": [
+                "test/**.cpp"
+              ],
+              "template": "library-test"
+            },
+            "template": "headeronly"
+          },
+          "versionId": "libraries:Zefiros-Software:taskflow:master-a8ade"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "custom": "if(UNIX)\n  target_link_libraries(\"${PROJECT_NAME}\" INTERFACE pthread)\nendif()\n",
+            "feature": [
+              "cxx_std_17"
+            ],
+            "include": [
+              "./"
+            ],
+            "self": {
+              "private": {
+                "link": [
+                  "Zefiros-Software/taskflow"
+                ]
+              },
+              "public": {
+              },
+              "source": [
+                "test/**.cpp"
+              ],
+              "template": "library-test"
+            },
+            "template": "headeronly"
+          },
+          "versionId": "libraries:ROOT:taskflow"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "private": {
+            },
+            "public": {
+              "define": [
+                "SPDLOG_FMT_EXTERNAL"
+              ],
+              "include": [
+                "include"
+              ],
+              "link": [
+                "Zefiros-Software/fmt"
+              ]
+            },
+            "self": {
+              "private": {
+                "link": [
+                  "Zefiros-Software/spdlog"
+                ]
+              },
+              "source": [
+                "test/**.cpp"
+              ],
+              "template": "library-test"
+            },
+            "template": "headeronly"
+          },
+          "versionId": "libraries:Zefiros-Software:spdlog:v1.3.1-a7148"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "define": [
+              "SPDLOG_FMT_EXTERNAL"
+            ],
+            "include": [
+              "include"
+            ],
+            "link": [
+              "Zefiros-Software/fmt"
+            ],
+            "self": {
+              "private": {
+                "link": [
+                  "Zefiros-Software/spdlog"
+                ]
+              },
+              "public": {
+              },
+              "source": [
+                "test/**.cpp"
+              ],
+              "template": "library-test"
+            },
+            "template": "headeronly"
+          },
+          "versionId": "libraries:ROOT:spdlog"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "private": {
+            },
+            "public": {
+              "feature": [
+                "cxx_std_11"
+              ],
+              "include": [
+                "./"
+              ]
+            },
+            "self": {
+              "private": {
+                "link": [
+                  "Zefiros-Software/simdpp"
+                ]
+              },
+              "source": [
+                "test/**.cpp"
+              ],
+              "template": "library-test"
+            },
+            "template": "headeronly"
+          },
+          "versionId": "libraries:Zefiros-Software:simdpp:master-4385a"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "feature": [
+              "cxx_std_11"
+            ],
+            "include": [
+              "./"
+            ],
+            "self": {
+              "private": {
+                "link": [
+                  "Zefiros-Software/simdpp"
+                ]
+              },
+              "public": {
+              },
+              "source": [
+                "test/**.cpp"
+              ],
+              "template": "library-test"
+            },
+            "template": "headeronly"
+          },
+          "versionId": "libraries:ROOT:simdpp"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "custom": "if (MSVC)\ntarget_compile_options(\"${PROJECT_NAME}\" INTERFACE /permissive-)\nendif()\n",
+            "private": {
+            },
+            "public": {
+              "feature": [
+                "cxx_std_17"
+              ],
+              "include": [
+                "include"
+              ]
+            },
+            "self": {
+              "private": {
+                "link": [
+                  "Zefiros-Software/range-v3"
+                ]
+              },
+              "source": [
+                "test/**.cpp"
+              ],
+              "template": "library-test"
+            },
+            "template": "headeronly"
+          },
+          "versionId": "libraries:Zefiros-Software:range-v3:0.5.0-f2ab8"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "custom": "if (MSVC)\ntarget_compile_options(\"${PROJECT_NAME}\" INTERFACE /permissive-)\nendif()\n",
+            "feature": [
+              "cxx_std_17"
+            ],
+            "include": [
+              "include"
+            ],
+            "self": {
+              "private": {
+                "link": [
+                  "Zefiros-Software/range-v3"
+                ]
+              },
+              "public": {
+              },
+              "source": [
+                "test/**.cpp"
+              ],
+              "template": "library-test"
+            },
+            "template": "headeronly"
+          },
+          "versionId": "libraries:ROOT:range-v3"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "private": {
+            },
+            "public": {
+              "feature": [
+                "cxx_std_11"
+              ],
+              "include": [
+                "include"
+              ]
+            },
+            "self": {
+              "private": {
+                "link": [
+                  "Zefiros-Software/nlohmannjson"
+                ]
+              },
+              "source": [
+                "test/**.cpp"
+              ],
+              "template": "library-test"
+            },
+            "template": "headeronly"
+          },
+          "versionId": "libraries:Zefiros-Software:nlohmannjson:master-3c4c6"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "feature": [
+              "cxx_std_11"
+            ],
+            "include": [
+              "include"
+            ],
+            "self": {
+              "private": {
+                "link": [
+                  "Zefiros-Software/nlohmannjson"
+                ]
+              },
+              "public": {
+              },
+              "source": [
+                "test/**.cpp"
+              ],
+              "template": "library-test"
+            },
+            "template": "headeronly"
+          },
+          "versionId": "libraries:ROOT:nlohmannjson"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "custom": "if (MSVC)\ntarget_compile_options(\"${PROJECT_NAME}\" INTERFACE /permissive-)\nendif()\n",
+            "private": {
+            },
+            "public": {
+              "feature": [
+                "cxx_std_17"
+              ],
+              "include": [
+                "single_include"
+              ]
+            },
+            "self": {
+              "private": {
+                "link": [
+                  "Zefiros-Software/nanorange"
+                ]
+              },
+              "source": [
+                "test/**.cpp"
+              ],
+              "template": "library-test"
+            },
+            "template": "headeronly"
+          },
+          "versionId": "libraries:Zefiros-Software:nanorange:master-2d047"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "custom": "if (MSVC)\ntarget_compile_options(\"${PROJECT_NAME}\" INTERFACE /permissive-)\nendif()\n",
+            "feature": [
+              "cxx_std_17"
+            ],
+            "include": [
+              "single_include"
+            ],
+            "self": {
+              "private": {
+                "link": [
+                  "Zefiros-Software/nanorange"
+                ]
+              },
+              "public": {
+              },
+              "source": [
+                "test/**.cpp"
+              ],
+              "template": "library-test"
+            },
+            "template": "headeronly"
+          },
+          "versionId": "libraries:ROOT:nanorange"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "private": {
+            },
+            "public": {
+              "define": [
+                "GLM_FORCE_SWIZZLE",
+                "GLM_ENABLE_EXPERIMENTAL"
+              ],
+              "feature": [
+                "cxx_std_11"
+              ],
+              "include": [
+                "./"
+              ]
+            },
+            "self": {
+              "private": {
+                "link": [
+                  "Zefiros-Software/glm"
+                ]
+              },
+              "source": [
+                "test/**.cpp"
+              ],
+              "template": "library-test"
+            },
+            "template": "headeronly"
+          },
+          "versionId": "libraries:Zefiros-Software:glm:master-94752"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "define": [
+              "GLM_FORCE_SWIZZLE",
+              "GLM_ENABLE_EXPERIMENTAL"
+            ],
+            "feature": [
+              "cxx_std_11"
+            ],
+            "include": [
+              "./"
+            ],
+            "self": {
+              "private": {
+                "link": [
+                  "Zefiros-Software/glm"
+                ]
+              },
+              "public": {
+              },
+              "source": [
+                "test/**.cpp"
+              ],
+              "template": "library-test"
+            },
+            "template": "headeronly"
+          },
+          "versionId": "libraries:ROOT:glm"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "private": {
+            },
+            "public": {
+              "feature": [
+                "cxx_std_14"
+              ],
+              "include": [
+                "include"
+              ]
+            },
+            "self": {
+              "private": {
+                "link": [
+                  "Zefiros-Software/fmt"
+                ]
+              },
+              "source": [
+                "test/**.cpp"
+              ],
+              "template": "library-test"
+            },
+            "source": [
+              "src/*.cc"
+            ],
+            "template": "library"
+          },
+          "versionId": "libraries:Zefiros-Software:fmt:5.3.0-9e554"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "feature": [
+              "cxx_std_14"
+            ],
+            "include": [
+              "include"
+            ],
+            "self": {
+              "private": {
+                "link": [
+                  "Zefiros-Software/fmt"
+                ]
+              },
+              "public": {
+              },
+              "source": [
+                "test/**.cpp"
+              ],
+              "template": "library-test"
+            },
+            "source": [
+              "src/*.cc"
+            ],
+            "template": "library"
+          },
+          "versionId": "libraries:ROOT:fmt"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "private": {
+            },
+            "public": {
+              "feature": [
+                "cxx_std_11"
+              ],
+              "include": [
+                "./"
+              ]
+            },
+            "self": {
+              "private": {
+                "link": [
+                  "Zefiros-Software/flathashmap"
+                ]
+              },
+              "source": [
+                "test/**.cpp"
+              ],
+              "template": "library-test"
+            },
+            "template": "headeronly"
+          },
+          "versionId": "libraries:Zefiros-Software:flathashmap:master-2c468"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "feature": [
+              "cxx_std_11"
+            ],
+            "include": [
+              "./"
+            ],
+            "self": {
+              "private": {
+                "link": [
+                  "Zefiros-Software/flathashmap"
+                ]
+              },
+              "public": {
+              },
+              "source": [
+                "test/**.cpp"
+              ],
+              "template": "library-test"
+            },
+            "template": "headeronly"
+          },
+          "versionId": "libraries:ROOT:flathashmap"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "custom": "if (MSVC)\n\ntarget_sources(\"${PROJECT_NAME}\" PRIVATE \n  {{#each globs.win32}}\n  {{this}}\n  {{/each}}\n)\n\nelse()\n\ntarget_sources(\"${PROJECT_NAME}\" PRIVATE\n  {{#each globs.pthread}}\n  {{this}}\n  {{/each}}\n)\n\nendif()\n",
+            "globs": {
+              "pthread": [
+                "libs/*/src/pthread/**"
+              ],
+              "win32": [
+                "libs/*/src/win32/**"
+              ]
+            },
+            "private": {
+            },
+            "public": {
+              "define": [
+                "BOOST_ALL_NO_LIB",
+                "BOOST_TEST_NO_MAIN"
+              ],
+              "feature": [
+                "cxx_std_11"
+              ],
+              "include": [
+                "./"
+              ]
+            },
+            "self": {
+              "private": {
+                "link": [
+                  "Zefiros-Software/boost"
+                ]
+              },
+              "source": [
+                "test/**.cpp"
+              ],
+              "template": "library-test"
+            },
+            "source": [
+              "libs/*/src/**",
+              "!libs/*/src/pthread/**",
+              "!libs/*/src/win32/**"
+            ],
+            "template": "library"
+          },
+          "versionId": "libraries:Zefiros-Software:boost:boost-1.70.0-8f9a1"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "custom": "if (MSVC)\n\ntarget_sources(\"${PROJECT_NAME}\" PRIVATE \n  {{#each globs.win32}}\n  {{this}}\n  {{/each}}\n)\n\nelse()\n\ntarget_sources(\"${PROJECT_NAME}\" PRIVATE\n  {{#each globs.pthread}}\n  {{this}}\n  {{/each}}\n)\n\nendif()\n",
+            "define": [
+              "BOOST_ALL_NO_LIB",
+              "BOOST_TEST_NO_MAIN"
+            ],
+            "feature": [
+              "cxx_std_11"
+            ],
+            "globs": {
+              "pthread": [
+                "libs/*/src/pthread/**"
+              ],
+              "win32": [
+                "libs/*/src/win32/**"
+              ]
+            },
+            "include": [
+              "./"
+            ],
+            "self": {
+              "private": {
+                "link": [
+                  "Zefiros-Software/boost"
+                ]
+              },
+              "public": {
+              },
+              "source": [
+                "test/**.cpp"
+              ],
+              "template": "library-test"
+            },
+            "source": [
+              "libs/*/src/**",
+              "!libs/*/src/pthread/**",
+              "!libs/*/src/win32/**"
+            ],
+            "template": "library"
+          },
+          "versionId": "libraries:ROOT:boost"
+        },
+        {
+          "optional": false,
+          "versionId": "libraries:ROOT"
+        }
+      ],
+      "versionId": "builder:ZPM:builder/default"
+    },
+    {
+      "definition": {
+      },
+      "dependsOn": [
+        "libraries:ROOT:boost"
+      ],
+      "manifest": "extractor",
+      "packageId": "ROOT:boost/extract",
+      "settings": {
+      },
+      "usedBy": [
+        {
+          "optional": false,
+          "versionId": "libraries:ROOT:boost"
+        }
+      ],
+      "versionId": "extractor:ROOT:boost/extract"
+    },
+    {
+      "definition": {
+        "extractor": {
+          "excludes": [
+            "**/test/**"
+          ],
+          "includes": [
+            "**/src/**/*.h",
+            "**/src/**/*.cpp",
+            "**/src/**/*.cc",
+            "**/src/**/*.cxx",
+            "**/src/**/*.c",
+            "**/src/**/*.s",
+            "**/src/**/*.m",
+            "**/src/**/*.mm",
+            "**/include/**/*.h",
+            "**/include/**/*.cpp",
+            "**/include/**/*.cc",
+            "**/include/**/*.cxx",
+            "**/include/**/*.c",
+            "**/include/**/*.s",
+            "**/include/**/*.m",
+            "**/include/**/*.mm"
+          ]
+        }
+      },
+      "dependsOn": [
+        "libraries:ROOT",
+        "libraries:ROOT:flathashmap",
+        "libraries:ROOT:fmt",
+        "libraries:ROOT:glm",
+        "libraries:ROOT:nanorange",
+        "libraries:ROOT:nlohmannjson",
+        "libraries:ROOT:range-v3",
+        "libraries:ROOT:simdpp",
+        "libraries:ROOT:spdlog",
+        "libraries:ROOT:taskflow",
+        "libraries:Zefiros-Software:flathashmap:master-2c468",
+        "libraries:Zefiros-Software:fmt:5.3.0-9e554",
+        "libraries:Zefiros-Software:glm:master-94752",
+        "libraries:Zefiros-Software:nanorange:master-2d047",
+        "libraries:Zefiros-Software:nlohmannjson:master-3c4c6",
+        "libraries:Zefiros-Software:range-v3:0.5.0-f2ab8",
+        "libraries:Zefiros-Software:simdpp:master-4385a",
+        "libraries:Zefiros-Software:spdlog:v1.3.1-a7148",
+        "libraries:Zefiros-Software:taskflow:master-a8ade"
+      ],
+      "manifest": "extractor",
+      "packageId": "ZPM:extractor/default",
+      "settings": {
+        "include": [
+          "taskflow/**/*.hpp",
+          "include/**/*.h",
+          "simdpp/**/*.h",
+          "simdpp/**/*.hpp",
+          "simdpp/**/*.inl",
+          "include/**/*.hpp",
+          "single_include/*.hpp",
+          "glm/**",
+          "include/**",
+          "src/**.cc",
+          "*.hpp"
+        ]
+      },
+      "usedBy": [
+        {
+          "optional": false,
+          "settings": {
+            "include": [
+              "taskflow/**/*.hpp"
+            ]
+          },
+          "versionId": "libraries:Zefiros-Software:taskflow:master-a8ade"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "include": [
+              "taskflow/**/*.hpp"
+            ]
+          },
+          "versionId": "libraries:ROOT:taskflow"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "include": [
+              "include/**/*.h"
+            ]
+          },
+          "versionId": "libraries:Zefiros-Software:spdlog:v1.3.1-a7148"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "include": [
+              "include/**/*.h"
+            ]
+          },
+          "versionId": "libraries:ROOT:spdlog"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "include": [
+              "simdpp/**/*.h",
+              "simdpp/**/*.hpp",
+              "simdpp/**/*.inl"
+            ]
+          },
+          "versionId": "libraries:Zefiros-Software:simdpp:master-4385a"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "include": [
+              "simdpp/**/*.h",
+              "simdpp/**/*.hpp",
+              "simdpp/**/*.inl"
+            ]
+          },
+          "versionId": "libraries:ROOT:simdpp"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "include": [
+              "include/**/*.hpp"
+            ]
+          },
+          "versionId": "libraries:Zefiros-Software:range-v3:0.5.0-f2ab8"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "include": [
+              "include/**/*.hpp"
+            ]
+          },
+          "versionId": "libraries:ROOT:range-v3"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "include": [
+              "include/**/*.hpp"
+            ]
+          },
+          "versionId": "libraries:Zefiros-Software:nlohmannjson:master-3c4c6"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "include": [
+              "include/**/*.hpp"
+            ]
+          },
+          "versionId": "libraries:ROOT:nlohmannjson"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "include": [
+              "single_include/*.hpp"
+            ]
+          },
+          "versionId": "libraries:Zefiros-Software:nanorange:master-2d047"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "include": [
+              "single_include/*.hpp"
+            ]
+          },
+          "versionId": "libraries:ROOT:nanorange"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "include": [
+              "glm/**"
+            ]
+          },
+          "versionId": "libraries:Zefiros-Software:glm:master-94752"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "include": [
+              "glm/**"
+            ]
+          },
+          "versionId": "libraries:ROOT:glm"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "include": [
+              "include/**",
+              "src/**.cc"
+            ]
+          },
+          "versionId": "libraries:Zefiros-Software:fmt:5.3.0-9e554"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "include": [
+              "include/**",
+              "src/**.cc"
+            ]
+          },
+          "versionId": "libraries:ROOT:fmt"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "include": [
+              "*.hpp"
+            ]
+          },
+          "versionId": "libraries:Zefiros-Software:flathashmap:master-2c468"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "include": [
+              "*.hpp"
+            ]
+          },
+          "versionId": "libraries:ROOT:flathashmap"
+        },
+        {
+          "optional": false,
+          "versionId": "libraries:ROOT"
+        }
+      ],
+      "versionId": "extractor:ZPM:extractor/default"
+    },
+    {
+      "definition": {
+      },
+      "dependsOn": [
+        "libraries:Zefiros-Software:boost:boost-1.70.0-8f9a1"
+      ],
+      "manifest": "extractor",
+      "packageId": "Zefiros-Software/boost:extract",
+      "settings": {
+      },
+      "usedBy": [
+        {
+          "optional": false,
+          "versionId": "libraries:Zefiros-Software:boost:boost-1.70.0-8f9a1"
+        }
+      ],
+      "versionId": "extractor:Zefiros-Software/boost:extract"
+    }
+  ]
 }

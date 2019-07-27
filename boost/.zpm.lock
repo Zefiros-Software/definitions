@@ -1,118 +1,301 @@
 {
-  "named": {
-    "libraries": [
-      {
-        "description": {
-          "extract": {
-            "includes": [
-              "libs/*/include/**/*",
-              "libs/*/src/**/*"
+  "versions": [
+    {
+      "definition": {
+        "build": {
+          "custom": "if (MSVC)\n\ntarget_sources(\"${PROJECT_NAME}\" PRIVATE \n  {{#each globs.win32}}\n  {{this}}\n  {{/each}}\n)\n\nelse()\n\ntarget_sources(\"${PROJECT_NAME}\" PRIVATE\n  {{#each globs.pthread}}\n  {{this}}\n  {{/each}}\n)\n\nendif()\n",
+          "define": [
+            "BOOST_ALL_NO_LIB",
+            "BOOST_TEST_NO_MAIN"
+          ],
+          "feature": [
+            "cxx_std_11"
+          ],
+          "globs": {
+            "pthread": [
+              "libs/*/src/pthread/**"
+            ],
+            "win32": [
+              "libs/*/src/win32/**"
             ]
-          }
-        },
-        "hash": "8f9a1cf1d15d262e09c16a305034d8bc1e39aca2",
-        "id": "libraries:GIT:Zefiros-Software/boost@1.70.0",
-        "name": "Zefiros-Software/boost",
-        "settings": {
-          "modules": [
-            "atomic"
-          ]
-        },
-        "usage": {
-          "required": {
-            "builder": "builder:PATH:ZPM:builder/default",
-            "extractor": "extractor:PATH:$ROOT:$ROOT:extract"
           },
-          "settings": {
-            "libraries:PATH:$ROOT:$ROOT": {
-              "modules": [
-                "atomic"
-              ]
-            }
-          }
-        },
-        "version": "1.70.0"
-      }
-    ]
-  },
-  "path": {
-    "builder": [
-      {
-        "description": {
-        },
-        "id": "builder:PATH:ZPM:./",
-        "name": "ZPM",
-        "path": "./",
-        "settings": {
-        },
-        "usage": {
-        }
-      },
-      {
-        "description": {
-        },
-        "id": "builder:PATH:ZPM:builder/default",
-        "name": "ZPM",
-        "path": "builder/default",
-        "settings": {
-        },
-        "usage": {
-        }
-      }
-    ],
-    "extractor": [
-      {
-        "description": {
-        },
-        "id": "extractor:PATH:$ROOT:$ROOT:extract",
-        "name": "$ROOT",
-        "path": "extract",
-        "root": "libraries:PATH:$ROOT:$ROOT",
-        "settings": {
-        },
-        "usage": {
-          "settings": {
-            "libraries:GIT:Zefiros-Software/boost@1.70.0": {
-              "includes": [
-                "libs/*/include/**/*",
-                "libs/*/src/**/*"
+          "include": [
+            "./"
+          ],
+          "self": {
+            "private": {
+              "link": [
+                "Zefiros-Software/boost"
               ]
             },
-            "libraries:PATH:$ROOT:$ROOT": {
-              "includes": [
-                "libs/*/include/**/*",
-                "libs/*/src/**/*"
+            "public": {
+            },
+            "source": [
+              "test/**.cpp"
+            ],
+            "template": "library-test"
+          },
+          "source": [
+            "libs/*/src/**",
+            "!libs/*/src/pthread/**",
+            "!libs/*/src/win32/**"
+          ],
+          "template": "library"
+        }
+      },
+      "manifest": "libraries",
+      "packageId": "ROOT",
+      "settings": {
+      },
+      "usedBy": [
+      ],
+      "versionId": "libraries:ROOT"
+    },
+    {
+      "definition": {
+        "build": {
+          "custom": "if (MSVC)\n\ntarget_sources(\"${PROJECT_NAME}\" PRIVATE \n  {{#each globs.win32}}\n  {{this}}\n  {{/each}}\n)\n\nelse()\n\ntarget_sources(\"${PROJECT_NAME}\" PRIVATE\n  {{#each globs.pthread}}\n  {{this}}\n  {{/each}}\n)\n\nendif()\n",
+          "define": [
+            "BOOST_ALL_NO_LIB",
+            "BOOST_TEST_NO_MAIN"
+          ],
+          "feature": [
+            "cxx_std_11"
+          ],
+          "globs": {
+            "pthread": [
+              "libs/*/src/pthread/**"
+            ],
+            "win32": [
+              "libs/*/src/win32/**"
+            ]
+          },
+          "include": [
+            "./"
+          ],
+          "self": {
+            "private": {
+              "link": [
+                "Zefiros-Software/boost"
               ]
-            }
-          }
+            },
+            "source": [
+              "test/**.cpp"
+            ],
+            "template": "library-test"
+          },
+          "source": [
+            "libs/*/src/**",
+            "!libs/*/src/pthread/**",
+            "!libs/*/src/win32/**"
+          ],
+          "template": "library"
         }
-      }
-    ],
-    "libraries": [
-      {
-        "description": {
-          "extract": {
-            "includes": [
-              "libs/*/include/**/*",
-              "libs/*/src/**/*"
+      },
+      "dependsOn": [
+        "libraries:ROOT"
+      ],
+      "manifest": "libraries",
+      "packageId": "Zefiros-Software/boost",
+      "settings": {
+        "modules": [
+          "atomic"
+        ]
+      },
+      "usedBy": [
+        {
+          "optional": false,
+          "settings": {
+            "modules": [
+              "atomic"
             ]
-          }
-        },
-        "id": "libraries:PATH:$ROOT:$ROOT",
-        "name": "$ROOT",
-        "path": "./",
-        "settings": {
-        },
-        "usage": {
-          "required": {
-            "builder": "builder:PATH:ZPM:builder/default",
-            "extractor": "extractor:PATH:$ROOT:$ROOT:extract",
-            "libraries": [
-              "libraries:GIT:Zefiros-Software/boost@1.70.0"
-            ]
-          }
+          },
+          "versionId": "libraries:ROOT"
         }
-      }
-    ]
-  }
+      ],
+      "version": {
+        "hash": "8f9a1cf1d15d262e09c16a305034d8bc1e39aca2",
+        "name": "boost-1.70.0",
+        "version": "1.70.0"
+      },
+      "versionId": "libraries:Zefiros-Software:boost:boost-1.70.0-8f9a1"
+    },
+    {
+      "definition": {
+      },
+      "dependsOn": [
+        "libraries:ROOT",
+        "libraries:Zefiros-Software:boost:boost-1.70.0-8f9a1"
+      ],
+      "manifest": "builder",
+      "packageId": "ZPM:builder/default",
+      "settings": {
+        "custom": "if (MSVC)\n\ntarget_sources(\"${PROJECT_NAME}\" PRIVATE \n  {{#each globs.win32}}\n  {{this}}\n  {{/each}}\n)\n\nelse()\n\ntarget_sources(\"${PROJECT_NAME}\" PRIVATE\n  {{#each globs.pthread}}\n  {{this}}\n  {{/each}}\n)\n\nendif()\n",
+        "define": [
+          "BOOST_ALL_NO_LIB",
+          "BOOST_TEST_NO_MAIN"
+        ],
+        "feature": [
+          "cxx_std_11"
+        ],
+        "globs": {
+          "pthread": [
+            "libs/*/src/pthread/**"
+          ],
+          "win32": [
+            "libs/*/src/win32/**"
+          ]
+        },
+        "include": [
+          "./"
+        ],
+        "self": {
+          "private": {
+            "link": [
+              "Zefiros-Software/boost"
+            ]
+          },
+          "source": [
+            "test/**.cpp"
+          ],
+          "template": "library-test"
+        },
+        "source": [
+          "libs/*/src/**",
+          "!libs/*/src/pthread/**",
+          "!libs/*/src/win32/**"
+        ],
+        "template": "library"
+      },
+      "usedBy": [
+        {
+          "optional": false,
+          "settings": {
+            "custom": "if (MSVC)\n\ntarget_sources(\"${PROJECT_NAME}\" PRIVATE \n  {{#each globs.win32}}\n  {{this}}\n  {{/each}}\n)\n\nelse()\n\ntarget_sources(\"${PROJECT_NAME}\" PRIVATE\n  {{#each globs.pthread}}\n  {{this}}\n  {{/each}}\n)\n\nendif()\n",
+            "globs": {
+              "pthread": [
+                "libs/*/src/pthread/**"
+              ],
+              "win32": [
+                "libs/*/src/win32/**"
+              ]
+            },
+            "private": {
+            },
+            "public": {
+              "define": [
+                "BOOST_ALL_NO_LIB",
+                "BOOST_TEST_NO_MAIN"
+              ],
+              "feature": [
+                "cxx_std_11"
+              ],
+              "include": [
+                "./"
+              ]
+            },
+            "self": {
+              "private": {
+                "link": [
+                  "Zefiros-Software/boost"
+                ]
+              },
+              "source": [
+                "test/**.cpp"
+              ],
+              "template": "library-test"
+            },
+            "source": [
+              "libs/*/src/**",
+              "!libs/*/src/pthread/**",
+              "!libs/*/src/win32/**"
+            ],
+            "template": "library"
+          },
+          "versionId": "libraries:Zefiros-Software:boost:boost-1.70.0-8f9a1"
+        },
+        {
+          "optional": false,
+          "settings": {
+            "custom": "if (MSVC)\n\ntarget_sources(\"${PROJECT_NAME}\" PRIVATE \n  {{#each globs.win32}}\n  {{this}}\n  {{/each}}\n)\n\nelse()\n\ntarget_sources(\"${PROJECT_NAME}\" PRIVATE\n  {{#each globs.pthread}}\n  {{this}}\n  {{/each}}\n)\n\nendif()\n",
+            "define": [
+              "BOOST_ALL_NO_LIB",
+              "BOOST_TEST_NO_MAIN"
+            ],
+            "feature": [
+              "cxx_std_11"
+            ],
+            "globs": {
+              "pthread": [
+                "libs/*/src/pthread/**"
+              ],
+              "win32": [
+                "libs/*/src/win32/**"
+              ]
+            },
+            "include": [
+              "./"
+            ],
+            "self": {
+              "private": {
+                "link": [
+                  "Zefiros-Software/boost"
+                ]
+              },
+              "public": {
+              },
+              "source": [
+                "test/**.cpp"
+              ],
+              "template": "library-test"
+            },
+            "source": [
+              "libs/*/src/**",
+              "!libs/*/src/pthread/**",
+              "!libs/*/src/win32/**"
+            ],
+            "template": "library"
+          },
+          "versionId": "libraries:ROOT"
+        }
+      ],
+      "versionId": "builder:ZPM:builder/default"
+    },
+    {
+      "definition": {
+      },
+      "dependsOn": [
+        "libraries:ROOT"
+      ],
+      "manifest": "extractor",
+      "packageId": "ROOT:extract",
+      "settings": {
+      },
+      "usedBy": [
+        {
+          "optional": false,
+          "versionId": "libraries:ROOT"
+        }
+      ],
+      "versionId": "extractor:ROOT:extract"
+    },
+    {
+      "definition": {
+      },
+      "dependsOn": [
+        "libraries:Zefiros-Software:boost:boost-1.70.0-8f9a1"
+      ],
+      "manifest": "extractor",
+      "packageId": "Zefiros-Software/boost:extract",
+      "settings": {
+      },
+      "usedBy": [
+        {
+          "optional": false,
+          "versionId": "libraries:Zefiros-Software:boost:boost-1.70.0-8f9a1"
+        }
+      ],
+      "versionId": "extractor:Zefiros-Software/boost:extract"
+    }
+  ]
 }

@@ -1,0 +1,29 @@
+development:
+  libraries:
+    - name: Zefiros-Software/GoogleTest:gtest
+      version: master
+      definition: ./
+
+extract:
+  include:
+    - "googletest/include/**/*.h"
+    - "googletest/src/**.cc"
+    - "googletest/src/**.h"
+build:
+  template: library
+  source:
+    - googletest/src/gtest-all.cc
+  include:
+    - googletest/include
+  private:
+    include: 
+      - googletest
+
+
+  self:
+    template: library-test
+    source:
+      - "test/*.cpp"
+    private:
+      link:
+        - Zefiros-Software/GoogleTest:gtest

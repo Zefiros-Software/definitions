@@ -11,6 +11,21 @@ compile_commands.json
 CTestTestfile.cmake
 _deps
 
+# make
+Makefile
+*.make
+
+# visual studio code
+*/.vs/*
+
+# visual studio
+*.sdf
+*.sln
+*.suo
+*.VC.*
+*.opensdf
+*.vcxproj*
+
 ## C++
 # Prerequisites
 *.d

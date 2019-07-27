@@ -1,0 +1,16 @@
+zpm_project()
+
+add_library("${PROJECT_NAME}" "googletest/src/gtest-all.cc")
+
+target_include_directories("${PROJECT_NAME}"
+                           PUBLIC "googletest/include/"
+                           PRIVATE "googletest/")
+
+target_compile_features("${PROJECT_NAME}" PUBLIC cxx_std_11)
+
+if(UNIX)
+target_link_libraries("${PROJECT_NAME}" PUBLIC pthread)
+endif()
+
+#zpm_alias("${PROJECT_NAME}")
+#zpm_default_target("${PROJECT_NAME}")

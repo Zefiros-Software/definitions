@@ -1,17 +1,25 @@
 export async function extract() {
-    log.info(pkg.settings)
-    if (pkg.settings.modules && pkg.settings.modules.length > 0) {
-        await shell.exec(`.\\dist\\bin\\bcp.exe ${pkg.settings.modules.join(' ')} ${pkg.target}`)
+    if (version.settings.modules && version.settings.modules.length > 0) {
+        await shell.exec(`.\\dist\\bin\\bcp.exe ${version.settings.modules.join(' ')} ${version.target}`)
     }
 }
 
 export async function checkout() {
-    await git.checkout(pkg.hash!)
-    if (fs.exists('b2.exe')) {        
+    await git.checkout(version.hash!)
+    
+    if (!fs.exists('b2.exe')) {        
         await shell.exec('.\\bootstrap.bat')
     }
     
-    if (fs.exists('dist/bin/bcp.exe')) {       
+    if (!fs.exists('dist/bin/bcp.exe')) {       
         await shell.exec('.\\b2.exe -j 12 tools\\bcp')
+    }
+    
+    if (!fs.exists('dist/bin/bcp.exe')) {       
+        await shell.exec('.\\b2.exe -j 12 tools\\bcp')
+    }
+    
+    if (!fs.exists('boost')) {       
+        await shell.exec('.\\b2.exe headers -j 12')
     }
 }
