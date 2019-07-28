@@ -1,0 +1,17 @@
+cmake_minimum_required(VERSION 3.15)
+
+include("extern/ZPM")
+
+zpm_defaults()
+
+#add_subdirectory("googletest" "googletest")
+add_subdirectory("simdpp" "simdpp")
+add_subdirectory("flathashmap" "flathashmap")
+add_subdirectory("nanorange" "nanorange")
+add_subdirectory("taskflow" "taskflow")
+add_subdirectory("nlohmannjson" "nlohmannjson")
+add_subdirectory("glm" "glm")
+add_subdirectory("fmt" "fmt")
+add_subdirectory("spdlog" "spdlog")
+add_subdirectory("range-v3" "range-v3")
+add_subdirectory("boost" "boost")
