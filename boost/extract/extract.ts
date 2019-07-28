@@ -1,10 +1,11 @@
 function isWindows() {
+    console.log( platform.os, '@@@@@@')
     return platform.os === "win32"
 }
 
-const b2 = isWindows() ? 'b2.exe' : './b2'
+const b2 = isWindows() ? '.\\b2.exe' : './b2'
 const bootstrap = isWindows() ? 'bootstrap.bat' : 'bash bootstrap.sh'
-const bcp = isWindows() ? 'dist/bin/bcp.exe' : 'dist/bin/bcp'
+const bcp = isWindows() ? '.\\dist\\bin\\bcp.exe' : './dist/bin/bcp'
 
 
 export async function extract() {
