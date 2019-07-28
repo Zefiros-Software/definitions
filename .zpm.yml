@@ -1,6 +1,6 @@
 development:
   libraries:
-    #- path: googletest
+    - path: googletest
     - path: simdpp
     - path: flathashmap
     - path: nanorange
