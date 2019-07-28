@@ -41,13 +41,13 @@ build:
       else()
       
       find_package(Threads REQUIRED)
+      target_link_libraries("${PROJECT_NAME}" Threads::Threads)
+
       target_sources("${PROJECT_NAME}" PRIVATE
         {{#each globs.pthread}}
         {{this}}
         {{/each}}
       )
-
-      target_link_libraries("${PROJECT_NAME}" Threads::Threads)
       
       endif()
 

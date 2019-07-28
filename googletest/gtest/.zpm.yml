@@ -18,6 +18,10 @@ build:
   private:
     include: 
       - googletest
+      
+  custom: |
+      find_package(Threads REQUIRED)
+      target_link_libraries("${PROJECT_NAME}" Threads::Threads)
 
 
   self:
