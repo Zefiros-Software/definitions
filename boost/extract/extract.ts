@@ -1,5 +1,4 @@
 function isWindows() {
-    console.log( platform.os, '@@@@@@')
     return platform.os === "win32"
 }
 
@@ -19,12 +18,12 @@ export async function checkout() {
     if (!fs.exists(b2)) {        
         await shell.exec(bootstrap)
     }
-    
-    if (!fs.exists(bcp)) {       
-        await shell.exec(`${b2} -j 12 tools/bcp`)
-    }
 
     if (!fs.exists('boost')) {       
         await shell.exec(`${b2} headers -j 12`)
+    }
+    
+    if (!fs.exists(bcp)) {       
+        await shell.exec(`${b2} -j 12 tools/bcp`)
     }
 }
