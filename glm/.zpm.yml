@@ -1,0 +1,27 @@
+development:
+  libraries:
+    - name: Zefiros-Software/glm
+      version: master
+      definition: ./
+      repository: https://github.com/g-truc/glm.git
+
+extract:
+  include:
+    - "glm/**"
+build:
+  template: headeronly
+  include:
+    - ./
+  feature:
+    - cxx_std_11
+  define:
+    - GLM_FORCE_SWIZZLE
+    - GLM_ENABLE_EXPERIMENTAL
+
+  self:
+    template: library-test
+    source:
+      - "test/**.cpp"
+    private:
+      link:
+        - Zefiros-Software/glm

@@ -1,0 +1,25 @@
+development:
+  libraries:
+    - name: Zefiros-Software/nlohmannjson
+      version: master
+      definition: ./
+      repository: https://github.com/nlohmann/json.git
+
+extract:
+  include:
+    - "include/**/*.hpp"
+
+build:
+  template: headeronly
+  include:
+    - include
+  feature:
+    - cxx_std_11
+
+  self:
+    template: library-test
+    source:
+      - "test/**.cpp"
+    private:
+      link:
+        - Zefiros-Software/nlohmannjson

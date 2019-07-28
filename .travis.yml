@@ -1,0 +1,48 @@
+sudo: false
+language: cpp
+
+matrix:
+  include:
+    - os: osx
+      osx_image: xcode10.2
+      compiler: clang
+    - os: windows
+      language: node_js
+      node_js: node
+      compiler: clang
+      before_install:
+        - choco install python3
+        - export PATH="/c/Python37:/c/Python37/Scripts:$PATH"
+        - python -m pip install --upgrade pip wheel
+        - export PATH="/C/Users/travis/AppData/Roaming/Python/Python37/Scripts:$PATH"
+      env:
+        - CONFIG_TYPE="-C Debug"
+    - os: linux
+      compiler: clang
+      install:      
+        - export CXX=clang++-8
+    - os: linux
+      compiler: gcc
+      install:      
+        - export CXX=g++-7
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    - llvm-toolchain-trusty-8
+    packages:
+    - g++-7
+    - clang-8    
+  homebrew:
+    packages:
+      - node
+
+before_script:
+  - pip install --user cmake
+  - npm install -g @zpmpkg/zpm@next
+script:
+  - echo $CONFIG_TYPE
+  - zpm
+  - cmake .
+  - cmake --build .
+  - ctest $CONFIG_TYPE

@@ -1,0 +1,14 @@
+requires:
+  libraries:
+    - path: gmock
+    - path: gtest
+
+build:
+  self:
+    template: library-test
+    source:
+      - "*/test/**.cpp"
+      - "!gmock/test/main.cpp"
+    private:
+      link:
+        - Zefiros-Software/GoogleTest

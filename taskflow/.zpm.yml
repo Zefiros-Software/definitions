@@ -1,0 +1,29 @@
+development:
+  libraries:
+    - name: Zefiros-Software/taskflow
+      version: master
+      definition: ./
+      repository: https://github.com/cpp-taskflow/cpp-taskflow.git
+
+extract:
+  include:
+    - "taskflow/**/*.hpp"
+build:
+  template: headeronly
+  include:
+    - ./
+  feature:
+    - cxx_std_17
+
+  custom: |
+      if(UNIX)
+        target_link_libraries("${PROJECT_NAME}" INTERFACE pthread)
+      endif()
+
+  self:
+    template: library-test
+    source:
+      - "test/**.cpp"
+    private:
+      link:
+        - Zefiros-Software/taskflow

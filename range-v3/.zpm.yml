@@ -1,0 +1,28 @@
+development:
+  libraries:
+    - name: Zefiros-Software/range-v3
+      version: 0.5.0
+      definition: ./
+      repository: https://github.com/ericniebler/range-v3.git
+
+extract:
+  include:
+    - "include/**/*.hpp"
+build:
+  template: headeronly
+  include:
+    - include
+  feature:
+    - cxx_std_17
+  custom: |
+      if (MSVC)
+      target_compile_options("${PROJECT_NAME}" INTERFACE /permissive-)
+      endif()
+
+  self:
+    template: library-test
+    source:
+      - "test/**.cpp"
+    private:
+      link:
+        - Zefiros-Software/range-v3

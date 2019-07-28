@@ -1,0 +1,13 @@
+development:
+  libraries:
+    #- path: googletest
+    - path: simdpp
+    - path: flathashmap
+    - path: nanorange
+    - path: taskflow
+    - path: nlohmannjson
+    - path: glm
+    - path: fmt
+    - path: spdlog
+    - path: range-v3
+    - path: boost
