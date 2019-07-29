@@ -15,6 +15,8 @@ build:
     - googletest/src/gtest-all.cc
   include:
     - googletest/include
+  feature:
+    - cxx_std_11
   private:
     include: 
       - googletest
@@ -22,7 +24,6 @@ build:
   custom: |
       find_package(Threads REQUIRED)
       target_link_libraries("${PROJECT_NAME}" Threads::Threads)
-
 
   self:
     template: library-test
