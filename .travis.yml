@@ -43,6 +43,6 @@ before_script:
 script:
   - echo $CONFIG_TYPE
   - zpm
-  - cmake .
+  - cmake . -G "NMake Makefiles"
   - cmake --build .
   - ctest $CONFIG_TYPE
