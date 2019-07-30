@@ -34,10 +34,8 @@ build:
         let:
           source: 
             - "libs/*/src/pthread/**"
-          custom: |
-            
-            find_package(Threads REQUIRED)
-            target_link_libraries("${PROJECT_NAME}" Threads::Threads)
+          link:
+            - Threads::Threads
 
   self:
     template: library-test
