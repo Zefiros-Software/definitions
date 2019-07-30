@@ -24,33 +24,20 @@ build:
     - "BOOST_TEST_NO_MAIN"
   feature:
     - cxx_std_11
-  globs:
-    pthread: 
-      - "libs/*/src/pthread/**"
-    win32: 
-      - "libs/*/src/win32/**"
-  custom: |
-      if (MSVC)
-
-      target_sources("${PROJECT_NAME}" PRIVATE 
-        {{#each globs.win32}}
-        {{this}}
-        {{/each}}
-      )
-
-      else()
-      
-      find_package(Threads REQUIRED)
-      target_link_libraries("${PROJECT_NAME}" Threads::Threads)
-
-      target_sources("${PROJECT_NAME}" PRIVATE
-        {{#each globs.pthread}}
-        {{this}}
-        {{/each}}
-      )
-      
-      endif()
-
+  private:
+    conditions:
+      - on: MSVC
+        let:
+          source: 
+            - "libs/*/src/win32/**"
+      - on: NOT MSVC
+        let:
+          source: 
+            - "libs/*/src/pthread/**"
+          custom: |
+            
+            find_package(Threads REQUIRED)
+            target_link_libraries("${PROJECT_NAME}" Threads::Threads)
 
   self:
     template: library-test

@@ -14,11 +14,12 @@ build:
     - ./
   feature:
     - cxx_std_17
-
-  custom: |
-      if(UNIX)
-        target_link_libraries("${PROJECT_NAME}" INTERFACE pthread)
-      endif()
+  conditions:
+    - on: UNIX
+      let:
+        custom: |
+          find_package(Threads REQUIRED)
+          target_link_libraries("${PROJECT_NAME}" Threads::Threads)
 
   self:
     template: library-test
