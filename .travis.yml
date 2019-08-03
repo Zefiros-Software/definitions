@@ -44,5 +44,5 @@ script:
   - echo $CONFIG_TYPE
   - zpm
   - cmake .
-  - cmake --build $CONFIG_TYPE .
+  - cmake --build . $CONFIG_TYPE
   - ctest $CONFIG_TYPE
