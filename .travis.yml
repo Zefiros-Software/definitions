@@ -16,7 +16,7 @@ matrix:
         - python -m pip install --upgrade pip wheel
         - export PATH="/C/Users/travis/AppData/Roaming/Python/Python37/Scripts:$PATH"
       env:
-        - CONFIG_TYPE="-C Debug"
+        - CONFIG_TYPE="-C Release"
     - os: linux
       compiler: clang
       install:      
@@ -43,6 +43,6 @@ before_script:
 script:
   - echo $CONFIG_TYPE
   - zpm
-  - cmake . -G "NMake Makefiles"
+  - cmake .
   - cmake --build .
   - ctest $CONFIG_TYPE
