@@ -17,7 +17,7 @@ build:
   conditions:
     - on: MSVC
       let:
-        options: 
+        option: 
           - /permissive-
 
   self:

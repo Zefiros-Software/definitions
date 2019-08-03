@@ -30,13 +30,11 @@ build:
         let:
           source: 
             - "libs/*/src/win32/**"
-      - on: NOT MSVC
-        let:
+        otherwise: 
           source: 
             - "libs/*/src/pthread/**"
           link:
             - Threads::Threads
-
   self:
     template: library-test
     source:
