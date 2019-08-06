@@ -1,9 +1,42 @@
-requires:
-  libraries:
-    - path: gmock
-    - path: gtest
+# requires:
+#   libraries:
+#     - path: gmock
+#     - path: gtest
 
+development:
+  libraries:
+    - name: Zefiros-Software/GoogleTest
+      version: master
+      definition: ./
+
+extract:
+  include:
+    - "googlemock/include/**/*.h"
+    - "googlemock/src/**.cc"
+    - "googlemock/src/**.h"
+    
+    - "googletest/include/**/*.h"
+    - "googletest/src/**.cc"
+    - "googletest/src/**.h"
 build:
+  template: library
+  source:
+    - googlemock/src/gmock-all.cc
+    - googletest/src/gtest-all.cc
+  include:
+    - googlemock/include
+    - googletest/include
+  feature:
+    - cxx_std_11
+  link:
+    - Threads::Threads
+  default: true
+  
+  private:
+    include: 
+      - googletest
+      - googlemock
+
   self:
     template: library-test
     source:
