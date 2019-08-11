@@ -38,6 +38,12 @@ build:
       let:
         define:
           - _GLFW_X11
+        link:
+          - Xrandr
+          - X11
+          - Xi
+          - dl
+          - Threads::Threads
         source: 
           - src/x11_*
           - src/linux_*
