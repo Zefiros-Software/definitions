@@ -11,3 +11,6 @@ development:
     - path: spdlog
     - path: range-v3
     - path: boost
+    - path: gainput
+    - path: glfw
+    - path: predef
