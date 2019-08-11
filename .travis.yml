@@ -34,6 +34,11 @@ addons:
     packages:
     - g++-7
     - clang-8    
+    # GLFW
+    - libxcursor-dev 
+    - libxrandr-dev 
+    - libxinerama-dev 
+    - libxi-dev
   homebrew:
     packages:
       - node
