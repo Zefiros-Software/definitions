@@ -1,0 +1,48 @@
+development:
+  libraries:
+    - name: Zefiros-Software/gainput
+      version: master
+      definition: ./
+      repository: https://github.com/jkuhlmann/gainput.git
+
+extract:
+  include:
+    - "lib/source/**"
+    - "lib/include/**"
+build:
+  template: library
+  include:
+    - lib/include
+  source:
+    - lib/source/**/*.cpp
+  feature:
+    - cxx_std_11
+  define: 
+    - GAINPUT_LIB_BUILD
+  conditions:
+    - on: WIN32
+      let:
+        link: 
+          - xinput
+    - on: UNIX
+      let:
+        link: 
+          - X11
+    - on: APPLE
+      let:
+        source:
+          - "lib/source/**Mac.mm"
+        link: 
+          - IOKit.framework
+          - CoreFoundation.framework
+          - GameController.framework
+          - CoreGraphics.framework
+          - Cocoa.framework
+
+  self:
+    template: library-test
+    source:
+      - "test/**.cpp"
+    private:
+      link:
+        - Zefiros-Software/gainput

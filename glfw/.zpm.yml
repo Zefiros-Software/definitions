@@ -1,0 +1,68 @@
+development:
+  libraries:
+    - name: Zefiros-Software/GLFW
+      version: master
+      definition: ./
+      repository: https://github.com/glfw/glfw.git
+
+extract:
+  include:
+    - "src/**"
+    - "include/**"
+build:
+  template: library
+  include:
+    - include
+  source:
+    - src/context.c
+    - src/init.c
+    - src/input.c
+    - src/monitor.c
+    - src/vulkan.c
+    - src/window.c
+    - src/osmesa_context.c
+  feature:
+    - cxx_std_11
+  define: 
+    - GLFW_LIB_BUILD
+  conditions:
+    - on: WIN32
+      let:
+        define: 
+          - _GLFW_WIN32
+        source: 
+          - src/win32_*
+          - src/wgl_context.c
+          - src/egl_context.c
+    - on: UNIX
+      let:
+        define:
+          - _GLFW_X11
+        source: 
+          - src/x11_*
+          - src/linux_*
+          - src/xkb_unicode.c
+          - src/posix_time.c
+          - src/posix_thread.c
+          - src/glx_context.c
+          - src/egl_context.c
+    - on: APPLE
+      let:
+        define:
+          - _GLFW_COCOA
+        source:
+          - src/cocoa_*
+          - src/xkb_unicode.c
+          - src/posix_thread.c
+          - src/nsgl_context.m
+          - src/egl_context.c
+        link: 
+          - "-ObjC -framework CoreFoundation -framework CoreVideo -framework IOKit -framework Cocoa"
+
+  self:
+    template: library-test
+    source:
+      - "test/**.cpp"
+    private:
+      link:
+        - Zefiros-Software/GLFW

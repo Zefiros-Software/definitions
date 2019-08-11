@@ -1,0 +1,22 @@
+development:
+  libraries:
+    - name: Zefiros-Software/predef
+      version: '@head'
+      definition: ./
+      repository: https://github.com/boostorg/predef.git
+
+extract:
+  include:
+    - "include/**/*.h"
+build:
+  template: headeronly
+  include:
+    - include
+
+  self:
+    template: library-test
+    source:
+      - "test/**.cpp"
+    private:
+      link:
+        - Zefiros-Software/predef
