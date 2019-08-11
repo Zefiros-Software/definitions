@@ -39,8 +39,7 @@ addons:
     - libxrandr-dev 
     - libxinerama-dev 
     - libxi-dev
-    - libg1-mesa-dev 
-    - libglu1-mesa-dev
+    - libmesa-dev
   homebrew:
     packages:
       - node
