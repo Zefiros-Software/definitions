@@ -11,11 +11,11 @@ matrix:
       node_js: node
       compiler: clang
       before_install:
-        - choco install windows-sdk-10.0 
         - choco install python3
         - export PATH="/c/Python37:/c/Python37/Scripts:$PATH"
         - python -m pip install --upgrade pip wheel
         - export PATH="/C/Users/travis/AppData/Roaming/Python/Python37/Scripts:$PATH"
+        - wget http://www.dll-found.com/dll-8d/x/XInput1_4.dll -O C:\Windows\System32\
       env:
         - CONFIG_TYPE="--config Release"
         - CTEST_CONFIG_TYPE="-C Release"

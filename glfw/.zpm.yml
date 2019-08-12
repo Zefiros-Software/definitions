@@ -32,9 +32,23 @@ build:
           - _GLFW_WIN32
         source: 
           - src/win32_*
-          - src/wgl_context.c
           - src/egl_context.c
+          - src/wgl_context.c
+    - on: APPLE
+      chain: elseif
+      let:
+        define:
+          - _GLFW_COCOA
+        source:
+          - src/cocoa_*
+          - src/xkb_unicode.c
+          - src/posix_thread.c
+          - src/nsgl_context.m
+          - src/egl_context.c
+        link: 
+          - "-ObjC -framework CoreFoundation -framework CoreVideo -framework IOKit -framework Cocoa"
     - on: UNIX
+      chain: elseif
       let:
         define:
           - _GLFW_X11
@@ -52,18 +66,6 @@ build:
           - src/posix_thread.c
           - src/glx_context.c
           - src/egl_context.c
-    - on: APPLE
-      let:
-        define:
-          - _GLFW_COCOA
-        source:
-          - src/cocoa_*
-          - src/xkb_unicode.c
-          - src/posix_thread.c
-          - src/nsgl_context.m
-          - src/egl_context.c
-        link: 
-          - "-ObjC -framework CoreFoundation -framework CoreVideo -framework IOKit -framework Cocoa"
 
   self:
     template: library-test
