@@ -24,11 +24,8 @@ build:
       let:
         link: 
           - xinput
-    - on: UNIX
-      let:
-        link: 
-          - X11
     - on: APPLE
+      chain: elseif
       let:
         source:
           - "lib/source/**Mac.mm"
@@ -39,6 +36,11 @@ build:
           - CoreGraphics.framework
           - Cocoa.framework
 
+    - on: UNIX
+      chain: elseif
+      let:
+        link: 
+          - X11
   self:
     template: library-test
     source:
