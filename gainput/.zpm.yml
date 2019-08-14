@@ -29,13 +29,12 @@ build:
       let:
         source:
           - "lib/source/**Mac.mm"
-        private:
-          link: 
-            - "-framework IOKit.framework"
-            - "-framework CoreFoundation.framework"
-            - "-framework GameController.framework"
-            - "-framework CoreGraphics.framework"
-            - "-framework Cocoa.framework"
+        link: 
+          - "-framework IOKit"
+          - "-framework CoreFoundation"
+          - "-framework GameController"
+          - "-framework CoreGraphics"
+          - "-framework Cocoa"
 
     - on: UNIX
       chain: elseif
