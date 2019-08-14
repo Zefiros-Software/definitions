@@ -28,7 +28,7 @@ build:
       chain: elseif
       let:
         source:
-          - "lib/source/**Mac.mm"
+          - "lib/source/**/*Mac.mm"
         link: 
           - "-framework IOKit"
           - "-framework CoreFoundation"
