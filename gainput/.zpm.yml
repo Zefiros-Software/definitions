@@ -31,10 +31,11 @@ build:
           - "lib/source/**/*Mac.mm"
         link: 
           - "-framework IOKit"
-          - "-framework CoreFoundation"
+          - "-framework Foundation"
+          - "-framework AppKit"
           - "-framework GameController"
-          - "-framework CoreGraphics"
-          - "-framework Cocoa"
+          #- "-framework CoreGraphics"
+          #- "-framework Cocoa"
 
     - on: UNIX
       chain: elseif

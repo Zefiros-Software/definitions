@@ -32,7 +32,6 @@ enum Button
 
 int main()
 {
-
     gainput::InputManager manager;
     const gainput::DeviceId keyboardId = manager.CreateDevice<gainput::InputDeviceKeyboard>();
     const gainput::DeviceId mouseId = manager.CreateDevice<gainput::InputDeviceMouse>();
