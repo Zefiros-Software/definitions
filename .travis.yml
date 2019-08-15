@@ -45,6 +45,7 @@ addons:
   homebrew:
     packages:
       - node
+      - cmake
 
 before_script:
   - pip install --user cmake
