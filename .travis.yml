@@ -4,7 +4,7 @@ language: cpp
 matrix:
   include:
     - os: osx
-      #osx_image: xcode11
+      osx_image: xcode11
       compiler: clang
     - os: windows
       language: node_js
@@ -45,8 +45,6 @@ addons:
   homebrew:
     packages:
       - node
-      - python3
-    #update: true
 
 before_script:
   - pip install --user cmake
