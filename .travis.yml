@@ -56,4 +56,4 @@ script:
   - zpm
   - cmake .
   - cmake --build . $CONFIG_TYPE
-  - ctest $CTEST_CONFIG_TYPE
+  - ctest --output-on-failure $CTEST_CONFIG_TYPE 
