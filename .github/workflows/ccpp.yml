@@ -8,6 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+    - name: prepare
+      run: sudo apt install cmake
     - uses: actions/checkout@v1
     - name: install zpm
       run: sudo npm install -g @zpmpkg/zpm@next
