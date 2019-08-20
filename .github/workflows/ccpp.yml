@@ -9,7 +9,7 @@ jobs:
     
     steps:
     - name: prepare
-      run: pip3 install --upgrade cmake && which pip3 && pip3 --version
+      run: pip3 install --no-cache-dir --upgrade cmake && which pip3 && pip3 --version
     - uses: actions/checkout@v1
     - name: install zpm
       run: sudo npm install -g @zpmpkg/zpm@next
