@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: install zpm
-      run: npm install -g zpmpkg/zpm#alpha
+      run: sudo npm install -g zpmpkg/zpm#alpha
     - name: download dependencies
       run: zpm
     - name: make test
