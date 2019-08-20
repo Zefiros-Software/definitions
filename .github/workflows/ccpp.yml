@@ -9,7 +9,7 @@ jobs:
     
     steps:
     - name: prepare
-      run: sudo apt install cmake
+      run: pip install cmake
     - uses: actions/checkout@v1
     - name: install zpm
       run: sudo npm install -g @zpmpkg/zpm@next
