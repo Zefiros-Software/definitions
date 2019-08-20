@@ -12,6 +12,8 @@ jobs:
     - name: install zpm
       run: sudo npm install -g @zpmpkg/zpm@next
     - name: download dependencies
-      run: zpm
-    - name: make test
-      run: make test
+      run: sudo zpm
+    - name: run cmake
+      run: cmake .
+    - name: build
+      run: cmake --build .
