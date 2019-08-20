@@ -9,7 +9,7 @@ jobs:
     
     steps:
     - name: prepare
-      run: pip install --upgrade cmake
+      run: pip install --upgrade cmake && which pip && pip --version
     - uses: actions/checkout@v1
     - name: install zpm
       run: sudo npm install -g @zpmpkg/zpm@next
