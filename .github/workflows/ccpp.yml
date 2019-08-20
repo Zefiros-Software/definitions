@@ -9,7 +9,7 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - name: make
-      run: make
+    - name: install zpm
+      run: npm install -g @zpmpkg/zpm@next
     - name: make test
       run: make test
