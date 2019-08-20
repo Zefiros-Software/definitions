@@ -9,7 +9,7 @@ jobs:
     
     steps:
     - name: prepare
-      run: pip3 install --no-cache-dir --upgrade cmake -v && which pip3 && pip3 --version
+      run: sudo add-apt-repository ppa:deadsnakes/ppa && sudo apt install python3.7 && pip3 install --prefer-binary cmake -v && which pip3 && pip3 --version
     - uses: actions/checkout@v1
     - name: install zpm
       run: sudo npm install -g @zpmpkg/zpm@next
