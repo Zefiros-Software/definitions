@@ -16,7 +16,7 @@ jobs:
     - name: download dependencies
       run: sudo zpm
     - name: run cmake
-      uses: frolvlad/alpine-gxx
-      run: cmake .
+      uses: docker://frolvlad/alpine-gxx
+      runs: cmake .
     - name: build
       run: cmake --build .
