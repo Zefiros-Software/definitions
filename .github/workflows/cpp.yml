@@ -8,14 +8,15 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: prepare
-      run: sudo add-apt-repository ppa:deadsnakes/ppa && sudo apt install python3.7 && pip3 install cmake -v && which pip3 && pip3 --version
+    #- name: prepare
+    #  run: sudo add-apt-repository ppa:deadsnakes/ppa && sudo apt install python3.7 && pip3 install cmake -v && which pip3 && pip3 --version
     - uses: actions/checkout@v1
     - name: install zpm
       run: sudo npm install -g @zpmpkg/zpm@next
     - name: download dependencies
       run: sudo zpm
     - name: run cmake
+      uses: frolvlad/alpine-gxx
       run: cmake .
     - name: build
       run: cmake --build .
